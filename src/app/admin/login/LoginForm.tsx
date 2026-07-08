@@ -42,20 +42,20 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="w-full max-w-md backdrop-blur-xl bg-slate-900/60 border border-slate-800 rounded-3xl p-8 shadow-2xl z-10 transition-all duration-300 hover:border-slate-700/60">
+    <div className="w-full max-w-md bg-white border border-slate-200 rounded-3xl p-8 shadow-xl z-10 transition-all duration-300 hover:shadow-2xl">
       {/* Title */}
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-indigo-200 bg-clip-text text-transparent">
+        <h1 className="text-3xl font-extrabold tracking-tight text-slate-900">
           Panel de Control
         </h1>
-        <p className="text-sm text-slate-400 mt-2">
+        <p className="text-sm text-slate-500 mt-2">
           Inicia sesión para administrar tus productos y categorías.
         </p>
       </div>
 
       {/* Error Alert */}
       {error && (
-        <div className="mb-6 p-4 rounded-xl bg-rose-500/10 border border-rose-500/25 text-rose-200 text-sm animate-in fade-in slide-in-from-top-1 duration-250">
+        <div className="mb-6 p-4 rounded-xl bg-rose-50 border border-rose-250 text-rose-800 text-sm animate-in fade-in slide-in-from-top-1 duration-250">
           {error}
         </div>
       )}
@@ -64,11 +64,11 @@ export default function LoginForm() {
       <form onSubmit={handleLogin} className="space-y-6">
         {/* Email Input */}
         <div className="space-y-2">
-          <label htmlFor="email" className="block text-xs font-semibold uppercase tracking-wider text-slate-400">
+          <label htmlFor="email" className="block text-xs font-semibold uppercase tracking-wider text-slate-500">
             Correo Electrónico
           </label>
           <div className="relative group">
-            <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500 group-focus-within:text-indigo-400 transition-colors">
+            <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 group-focus-within:text-emerald-600 transition-colors">
               <Mail className="h-5 w-5" />
             </div>
             <input
@@ -78,7 +78,7 @@ export default function LoginForm() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="admin@ejemplo.com"
-              className="block w-full pl-11 pr-4 py-3 bg-slate-950/40 border border-slate-800 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all duration-200"
+              className="block w-full pl-11 pr-4 py-3 bg-white border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all duration-200 shadow-sm"
             />
           </div>
         </div>
@@ -86,12 +86,12 @@ export default function LoginForm() {
         {/* Password Input */}
         <div className="space-y-2">
           <div className="flex items-center justify-between">
-            <label htmlFor="password" className="block text-xs font-semibold uppercase tracking-wider text-slate-400">
+            <label htmlFor="password" className="block text-xs font-semibold uppercase tracking-wider text-slate-500">
               Contraseña
             </label>
           </div>
           <div className="relative group">
-            <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500 group-focus-within:text-indigo-400 transition-colors">
+            <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 group-focus-within:text-emerald-600 transition-colors">
               <Lock className="h-5 w-5" />
             </div>
             <input
@@ -101,12 +101,12 @@ export default function LoginForm() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
-              className="block w-full pl-11 pr-12 py-3 bg-slate-950/40 border border-slate-800 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all duration-200"
+              className="block w-full pl-11 pr-12 py-3 bg-white border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all duration-200 shadow-sm"
             />
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-500 hover:text-slate-300 transition-colors"
+              className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-700 transition-colors"
             >
               {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
             </button>
@@ -117,7 +117,7 @@ export default function LoginForm() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full flex items-center justify-center py-3.5 px-4 bg-indigo-600 hover:bg-indigo-500 disabled:bg-indigo-700/50 disabled:cursor-not-allowed text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-indigo-600/25 active:scale-[0.98]"
+          className="w-full flex items-center justify-center py-3.5 px-4 bg-emerald-600 hover:bg-emerald-550 disabled:bg-emerald-700/50 disabled:cursor-not-allowed text-white font-semibold rounded-xl transition-all duration-200 shadow-md shadow-emerald-600/10 active:scale-[0.98]"
         >
           {loading ? (
             <Loader2 className="h-5 w-5 animate-spin mr-2" />

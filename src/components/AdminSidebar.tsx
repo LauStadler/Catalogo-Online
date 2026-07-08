@@ -54,11 +54,11 @@ export default function AdminSidebar({ userEmail }: AdminSidebarProps) {
   return (
     <>
       {/* Mobile Header */}
-      <header className="lg:hidden flex items-center justify-between px-6 py-4 bg-slate-900 border-b border-slate-800 text-white sticky top-0 z-20">
-        <span className="font-bold tracking-wider text-indigo-400">CATÁLOGO ADMIN</span>
+      <header className="lg:hidden flex items-center justify-between px-6 py-4 bg-white border-b border-slate-200 text-slate-850 sticky top-0 z-20">
+        <span className="font-bold tracking-wider text-emerald-600">TECNIFER ADMIN</span>
         <button 
           onClick={() => setIsOpen(!isOpen)}
-          className="p-2 rounded-lg bg-slate-800 text-slate-300 hover:text-white"
+          className="p-2 rounded-lg bg-slate-50 text-slate-600 hover:text-slate-900 border border-slate-200"
         >
           {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
@@ -66,18 +66,25 @@ export default function AdminSidebar({ userEmail }: AdminSidebarProps) {
 
       {/* Sidebar Panel */}
       <aside className={`
-        fixed inset-y-0 left-0 z-30 w-64 bg-slate-950 border-r border-slate-800 flex flex-col text-slate-300 transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:h-screen
+        fixed inset-y-0 left-0 z-30 w-64 bg-white border-r border-slate-200 flex flex-col text-slate-700 transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:h-screen
         ${isOpen ? 'translate-x-0' : '-translate-x-full'}
       `}>
         {/* Sidebar Header */}
-        <div className="h-20 flex items-center px-8 border-b border-slate-800 justify-between">
-          <Link href="/admin" className="font-extrabold text-xl tracking-tight text-white flex items-center gap-2">
-            <span className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-sm">C</span>
-            <span>Catálogo Admin</span>
+        <div className="h-20 flex items-center px-8 border-b border-slate-200 justify-between">
+          <Link href="/admin" className="font-extrabold text-xl tracking-tight text-slate-900 flex items-center gap-3">
+            <div className="relative w-8 h-8 shrink-0">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img 
+                src="/logo.png" 
+                alt="Logo Tecnifer" 
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <span>Tecnifer Admin</span>
           </Link>
           <button 
             onClick={() => setIsOpen(false)}
-            className="lg:hidden p-2 rounded-lg text-slate-500 hover:text-slate-300"
+            className="lg:hidden p-2 rounded-lg text-slate-400 hover:text-slate-650"
           >
             <X className="h-5 w-5" />
           </button>
@@ -96,8 +103,8 @@ export default function AdminSidebar({ userEmail }: AdminSidebarProps) {
                 className={`
                   flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-sm transition-all duration-200
                   ${active 
-                    ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/10' 
-                    : 'hover:bg-slate-900 hover:text-white text-slate-400'
+                    ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/10' 
+                    : 'hover:bg-slate-100 hover:text-slate-900 text-slate-650'
                   }
                 `}
               >
@@ -109,11 +116,11 @@ export default function AdminSidebar({ userEmail }: AdminSidebarProps) {
         </nav>
 
         {/* Footer Area with Profile and Logout */}
-        <div className="p-4 border-t border-slate-900 bg-slate-950/60 space-y-3">
+        <div className="p-4 border-t border-slate-150 bg-slate-50 space-y-3">
           {userEmail && (
-            <div className="px-4 py-2 bg-slate-900/40 border border-slate-900 rounded-xl">
-              <p className="text-[10px] uppercase font-bold tracking-wider text-slate-500">Usuario</p>
-              <p className="text-xs text-slate-300 truncate font-medium mt-0.5">{userEmail}</p>
+            <div className="px-4 py-2 bg-white border border-slate-200 rounded-xl">
+              <p className="text-[10px] uppercase font-bold tracking-wider text-slate-400">Usuario</p>
+              <p className="text-xs text-slate-700 truncate font-medium mt-0.5">{userEmail}</p>
             </div>
           )}
 
@@ -121,7 +128,7 @@ export default function AdminSidebar({ userEmail }: AdminSidebarProps) {
             <Link
               href="/"
               target="_blank"
-              className="flex items-center gap-3 px-4 py-2.5 rounded-xl font-medium text-xs text-slate-400 hover:text-white hover:bg-slate-900 transition-colors"
+              className="flex items-center gap-3 px-4 py-2.5 rounded-xl font-medium text-xs text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors"
             >
               <ExternalLink className="h-4 w-4" />
               Ver tienda pública
@@ -129,7 +136,7 @@ export default function AdminSidebar({ userEmail }: AdminSidebarProps) {
 
             <button
               onClick={handleLogout}
-              className="flex items-center gap-3 px-4 py-2.5 rounded-xl font-semibold text-xs text-rose-400 hover:bg-rose-500/10 hover:text-rose-300 transition-all active:scale-[0.98] w-full text-left"
+              className="flex items-center gap-3 px-4 py-2.5 rounded-xl font-semibold text-xs text-rose-600 hover:bg-rose-50 hover:text-rose-700 transition-all active:scale-[0.98] w-full text-left"
             >
               <LogOut className="h-4 w-4" />
               Cerrar Sesión
@@ -142,7 +149,7 @@ export default function AdminSidebar({ userEmail }: AdminSidebarProps) {
       {isOpen && (
         <div 
           onClick={() => setIsOpen(false)}
-          className="fixed inset-0 bg-black/60 z-20 lg:hidden backdrop-blur-sm"
+          className="fixed inset-0 bg-black/40 z-20 lg:hidden backdrop-blur-sm"
         />
       )}
     </>

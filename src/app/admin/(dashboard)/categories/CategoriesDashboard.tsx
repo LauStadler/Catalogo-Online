@@ -123,52 +123,52 @@ export default function CategoriesDashboard({ initialCategories }: CategoriesDas
         {message && (
           <div className={`p-4 rounded-xl flex items-start gap-3 border ${
             message.type === 'success' 
-              ? 'bg-emerald-500/10 border-emerald-500/25 text-emerald-200' 
-              : 'bg-rose-500/10 border-rose-500/25 text-rose-200'
+              ? 'bg-emerald-50 border-emerald-250 text-emerald-800' 
+              : 'bg-rose-50 border-rose-250 text-rose-800'
           } animate-in fade-in slide-in-from-top-1 duration-200`}>
             {message.type === 'success' ? (
-              <CheckCircle className="h-5 w-5 shrink-0" />
+              <CheckCircle className="h-5 w-5 shrink-0 text-emerald-600" />
             ) : (
-              <AlertCircle className="h-5 w-5 shrink-0" />
+              <AlertCircle className="h-5 w-5 shrink-0 text-rose-600" />
             )}
             <p className="text-sm font-medium">{message.text}</p>
           </div>
         )}
 
-        <div className="bg-slate-900/40 border border-slate-800 rounded-2xl overflow-hidden backdrop-blur-md">
-          <div className="p-6 border-b border-slate-800/60">
-            <h2 className="text-lg font-bold text-white">Listado de Categorías</h2>
+        <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+          <div className="p-6 border-b border-slate-200">
+            <h2 className="text-lg font-bold text-slate-900">Listado de Categorías</h2>
           </div>
           
           {categoriesList.length === 0 ? (
-            <div className="p-10 text-center text-slate-500">
+            <div className="p-10 text-center text-slate-400">
               No hay categorías creadas todavía. Usa el formulario para crear la primera.
             </div>
           ) : (
-            <div className="divide-y divide-slate-800/40">
+            <div className="divide-y divide-slate-100">
               {categoriesList.map((category) => (
                 <div 
                   key={category.id} 
-                  className={`flex flex-col md:flex-row md:items-center justify-between p-6 gap-4 transition-all duration-200 hover:bg-slate-900/20 ${
-                    editingId === category.id ? 'bg-indigo-900/10 border-l-2 border-indigo-500' : ''
+                  className={`flex flex-col md:flex-row md:items-center justify-between p-6 gap-4 transition-all duration-200 hover:bg-slate-50 ${
+                    editingId === category.id ? 'bg-emerald-50/50 border-l-2 border-emerald-500' : ''
                   }`}
                 >
                   <div className="space-y-1">
                     <div className="flex items-center gap-2 flex-wrap">
-                      <h3 className="font-bold text-white text-base">{category.name}</h3>
-                      <span className="text-xs px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-400 font-mono">
+                      <h3 className="font-bold text-slate-800 text-base">{category.name}</h3>
+                      <span className="text-xs px-2.5 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-600 font-mono">
                         {category.slug}
                       </span>
                     </div>
                     {category.description && (
-                      <p className="text-sm text-slate-400 max-w-xl">{category.description}</p>
+                      <p className="text-sm text-slate-550 max-w-xl leading-relaxed">{category.description}</p>
                     )}
                   </div>
 
                   <div className="flex items-center gap-2 shrink-0">
                     <button
                       onClick={() => handleEdit(category)}
-                      className="p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors"
+                      className="p-2.5 rounded-xl bg-slate-50 border border-slate-200 hover:bg-slate-100 text-slate-650 hover:text-slate-900 transition-colors"
                       title="Editar categoría"
                     >
                       <Pencil className="h-4 w-4" />
@@ -176,7 +176,7 @@ export default function CategoriesDashboard({ initialCategories }: CategoriesDas
                     <button
                       onClick={() => handleDelete(category.id)}
                       disabled={deleteLoadingId === category.id}
-                      className="p-2.5 rounded-xl bg-slate-800 hover:bg-rose-950/40 text-slate-400 hover:text-rose-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="p-2.5 rounded-xl bg-slate-50 border border-slate-200 hover:bg-rose-50 hover:text-rose-600 text-slate-650 hover:border-rose-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                       title="Eliminar categoría"
                     >
                       {deleteLoadingId === category.id ? (
@@ -194,15 +194,15 @@ export default function CategoriesDashboard({ initialCategories }: CategoriesDas
       </div>
 
       {/* Form Column */}
-      <div className="bg-slate-900/40 border border-slate-800 rounded-2xl p-6 backdrop-blur-md sticky top-6">
+      <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm sticky top-6">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-lg font-bold text-white">
+          <h2 className="text-lg font-bold text-slate-900">
             {editingId ? 'Editar Categoría' : 'Nueva Categoría'}
           </h2>
           {editingId && (
             <button 
               onClick={handleCancelEdit}
-              className="p-1 rounded-lg text-slate-500 hover:text-slate-300 hover:bg-slate-800"
+              className="p-1 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100"
             >
               <X className="h-4 w-4" />
             </button>
@@ -211,7 +211,7 @@ export default function CategoriesDashboard({ initialCategories }: CategoriesDas
 
         <form onSubmit={handleSubmit} className="space-y-5">
           <div className="space-y-2">
-            <label htmlFor="cat-name" className="block text-xs font-semibold uppercase tracking-wider text-slate-400">
+            <label htmlFor="cat-name" className="block text-xs font-semibold uppercase tracking-wider text-slate-500">
               Nombre de la Categoría
             </label>
             <input
@@ -220,13 +220,13 @@ export default function CategoriesDashboard({ initialCategories }: CategoriesDas
               required
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="Ej: Calzado, Accesorios..."
-              className="block w-full px-4 py-3 bg-slate-950/40 border border-slate-800 rounded-xl text-white placeholder-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all duration-200"
+              placeholder="Ej: Naval Industrial, Hogar..."
+              className="block w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all duration-200 shadow-sm"
             />
           </div>
 
           <div className="space-y-2">
-            <label htmlFor="cat-desc" className="block text-xs font-semibold uppercase tracking-wider text-slate-400">
+            <label htmlFor="cat-desc" className="block text-xs font-semibold uppercase tracking-wider text-slate-500">
               Descripción (Opcional)
             </label>
             <textarea
@@ -235,7 +235,7 @@ export default function CategoriesDashboard({ initialCategories }: CategoriesDas
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Detalla de qué trata esta categoría..."
-              className="block w-full px-4 py-3 bg-slate-950/40 border border-slate-800 rounded-xl text-white placeholder-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all duration-200 resize-none"
+              className="block w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all duration-200 resize-none shadow-sm"
             />
           </div>
 
@@ -243,7 +243,7 @@ export default function CategoriesDashboard({ initialCategories }: CategoriesDas
             <button
               type="submit"
               disabled={loading}
-              className="w-full flex items-center justify-center py-3 px-4 bg-indigo-600 hover:bg-indigo-500 disabled:bg-indigo-700/50 disabled:cursor-not-allowed text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-indigo-600/25 active:scale-[0.98]"
+              className="w-full flex items-center justify-center py-3 px-4 bg-emerald-600 hover:bg-emerald-550 disabled:bg-emerald-700/50 disabled:cursor-not-allowed text-white font-semibold rounded-xl transition-all duration-200 shadow-md shadow-emerald-600/10 active:scale-[0.98]"
             >
               {loading ? (
                 <Loader2 className="h-4 w-4 animate-spin mr-2" />

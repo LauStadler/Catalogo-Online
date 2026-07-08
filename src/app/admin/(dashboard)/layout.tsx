@@ -17,11 +17,11 @@ export default async function DashboardLayout({
   }
 
   return (
-    <div className="flex flex-col lg:flex-row min-h-screen bg-slate-950 text-slate-100 antialiased">
+    <div className="flex flex-col lg:flex-row min-h-screen bg-slate-50 text-slate-800 antialiased">
       <AdminSidebar userEmail={user.email} />
       <main className="flex-1 flex flex-col min-h-0 overflow-y-auto h-screen relative">
         {/* Ambient background glow */}
-        <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-indigo-500/5 blur-[100px] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-emerald-500/5 blur-[100px] pointer-events-none" />
         <div className="flex-1 p-6 lg:p-10 z-10">
           {children}
         </div>

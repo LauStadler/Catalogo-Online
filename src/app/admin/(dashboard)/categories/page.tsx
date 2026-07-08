@@ -10,8 +10,8 @@ export default async function CategoriesPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-extrabold tracking-tight text-white">Categorías</h1>
-        <p className="text-slate-400 mt-1">
+        <h1 className="text-3xl font-extrabold tracking-tight text-slate-900">Categorías</h1>
+        <p className="text-slate-600 mt-1">
           Administra las categorías de tus productos para facilitar la navegación y filtros.
         </p>
       </div>

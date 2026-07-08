@@ -13,8 +13,8 @@ export default async function AdminDashboard() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-extrabold tracking-tight text-white">Productos</h1>
-        <p className="text-slate-400 mt-1">
+        <h1 className="text-3xl font-extrabold tracking-tight text-slate-900">Productos</h1>
+        <p className="text-slate-600 mt-1">
           Crea, edita y da de baja los productos de tu catálogo.
         </p>
       </div>

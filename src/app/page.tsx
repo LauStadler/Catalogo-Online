@@ -68,16 +68,16 @@ export default async function LandingPage() {
       <nav className="border-b border-slate-200 bg-white/80 backdrop-blur-xl sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
           <Link href="/" className="font-extrabold text-2xl tracking-tight text-slate-900 flex items-center gap-4 hover:opacity-90 transition-opacity">
-            <div className="relative w-16 h-16 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 flex items-center justify-center shadow-md">
+            <div className="relative w-16 h-16 shrink-0">
               <Image 
                 src="/logo.png" 
                 alt="Logo Tecnifer" 
                 fill 
-                className="object-contain p-1.5"
+                className="object-contain"
                 priority
               />
             </div>
-            <span className="bg-gradient-to-r from-slate-900 to-slate-750 bg-clip-text text-transparent tracking-wide font-extrabold">Tecnifer</span>
+            <span className="text-slate-900 font-extrabold tracking-wide">Tecnifer</span>
           </Link>
           
           <div className="hidden md:flex items-center gap-8">
@@ -157,7 +157,7 @@ export default async function LandingPage() {
         <div className="lg:col-span-5 relative w-full aspect-[4/3] sm:aspect-square lg:aspect-[4/5] rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-xl group">
           <div className="absolute inset-0 bg-gradient-to-t from-slate-100/30 via-transparent to-transparent z-10 pointer-events-none" />
           <Image
-            src="/hero_cleaner.jpg"
+            src="/landingimg.jpeg"
             alt="Soluciones de Limpieza Química"
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -232,12 +232,12 @@ export default async function LandingPage() {
             </p>
             <div className="p-6 bg-white border border-slate-200 rounded-3xl space-y-4 shadow-sm">
               <div className="flex items-center gap-4">
-                <div className="relative w-14 h-14 rounded-xl overflow-hidden bg-slate-50 flex items-center justify-center border border-slate-200">
+                <div className="relative w-14 h-14 shrink-0">
                   <Image 
                     src="/logo.png" 
                     alt="Logo Tecnifer" 
                     fill
-                    className="object-contain p-1.5"
+                    className="object-contain"
                   />
                 </div>
                 <div>
