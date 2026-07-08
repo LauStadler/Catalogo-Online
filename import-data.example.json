@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Remera de Algodón Básica",
+    "description": "Remera de algodón 100% premium.",
+    "category": "Indumentaria",
+    "presentations": ["Talle S", "Talle M", "Talle L", "Talle XL"]
+  },
+  {
+    "name": "Zapatillas Deportivas Run",
+    "description": "Zapatillas para running con suela de espuma amortiguadora y tejido transpirable.",
+    "category": "Calzado",
+    "presentations": ["Talle 38", "Talle 39", "Talle 40", "Talle 41"]
+  },
+  {
+    "name": "Gorra Trucker Retro",
+    "description": "Gorra trucker con visera curva y broche regulable de plástico.",
+    "category": "Accesorios",
+    "presentations": ["Único"]
+  }
+]
