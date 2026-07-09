@@ -107,11 +107,6 @@ export default async function LandingPage() {
       {/* Hero Section */}
       <section id="inicio" className="relative max-w-7xl mx-auto px-6 pt-16 pb-20 md:py-28 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-7 space-y-8 text-left">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-700 text-xs font-semibold">
-            <Sparkles className="h-3.5 w-3.5 text-emerald-600 animate-pulse" />
-            Química & Soluciones de Limpieza Profesional
-          </div>
-          
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-slate-900">
             Soluciones Químicas y de Limpieza de <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">Alta Gama</span>
           </h1>
