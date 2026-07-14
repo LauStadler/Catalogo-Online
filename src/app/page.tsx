@@ -14,7 +14,8 @@ import {
   Truck, 
   FlaskConical, 
   Home, 
-  Layers
+  Layers,
+  MessageCircle
 } from 'lucide-react';
 
 const Instagram = (props: React.SVGProps<SVGSVGElement>) => (
@@ -43,59 +44,57 @@ export default async function LandingPage() {
 
   // Helper to map category names to icons
   const getCategoryIcon = (slug: string) => {
-    if (slug.includes('naval') || slug.includes('industrial')) return <Settings className="h-6 w-6 text-emerald-600" />;
-    if (slug.includes('hogar') || slug.includes('minorista') || slug.includes('mayorista')) return <Home className="h-6 w-6 text-emerald-600" />;
-    if (slug.includes('materia') || slug.includes('prima')) return <FlaskConical className="h-6 w-6 text-emerald-600" />;
-    return <Layers className="h-6 w-6 text-emerald-600" />;
+    if (slug.includes('naval') || slug.includes('industrial')) return <Settings className="h-6 w-6 text-green-700" />;
+    if (slug.includes('hogar') || slug.includes('minorista') || slug.includes('mayorista')) return <Home className="h-6 w-6 text-green-700" />;
+    if (slug.includes('materia') || slug.includes('prima')) return <FlaskConical className="h-6 w-6 text-green-700" />;
+    return <Layers className="h-6 w-6 text-green-700" />;
   };
 
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '5491112345678';
   const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'contacto@empresa.com';
   const contactAddress = process.env.NEXT_PUBLIC_CONTACT_ADDRESS || 'Buenos Aires, Argentina';
   const instagramUser = process.env.NEXT_PUBLIC_INSTAGRAM_USER || 'empresa.clean';
+  const landlinePhone = process.env.NEXT_PUBLIC_LANDLINE_PHONE || '0223 480-1234';
 
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Hola! Visité tu sitio web y quería realizar una consulta.')}`;
   const instagramUrl = `https://instagram.com/${instagramUser}`;
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 selection:bg-emerald-600 selection:text-white pb-10 relative overflow-hidden">
-      
-      {/* Background Decor Glows */}
-      <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-emerald-600/5 blur-[130px] pointer-events-none" />
-      <div className="absolute bottom-[20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-emerald-500/5 blur-[120px] pointer-events-none" />
+    <div className="min-h-screen bg-slate-50 text-slate-800 selection:bg-emerald-600 selection:text-white relative overflow-x-hidden pt-24">
       
       {/* Navigation Bar */}
-      <nav className="border-b border-slate-200 bg-white/80 backdrop-blur-xl sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-          <Link href="/" className="font-extrabold text-2xl tracking-tight text-slate-900 flex items-center gap-4 hover:opacity-90 transition-opacity">
-            <div className="relative w-16 h-16 shrink-0">
-              <Image 
-                src="/logo.png" 
-                alt="Logo Tecnifer" 
-                fill 
-                className="object-contain"
-                priority
-              />
-            </div>
-            <span className="text-slate-900 font-extrabold tracking-wide">Tecnifer</span>
-          </Link>
+      <nav className="border-b border-green-700 bg-green-600 fixed top-0 left-0 w-full z-40 shadow-md h-24 flex items-center">
+        {/* Absolute Logo in top-left */}
+        <Link href="/" className="absolute left-6 sm:left-10 top-1/2 -translate-y-1/2 hover:opacity-90 transition-opacity z-50 flex items-center">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img 
+            src="/logo_blanco_y_negro.png" 
+            alt="Logo Tecnifer" 
+            className="w-auto object-contain"
+            style={{ height: '45px', width: 'auto' }}
+          />
+        </Link>
+
+        <div className="max-w-7xl mx-auto px-6 w-full flex items-center justify-end md:justify-between h-full">
+          {/* Spacer to prevent overlapping with absolute logo on desktop */}
+          <div className="hidden md:block w-48 lg:w-60 shrink-0 pointer-events-none" />
           
           <div className="hidden md:flex items-center gap-8">
-            <Link href="#inicio" className="text-sm font-medium text-slate-650 hover:text-emerald-600 transition-colors">Inicio</Link>
-            <Link href="#categorias" className="text-sm font-medium text-slate-655 hover:text-emerald-600 transition-colors">Categorías</Link>
-            <Link href="#contacto" className="text-sm font-medium text-slate-655 hover:text-emerald-600 transition-colors">Contacto</Link>
+            <Link href="#inicio" className="text-sm font-semibold text-green-100 hover:text-white transition-colors">Inicio</Link>
+            <Link href="#categorias" className="text-sm font-semibold text-green-100 hover:text-white transition-colors">Categorías</Link>
+            <Link href="#contacto" className="text-sm font-semibold text-green-100 hover:text-white transition-colors">Contacto</Link>
           </div>
 
           <div className="flex items-center gap-3">
             <Link
               href="/admin"
-              className="text-xs font-semibold px-4 py-2 border border-slate-200 hover:border-slate-350 hover:bg-slate-100 rounded-xl transition-all text-slate-600 hover:text-slate-900"
+              className="text-xs font-semibold px-4 py-2 border border-green-500 hover:border-white/60 hover:bg-green-500/20 rounded-xl transition-all text-white"
             >
               Admin
             </Link>
             <Link
               href="/catalogo"
-              className="inline-flex items-center gap-2 text-xs font-bold px-4 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-xl transition-all text-white shadow-lg shadow-emerald-600/10 active:scale-[0.98]"
+              className="inline-flex items-center gap-2 text-xs font-bold px-4 py-2 bg-white hover:bg-green-50 rounded-xl transition-all text-green-700 shadow-md active:scale-[0.98]"
             >
               <ShoppingBag className="h-3.5 w-3.5" />
               Ver Productos
@@ -105,51 +104,9 @@ export default async function LandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <section id="inicio" className="relative max-w-7xl mx-auto px-6 pt-16 pb-20 md:py-28 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        <div className="lg:col-span-7 space-y-8 text-left">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-slate-900">
-            Soluciones Químicas y de Limpieza de <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">Alta Gama</span>
-          </h1>
-          
-          <p className="text-slate-600 text-base sm:text-lg max-w-2xl leading-relaxed font-light">
-            Fabricamos y distribuimos productos químicos industriales, artículos de limpieza para el hogar, envases y materias primas premium. Todo nuestro catálogo disponible al instante para pedidos por WhatsApp.
-          </p>
-
-          <div className="flex flex-wrap gap-4 pt-2">
-            <Link
-              href="/catalogo"
-              className="inline-flex items-center justify-center gap-2.5 px-7 py-4 bg-emerald-600 hover:bg-emerald-550 active:scale-[0.98] transition-all duration-200 text-white font-bold rounded-2xl shadow-xl shadow-emerald-600/10 group"
-            >
-              <span>Explorar Productos</span>
-              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              href="#contacto"
-              className="inline-flex items-center justify-center px-7 py-4 border border-slate-200 hover:border-slate-350 hover:bg-slate-100 active:scale-[0.98] transition-all text-slate-600 hover:text-slate-900 font-bold rounded-2xl"
-            >
-              Contactar Ventas
-            </Link>
-          </div>
-
-          {/* Quick trust badges */}
-          <div className="grid grid-cols-3 gap-6 pt-6 border-t border-slate-200 max-w-lg">
-            <div className="flex items-center gap-2 text-xs font-medium text-slate-600">
-              <ShieldCheck className="h-5 w-5 text-emerald-600 shrink-0" />
-              <span>Garantía de Calidad</span>
-            </div>
-            <div className="flex items-center gap-2 text-xs font-medium text-slate-600">
-              <Truck className="h-5 w-5 text-emerald-600 shrink-0" />
-              <span>Envíos a acordar</span>
-            </div>
-            <div className="flex items-center gap-2 text-xs font-medium text-slate-600">
-              <ShoppingBag className="h-5 w-5 text-emerald-600 shrink-0" />
-              <span>Venta Mayorista</span>
-            </div>
-          </div>
-        </div>
-
+      <section id="inicio" className="relative max-w-7xl mx-auto px-6 pt-8 pb-10 md:pt-12 md:pb-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         {/* Hero Image Container */}
-        <div className="lg:col-span-5 relative w-full aspect-[4/3] sm:aspect-square lg:aspect-[4/5] rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-xl group">
+        <div className="lg:col-span-5 relative w-full aspect-[4/3] sm:aspect-square lg:aspect-[4/5] overflow-hidden bg-white group">
           <div className="absolute inset-0 bg-gradient-to-t from-slate-100/30 via-transparent to-transparent z-10 pointer-events-none" />
           <Image
             src="/landingimg.jpeg"
@@ -158,164 +115,227 @@ export default async function LandingPage() {
             className="object-cover transition-transform duration-700 group-hover:scale-105"
             priority
           />
-          {/* Accent glow behind image */}
-          <div className="absolute inset-0 border border-emerald-500/10 rounded-3xl z-20 pointer-events-none group-hover:border-emerald-500/20 transition-colors" />
+        </div>
+
+        {/* Text and Title Container */}
+        <div className="lg:col-span-7 space-y-6 text-center flex flex-col items-center justify-center">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-wide leading-[1.2] text-slate-900 font-oswald uppercase max-w-2xl lg:max-w-3xl mx-auto">
+            Mas de 50 años acompañando a la industria
+          </h1>
+          
+          <p className="text-slate-600 text-base sm:text-lg max-w-lg leading-relaxed font-light">
+            Comercializamos productos químicos para higiene y mantenimiento industrial, institucional y comercial, con alcance mayorista y minorista en Mar del Plata
+          </p>
+
+          {/* Quick trust badges */}
+          <div className="grid grid-cols-3 gap-6 pt-5 border-t border-slate-200 max-w-lg w-full">
+            <div className="flex flex-col items-center gap-2 text-xs font-medium text-slate-600 text-center">
+              <ShieldCheck className="h-5 w-5 text-green-700 shrink-0" />
+              <span>Garantía de Calidad</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 text-xs font-medium text-slate-600 text-center">
+              <Truck className="h-5 w-5 text-green-700 shrink-0" />
+              <span>Envíos a acordar</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 text-xs font-medium text-slate-600 text-center">
+              <ShoppingBag className="h-5 w-5 text-green-700 shrink-0" />
+              <span>Venta Mayorista</span>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Categories Grid Section */}
-      <section id="categorias" className="relative max-w-7xl mx-auto px-6 py-20 border-t border-slate-200">
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Explora por Categorías
-          </h2>
-          <p className="text-slate-600 text-sm md:text-base font-light leading-relaxed">
-            Contamos con soluciones específicas para cada necesidad. Selecciona una categoría para ver todos los productos disponibles y sus presentaciones.
-          </p>
-        </div>
+      <section 
+        id="categorias" 
+        className="relative w-full shadow-inner"
+        style={{ backgroundColor: '#e6f5dc', paddingTop: '100px', paddingBottom: '100px' }}
+      >
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-2xl md:text-3xl font-semibold text-slate-900 tracking-wide font-oswald uppercase">
+              Contamos con una amplia variedad de productos
+            </h2>
+          </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {categories.map((category) => (
-            <Link
-              key={category.id}
-              href="/catalogo"
-              className="group flex flex-col justify-between p-8 bg-white border border-slate-200 rounded-3xl hover:border-emerald-500/30 hover:shadow-xl transition-all duration-300 min-h-[220px]"
-            >
-              <div className="space-y-4">
-                <div className="p-3.5 bg-slate-50 rounded-2xl w-fit border border-slate-200 group-hover:bg-emerald-50 group-hover:border-emerald-200 transition-all">
-                  {getCategoryIcon(category.slug)}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {categories.slice(0, 4).map((category) => (
+              <Link
+                key={category.id}
+                href="/catalogo"
+                className="group flex flex-col justify-between p-8 bg-white border border-slate-200 rounded-lg hover:border-green-700/40 hover:shadow-md transition-all duration-300 min-h-[220px]"
+              >
+                <div className="space-y-4">
+                  <div className="p-3.5 bg-slate-50 rounded-md w-fit border border-slate-200 group-hover:bg-green-50 group-hover:border-green-200 transition-all">
+                    {getCategoryIcon(category.slug)}
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-800 group-hover:text-green-700 transition-colors">
+                    {category.name}
+                  </h3>
+                  {category.description && (
+                    <p className="text-xs text-slate-550 line-clamp-2 leading-relaxed">
+                      {category.description}
+                    </p>
+                  )}
                 </div>
-                <h3 className="text-lg font-bold text-slate-800 group-hover:text-emerald-600 transition-colors">
-                  {category.name}
-                </h3>
-                {category.description && (
-                  <p className="text-xs text-slate-550 line-clamp-2 leading-relaxed">
-                    {category.description}
-                  </p>
-                )}
-              </div>
 
-              <div className="flex items-center gap-2 text-xs font-bold text-emerald-600 pt-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all">
-                <span>Ver productos</span>
-                <ArrowRight className="h-4 w-4" />
-              </div>
+                <div className="flex items-center gap-2 text-xs font-bold text-green-700 pt-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all">
+                  <span>Ver productos</span>
+                  <ArrowRight className="h-4 w-4" />
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link
+              href="/catalogo"
+              className="inline-flex items-center gap-2.5 px-6 py-3 bg-white border border-slate-200 hover:border-slate-350 text-sm font-semibold rounded-md text-slate-700 transition-all hover:bg-slate-50"
+            >
+              <span>Ver todo el catálogo</span>
+              <ArrowRight className="h-4 w-4" />
             </Link>
-          ))}
-        </div>
-
-        <div className="mt-12 text-center">
-          <Link
-            href="/catalogo"
-            className="inline-flex items-center gap-2.5 px-6 py-3 bg-white border border-slate-200 hover:border-slate-350 text-sm font-semibold rounded-2xl text-slate-700 transition-all hover:bg-slate-50"
-          >
-            <span>Ver Todo el Catálogo</span>
-            <ArrowRight className="h-4 w-4" />
-          </Link>
+          </div>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contacto" className="relative max-w-7xl mx-auto px-6 py-20 border-t border-slate-200">
+      <section 
+        id="contacto" 
+        className="relative max-w-7xl mx-auto px-6"
+        style={{ paddingTop: '35px', paddingBottom: '35px' }}
+      >
+        <style dangerouslySetInnerHTML={{__html: `
+          @media (min-width: 1024px) {
+            .contact-list-container {
+              padding-right: 100px !important;
+            }
+            .contact-items-wrapper {
+              margin-right: 120px !important;
+            }
+          }
+        `}} />
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
-          <div className="lg:col-span-5 space-y-6 text-left">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Ponete en Contacto
-            </h2>
-            <p className="text-slate-600 text-sm md:text-base font-light leading-relaxed">
-              ¿Tenés dudas sobre concentraciones, necesitás presupuestos mayoristas o querés hacer un pedido a medida? Escribinos por cualquiera de nuestros canales de atención.
-            </p>
-            <div className="p-6 bg-white border border-slate-200 rounded-3xl space-y-4 shadow-sm">
-              <div className="flex items-center gap-4">
-                <div className="relative w-14 h-14 shrink-0">
-                  <Image 
-                    src="/logo.png" 
-                    alt="Logo Tecnifer" 
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-bold text-base text-slate-800">Tecnifer</h4>
-                  <p className="text-[10px] text-slate-500">Distribución Mayorista y Minorista</p>
-                </div>
-              </div>
-              <p className="text-xs text-slate-550 leading-relaxed">
-                Respondemos consultas técnicas de productos y coordinamos entregas de forma inmediata vía WhatsApp.
-              </p>
+          {/* Map Column (Left) */}
+          <div className="lg:col-span-7 w-full flex flex-col gap-4">
+            <div className="w-full border border-slate-200 overflow-hidden shadow-sm" style={{ height: '370px' }}>
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3142.556575469522!2d-57.560982018966236!3d-38.0341158085819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9584de7c2ad11acf%3A0xccab6b8a274c4704!2sTecnifer%20Productos%20Qu%C3%ADmicos!5e0!3m2!1ses-419!2sar!4v1783954580469!5m2!1ses-419!2sar" 
+                style={{ border: 0, width: '100%', height: '370px' }} 
+                allowFullScreen={true} 
+                loading="lazy" 
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
             </div>
+            <a 
+              href="https://wa.me/5492233390404" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-full flex items-center justify-center gap-3 px-6 py-4 text-white font-semibold transition-all hover:opacity-90 font-montserrat tracking-wider uppercase text-sm"
+              style={{ backgroundColor: '#25D366' }}
+            >
+              <MessageCircle className="h-5 w-5 fill-current" />
+              <span>Chateá con nosotros</span>
+            </a>
           </div>
 
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
-            
-            {/* Phone/WhatsApp Card */}
-            <Link
-              href={whatsappUrl}
-              target="_blank"
-              className="flex items-start gap-4 p-6 bg-white border border-slate-200 rounded-3xl hover:border-emerald-500/30 hover:shadow-md transition-all group"
+          <div className="lg:col-span-5 contact-list-container">
+            <div 
+              className="flex flex-col text-left"
+              style={{ marginLeft: 'auto', width: 'fit-content' }}
             >
-              <div className="p-3 bg-emerald-50 rounded-xl border border-emerald-100 text-emerald-600 group-hover:bg-emerald-100 transition-colors">
-                <Phone className="h-5 w-5" />
-              </div>
-              <div className="space-y-1">
-                <h4 className="font-bold text-slate-800 text-sm">Teléfono / WhatsApp</h4>
-                <p className="text-xs text-slate-500">Comunícate directamente</p>
-                <p className="text-xs text-emerald-600 font-semibold mt-1 group-hover:underline">Enviar mensaje</p>
-              </div>
-            </Link>
+              <h2 
+                className="text-2xl md:text-3xl font-semibold text-slate-900 tracking-wide font-oswald uppercase"
+                style={{ marginBottom: '35px' }}
+              >
+                Ponete en contacto
+              </h2>
+              
+              <div className="flex flex-col gap-6 contact-items-wrapper">
+                
+                <Link
+                  href={whatsappUrl}
+                  target="_blank"
+                  className="flex items-center gap-4 hover:opacity-85 transition-opacity group"
+                >
+                  <div className="p-3 rounded-lg text-white shrink-0" style={{ backgroundColor: '#22c55e' }}>
+                    <MessageCircle className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-slate-800 text-sm">WhatsApp</h4>
+                    <p className="text-xs text-slate-500 font-mono mt-0.5">{whatsappNumber}</p>
+                  </div>
+                </Link>
 
-            {/* Email Card */}
-            <Link
-              href={`mailto:${contactEmail}`}
-              className="flex items-start gap-4 p-6 bg-white border border-slate-200 rounded-3xl hover:border-emerald-500/30 hover:shadow-md transition-all group"
-            >
-              <div className="p-3 bg-emerald-50 rounded-xl border border-emerald-100 text-emerald-600 group-hover:bg-emerald-100 transition-colors">
-                <Mail className="h-5 w-5" />
-              </div>
-              <div className="space-y-1">
-                <h4 className="font-bold text-slate-800 text-sm">Correo Electrónico</h4>
-                <p className="text-xs text-slate-500">Presupuestos y consultas</p>
-                <p className="text-xs text-emerald-600 font-semibold mt-1 group-hover:underline">{contactEmail}</p>
-              </div>
-            </Link>
+                <div className="flex items-center gap-4">
+                  <div className="p-3 rounded-lg text-white shrink-0" style={{ backgroundColor: '#22c55e' }}>
+                    <Phone className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-slate-800 text-sm">Teléfono Fijo</h4>
+                    <p className="text-xs text-slate-500 font-mono mt-0.5">{landlinePhone}</p>
+                  </div>
+                </div>
 
-            {/* Location Card */}
-            <div className="flex items-start gap-4 p-6 bg-white border border-slate-200 rounded-3xl shadow-sm">
-              <div className="p-3 bg-emerald-50 rounded-xl border border-emerald-100 text-emerald-600">
-                <MapPin className="h-5 w-5" />
-              </div>
-              <div className="space-y-1">
-                <h4 className="font-bold text-slate-800 text-sm">Ubicación</h4>
-                <p className="text-xs text-slate-500">Envíos a todo el país</p>
-                <p className="text-xs text-slate-650 font-semibold mt-1">{contactAddress}</p>
+                <Link
+                  href={`mailto:${contactEmail}`}
+                  className="flex items-center gap-4 hover:opacity-85 transition-opacity group"
+                >
+                  <div className="p-3 rounded-lg text-white shrink-0" style={{ backgroundColor: '#22c55e' }}>
+                    <Mail className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-slate-800 text-sm">Correo Electrónico</h4>
+                    <p className="text-xs text-slate-500 font-mono mt-0.5">{contactEmail}</p>
+                  </div>
+                </Link>
+
+                <Link
+                  href={instagramUrl}
+                  target="_blank"
+                  className="flex items-center gap-4 hover:opacity-85 transition-opacity group"
+                >
+                  <div className="p-3 rounded-lg text-white shrink-0" style={{ backgroundColor: '#22c55e' }}>
+                    <Instagram className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-slate-800 text-sm">Instagram</h4>
+                    <p className="text-xs text-slate-500 font-mono mt-0.5">@{instagramUser}</p>
+                  </div>
+                </Link>
               </div>
             </div>
-
-            {/* Instagram Card */}
-            <Link
-              href={instagramUrl}
-              target="_blank"
-              className="flex items-start gap-4 p-6 bg-white border border-slate-200 rounded-3xl hover:border-emerald-500/30 hover:shadow-md transition-all group"
-            >
-              <div className="p-3 bg-emerald-50 rounded-xl border border-emerald-100 text-emerald-600 group-hover:bg-emerald-100 transition-colors">
-                <Instagram className="h-5 w-5" />
-              </div>
-              <div className="space-y-1">
-                <h4 className="font-bold text-slate-800 text-sm">Instagram</h4>
-                <p className="text-xs text-slate-500">Seguinos para novedades</p>
-                <p className="text-xs text-emerald-600 font-semibold mt-1 group-hover:underline">@{instagramUser}</p>
-              </div>
-            </Link>
-
           </div>
-
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="max-w-7xl mx-auto px-6 pt-16 pb-8 border-t border-slate-200 text-center text-xs text-slate-500 space-y-4">
-        <p>© {new Date().getFullYear()} Tecnifer. Todos los derechos reservados.</p>
-        <p className="font-light">Diseñado con enfoque sustentable e industrial.</p>
+      <footer 
+        className="max-w-7xl mx-auto px-6 border-t border-slate-200"
+        style={{ paddingTop: '16px', paddingBottom: '16px' }}
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-center">
+          {/* Logo on the left */}
+          <div className="flex justify-center lg:justify-end">
+            <div className="relative shrink-0" style={{ width: '80px', height: '80px' }}>
+              <Image 
+                src="/logo.png" 
+                alt="Logo Tecnifer" 
+                fill
+                className="object-contain"
+              />
+            </div>
+          </div>
+          
+          {/* Centered copyright text */}
+          <div className="text-center">
+            <p className="text-xs text-slate-500">
+              © {new Date().getFullYear()} Tecnifer. Todos los derechos reservados
+            </p>
+          </div>
+          
+          {/* Spacer to balance the layout */}
+          <div className="hidden lg:block"></div>
+        </div>
       </footer>
 
     </div>

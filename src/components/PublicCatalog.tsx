@@ -72,31 +72,25 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
   }, [categories, selectedCategory]);
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 selection:bg-emerald-600 selection:text-white pb-20 relative overflow-hidden">
+    <div className="min-h-screen bg-slate-50 text-slate-800 selection:bg-emerald-600 selection:text-white pb-20 relative overflow-x-hidden pt-24">
       
-      {/* Background Decor Glows */}
-      <div className="absolute top-[-15%] left-[-10%] w-[600px] h-[600px] rounded-full bg-emerald-600/5 blur-[130px] pointer-events-none" />
-      <div className="absolute top-[30%] right-[-10%] w-[500px] h-[500px] rounded-full bg-emerald-500/5 blur-[120px] pointer-events-none" />
-      
-      {/* Nav bar */}
-      <nav className="border-b border-slate-200 bg-white/80 backdrop-blur-xl sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-          <Link href="/" className="font-extrabold text-2xl tracking-tight text-slate-900 flex items-center gap-4 hover:opacity-90 transition-opacity">
-            <div className="relative w-16 h-16 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 flex items-center justify-center shrink-0 shadow-md">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img 
-                src="/logo.png" 
-                alt="Logo Tecnifer" 
-                className="w-full h-full object-contain p-1"
-              />
-            </div>
-            <span className="bg-gradient-to-r from-slate-900 to-slate-750 bg-clip-text text-transparent font-extrabold tracking-wide">Tecnifer</span>
-          </Link>
-          
+      <nav className="border-b border-green-700 bg-green-600 fixed top-0 left-0 w-full z-40 shadow-md h-24 flex items-center">
+        {/* Absolute Logo in top-left */}
+        <Link href="/" className="absolute left-6 sm:left-10 top-1/2 -translate-y-1/2 hover:opacity-90 transition-opacity z-50 flex items-center">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img 
+            src="/logo_blanco_y_negro.png" 
+            alt="Logo Tecnifer" 
+            className="w-auto object-contain"
+            style={{ height: '45px', width: 'auto' }}
+          />
+        </Link>
+
+        <div className="max-w-7xl mx-auto px-6 w-full flex items-center justify-end h-full">
           <div className="flex items-center gap-3">
             <Link
               href="/"
-              className="text-xs font-semibold px-4 py-2 border border-slate-200 hover:border-slate-350 hover:bg-slate-100 rounded-xl transition-all text-slate-655 hover:text-slate-900"
+              className="text-xs font-semibold px-4 py-2 border border-green-500 hover:border-white/60 hover:bg-green-500/20 rounded-xl transition-all text-white"
             >
               Volver al Inicio
             </Link>
@@ -142,7 +136,7 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
             placeholder="Buscar por nombre, detalles..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="block w-full pl-12 pr-4 py-4 bg-white border border-slate-200 rounded-2xl text-slate-800 placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all duration-200 shadow-md"
+            className="block w-full pl-12 pr-4 py-4 bg-white border border-slate-200 rounded-md text-slate-800 placeholder-slate-400 focus:outline-none focus:border-green-700 focus:ring-1 focus:ring-green-700 transition-all duration-200 shadow-sm"
           />
         </div>
       </section>
@@ -158,28 +152,28 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
                 <button
                   key={category.id}
                   onClick={() => setSelectedCategory(category.slug)}
-                  className="group flex flex-col justify-between p-8 bg-white border border-slate-200 rounded-3xl hover:border-emerald-500/30 hover:shadow-xl transition-all duration-300 min-h-[220px] text-left cursor-pointer"
+                  className="group flex flex-col justify-between p-8 bg-white border border-slate-200 rounded-lg hover:border-green-700/40 hover:shadow-md transition-all duration-300 min-h-[220px] text-left cursor-pointer"
                 >
                   <div className="space-y-4 w-full">
                     <div className="flex items-center justify-between">
-                      <div className="p-3.5 bg-slate-50 rounded-2xl w-fit border border-slate-200 group-hover:bg-emerald-50 group-hover:border-emerald-200 transition-all">
+                      <div className="p-3.5 bg-slate-50 rounded-md w-fit border border-slate-200 group-hover:bg-green-50 group-hover:border-green-200 transition-all">
                         {getCategoryIcon(category.slug)}
                       </div>
-                      <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-lg text-slate-600">
+                      <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-md text-slate-600 font-mono">
                         {count} {count === 1 ? 'producto' : 'productos'}
                       </span>
                     </div>
-                    <h3 className="text-lg font-bold text-slate-800 group-hover:text-emerald-600 transition-colors">
+                    <h3 className="text-lg font-bold text-slate-800 group-hover:text-green-700 transition-colors">
                       {category.name}
                     </h3>
                     {category.description && (
-                      <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">
+                      <p className="text-xs text-slate-550 line-clamp-2 leading-relaxed">
                         {category.description}
                       </p>
                     )}
                   </div>
 
-                  <div className="flex items-center gap-2 text-xs font-bold text-emerald-600 pt-4 group-hover:translate-x-1 transition-all">
+                  <div className="flex items-center gap-2 text-xs font-bold text-green-700 pt-4 group-hover:translate-x-1 transition-all">
                     <span>Explorar productos</span>
                     <ArrowRight className="h-4 w-4" />
                   </div>
@@ -202,7 +196,7 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
                 {selectedCategory && (
                   <button
                     onClick={() => setSelectedCategory(null)}
-                    className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-emerald-600 hover:underline"
+                    className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-green-700 hover:underline"
                   >
                     Volver a categorías
                   </button>
@@ -215,15 +209,15 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
                 <Link 
                   key={product.id}
                   href={`/producto/${product.slug}`}
-                  className="group flex flex-col md:flex-row md:items-center justify-between p-6 bg-white border border-slate-200/80 rounded-2xl hover:border-emerald-500/30 hover:shadow-md transition-all duration-300 gap-4"
+                  className="group flex flex-col md:flex-row md:items-center justify-between p-6 bg-white border border-slate-200/80 rounded-lg hover:border-green-700/40 hover:shadow-sm transition-all duration-300 gap-4"
                 >
                   <div className="space-y-2 flex-1 min-w-0">
                     <div className="flex items-center gap-3">
-                      <h3 className="font-bold text-slate-800 text-lg leading-tight group-hover:text-emerald-600 transition-colors">
+                      <h3 className="font-bold text-slate-800 text-lg leading-tight group-hover:text-green-700 transition-colors">
                         {product.name}
                       </h3>
                       {product.categoryName && (
-                        <span className="text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 bg-emerald-50 border border-emerald-100 rounded-md text-emerald-700">
+                        <span className="text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 bg-green-50 border border-green-100 rounded-md text-green-700 font-mono">
                           {product.categoryName}
                         </span>
                       )}
@@ -237,13 +231,13 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
                     {product.presentations && product.presentations.length > 0 && (
                       <div className="flex flex-wrap gap-1.5">
                         {product.presentations.map((p, idx) => (
-                          <span key={idx} className="text-[10px] px-2 py-1 bg-slate-50 border border-slate-200 rounded-md text-slate-600 font-semibold">
+                          <span key={idx} className="text-[10px] px-2 py-1 bg-slate-50 border border-slate-200 rounded-md text-slate-600 font-semibold font-mono">
                             {p}
                           </span>
                         ))}
                       </div>
                     )}
-                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 group-hover:underline shrink-0">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-green-700 group-hover:underline shrink-0">
                       <span>Detalles</span>
                       <ArrowRight className="h-4 w-4 transform group-hover:translate-x-0.5 transition-transform" />
                     </span>

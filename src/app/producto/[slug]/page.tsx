@@ -73,29 +73,24 @@ export default async function ProductDetailPage({ params }: Props) {
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(textMessage)}`;
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 selection:bg-emerald-600 selection:text-white pb-20 relative overflow-hidden">
+    <div className="min-h-screen bg-slate-50 text-slate-800 selection:bg-emerald-600 selection:text-white pb-20 relative overflow-x-hidden pt-24">
       
-      {/* Background Decor Glows */}
-      <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-emerald-600/5 blur-[130px] pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-emerald-500/5 blur-[120px] pointer-events-none" />
+      <nav className="border-b border-green-700 bg-green-600 fixed top-0 left-0 w-full z-40 shadow-md h-24 flex items-center">
+        {/* Absolute Logo in top-left */}
+        <Link href="/" className="absolute left-6 sm:left-10 top-1/2 -translate-y-1/2 hover:opacity-90 transition-opacity z-50 flex items-center">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img 
+            src="/logo_blanco_y_negro.png" 
+            alt="Logo Tecnifer" 
+            className="w-auto object-contain"
+            style={{ height: '45px', width: 'auto' }}
+          />
+        </Link>
 
-      {/* Header bar */}
-      <nav className="border-b border-slate-200 bg-white/80 backdrop-blur-xl sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-          <Link href="/" className="font-extrabold text-2xl tracking-tight text-slate-900 flex items-center gap-3 hover:opacity-90 transition-opacity">
-            <div className="relative w-9 h-9 rounded-lg overflow-hidden bg-slate-100 border border-slate-200 flex items-center justify-center shrink-0">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img 
-                src="/logo.png" 
-                alt="Logo Tecnifer" 
-                className="w-full h-full object-contain p-1"
-              />
-            </div>
-            <span>Tecnifer</span>
-          </Link>
+        <div className="max-w-7xl mx-auto px-6 w-full flex items-center justify-end h-full">
           <Link
             href="/catalogo"
-            className="flex items-center gap-2 text-xs font-semibold text-slate-600 hover:text-slate-900 transition-colors"
+            className="flex items-center gap-2 text-xs font-semibold text-green-100 hover:text-white transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
             Volver al Catálogo
@@ -105,14 +100,14 @@ export default async function ProductDetailPage({ params }: Props) {
 
       {/* Main product view */}
       <main className="max-w-3xl mx-auto px-6 pt-12">
-        <div className="bg-white border border-slate-200 rounded-3xl p-8 md:p-12 space-y-8 shadow-xl backdrop-blur-md relative overflow-hidden">
+        <div className="bg-white border border-slate-200 rounded-lg p-8 md:p-12 space-y-8 shadow-md relative overflow-hidden">
           {/* Subtle decor line */}
-          <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-emerald-500 via-teal-500 to-green-500" />
+          <div className="absolute top-0 left-0 w-full h-[3px] bg-green-700" />
           
           {/* Category and Title */}
           <div className="space-y-4">
             {product.categoryName && (
-              <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1 bg-emerald-50 border border-emerald-100 rounded-full text-emerald-700">
+              <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1 bg-green-50 border border-green-100 rounded-md text-green-700 font-mono">
                 {product.categoryName}
               </span>
             )}
@@ -125,10 +120,10 @@ export default async function ProductDetailPage({ params }: Props) {
           {/* Presentations */}
           {product.presentations && product.presentations.length > 0 && (
             <div className="space-y-3">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500">Presentaciones Disponibles</h3>
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500 font-mono">Presentaciones Disponibles</h3>
               <div className="flex flex-wrap gap-2">
                 {product.presentations.map((p, idx) => (
-                  <span key={idx} className="px-3.5 py-1.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-700 font-medium text-sm">
+                  <span key={idx} className="px-3.5 py-1.5 bg-slate-50 border border-slate-200 rounded-md text-slate-700 font-medium text-sm font-mono">
                     {p}
                   </span>
                 ))}
@@ -138,7 +133,7 @@ export default async function ProductDetailPage({ params }: Props) {
 
           {/* Description */}
           <div className="space-y-3">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500">Detalles del Producto</h3>
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500 font-mono">Detalles del Producto</h3>
             <p className="text-base text-slate-650 leading-relaxed whitespace-pre-line font-light">
               {product.description}
             </p>
@@ -149,10 +144,8 @@ export default async function ProductDetailPage({ params }: Props) {
             <Link
               href={whatsappUrl}
               target="_blank"
-              className="relative flex items-center justify-center gap-3 px-8 py-4.5 bg-emerald-600 hover:bg-emerald-500 active:scale-[0.98] transition-all duration-200 text-white font-bold rounded-2xl shadow-lg shadow-emerald-600/10 group overflow-hidden"
+              className="relative flex items-center justify-center gap-3 px-8 py-4.5 bg-green-700 hover:bg-green-800 active:scale-[0.98] transition-all duration-200 text-white font-bold rounded-md shadow-md group overflow-hidden"
             >
-              {/* Pulse Glow Effect */}
-              <span className="absolute inset-0 bg-emerald-450/10 rounded-2xl animate-ping pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <MessageSquare className="h-6 w-6 shrink-0" />
               <span className="text-base tracking-wide">Hacer Pedido por WhatsApp</span>
             </Link>
@@ -163,16 +156,16 @@ export default async function ProductDetailPage({ params }: Props) {
 
           {/* Trust Badges */}
           <div className="grid grid-cols-3 gap-4 pt-8 border-t border-slate-100 text-center">
-            <div className="flex flex-col items-center gap-2 p-3 bg-slate-50 border border-slate-200 rounded-2xl">
-              <Truck className="h-5 w-5 text-emerald-600" />
+            <div className="flex flex-col items-center gap-2 p-3 bg-slate-50 border border-slate-200 rounded-md">
+              <Truck className="h-5 w-5 text-green-700" />
               <p className="text-[10px] font-bold text-slate-600">Envíos a acordar</p>
             </div>
-            <div className="flex flex-col items-center gap-2 p-3 bg-slate-50 border border-slate-200 rounded-2xl">
-              <ShieldCheck className="h-5 w-5 text-emerald-600" />
+            <div className="flex flex-col items-center gap-2 p-3 bg-slate-50 border border-slate-200 rounded-md">
+              <ShieldCheck className="h-5 w-5 text-green-700" />
               <p className="text-[10px] font-bold text-slate-600">Compra segura</p>
             </div>
-            <div className="flex flex-col items-center gap-2 p-3 bg-slate-50 border border-slate-200 rounded-2xl">
-              <RefreshCw className="h-5 w-5 text-emerald-600" />
+            <div className="flex flex-col items-center gap-2 p-3 bg-slate-50 border border-slate-200 rounded-md">
+              <RefreshCw className="h-5 w-5 text-green-700" />
               <p className="text-[10px] font-bold text-slate-600">Garantía directa</p>
             </div>
           </div>
