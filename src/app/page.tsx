@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getCategories } from '@/lib/actions';
+import HeaderWrapper from '@/components/HeaderWrapper';
 import { 
   ShoppingBag, 
   Phone, 
@@ -15,7 +16,10 @@ import {
   FlaskConical, 
   Home, 
   Layers,
-  MessageCircle
+  MessageCircle,
+  Clock,
+  Car,
+  Waves
 } from 'lucide-react';
 
 const Instagram = (props: React.SVGProps<SVGSVGElement>) => (
@@ -42,43 +46,43 @@ export const revalidate = 3600;
 export default async function LandingPage() {
   const categories = await getCategories();
 
+  const desiredSlugs = ['naval-ndustrial', 'hogar-mayorista-y-minorista', 'linea-piscina', 'linea-automotor'];
+  
+  const landingCategories = desiredSlugs
+    .map(slug => categories.find(c => c.slug === slug))
+    .filter((c): c is NonNullable<typeof c> => !!c);
+
+  const categoryNameOverrides: Record<string, string> = {
+    'naval-ndustrial': 'Naval Industrial',
+    'hogar-mayorista-y-minorista': 'Hogar y Comercial',
+    'linea-piscina': 'Línea Piscina',
+    'linea-automotor': 'Línea Automotriz',
+  };
+
   // Helper to map category names to icons
   const getCategoryIcon = (slug: string) => {
-    if (slug.includes('naval') || slug.includes('industrial')) return <Settings className="h-6 w-6 text-green-700" />;
+    if (slug.includes('automotor') || slug.includes('automotriz')) return <Car className="h-6 w-6 text-green-700" />;
+    if (slug.includes('piscina') || slug.includes('pileta')) return <Waves className="h-6 w-6 text-green-700" />;
     if (slug.includes('hogar') || slug.includes('minorista') || slug.includes('mayorista')) return <Home className="h-6 w-6 text-green-700" />;
-    if (slug.includes('materia') || slug.includes('prima')) return <FlaskConical className="h-6 w-6 text-green-700" />;
+    if (slug.includes('formulados') || slug.includes('materia') || slug.includes('prima')) return <FlaskConical className="h-6 w-6 text-green-700" />;
     return <Layers className="h-6 w-6 text-green-700" />;
   };
 
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '5491112345678';
-  const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'contacto@empresa.com';
-  const contactAddress = process.env.NEXT_PUBLIC_CONTACT_ADDRESS || 'Buenos Aires, Argentina';
-  const instagramUser = process.env.NEXT_PUBLIC_INSTAGRAM_USER || 'empresa.clean';
-  const landlinePhone = process.env.NEXT_PUBLIC_LANDLINE_PHONE || '0223 480-1234';
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '5492233390404';
+  const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'tecniferproductos@gmail.com';
+  const contactAddress = process.env.NEXT_PUBLIC_CONTACT_ADDRESS || 'Cerrito 467, Mar del Plata, Provincia de Buenos Aires';
+  const instagramUser = process.env.NEXT_PUBLIC_INSTAGRAM_USER || 'tecniferproductos';
+  const landlinePhone = process.env.NEXT_PUBLIC_LANDLINE_PHONE || '0223 480-1904';
 
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Hola! Visité tu sitio web y quería realizar una consulta.')}`;
   const instagramUrl = `https://instagram.com/${instagramUser}`;
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 selection:bg-emerald-600 selection:text-white relative overflow-x-hidden pt-24">
+    <div className="min-h-screen bg-slate-50 text-slate-800 selection:bg-emerald-600 selection:text-white relative overflow-x-hidden pt-[90px]">
       
       {/* Navigation Bar */}
-      <nav className="border-b border-green-700 bg-green-600 fixed top-0 left-0 w-full z-40 shadow-md h-24 flex items-center">
-        {/* Absolute Logo in top-left */}
-        <Link href="/" className="absolute left-6 sm:left-10 top-1/2 -translate-y-1/2 hover:opacity-90 transition-opacity z-50 flex items-center">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img 
-            src="/logo_blanco_y_negro.png" 
-            alt="Logo Tecnifer" 
-            className="w-auto object-contain"
-            style={{ height: '45px', width: 'auto' }}
-          />
-        </Link>
-
-        <div className="max-w-7xl mx-auto px-6 w-full flex items-center justify-end md:justify-between h-full">
-          {/* Spacer to prevent overlapping with absolute logo on desktop */}
-          <div className="hidden md:block w-48 lg:w-60 shrink-0 pointer-events-none" />
-          
+      <HeaderWrapper>
+        <div className="flex items-center gap-8 h-full">
           <div className="hidden md:flex items-center gap-8">
             <Link href="#inicio" className="text-sm font-semibold text-green-100 hover:text-white transition-colors">Inicio</Link>
             <Link href="#categorias" className="text-sm font-semibold text-green-100 hover:text-white transition-colors">Categorías</Link>
@@ -101,15 +105,14 @@ export default async function LandingPage() {
             </Link>
           </div>
         </div>
-      </nav>
+      </HeaderWrapper>
 
       {/* Hero Section */}
       <section id="inicio" className="relative max-w-7xl mx-auto px-6 pt-8 pb-10 md:pt-12 md:pb-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         {/* Hero Image Container */}
-        <div className="lg:col-span-5 relative w-full aspect-[4/3] sm:aspect-square lg:aspect-[4/5] overflow-hidden bg-white group">
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-100/30 via-transparent to-transparent z-10 pointer-events-none" />
+        <div className="lg:col-span-5 relative w-full aspect-[4/3] sm:aspect-square lg:aspect-[4/5] overflow-hidden bg-white border border-slate-200 shadow-sm group">
           <Image
-            src="/landingimg.jpeg"
+            src="/landingimg_original.jpeg"
             alt="Soluciones de Limpieza Química"
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -118,28 +121,37 @@ export default async function LandingPage() {
         </div>
 
         {/* Text and Title Container */}
-        <div className="lg:col-span-7 space-y-6 text-center flex flex-col items-center justify-center">
+        <div className="lg:col-span-7 space-y-8 text-center flex flex-col items-center justify-center">
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-wide leading-[1.2] text-slate-900 font-oswald uppercase max-w-2xl lg:max-w-3xl mx-auto">
-            Mas de 50 años acompañando a la industria
+            Más de 50 años acompañando a la industria
           </h1>
           
           <p className="text-slate-600 text-base sm:text-lg max-w-lg leading-relaxed font-light">
-            Comercializamos productos químicos para higiene y mantenimiento industrial, institucional y comercial, con alcance mayorista y minorista en Mar del Plata
+            Comercializamos productos químicos para higiene y mantenimiento industrial, institucional y comercial, con alcance mayorista y minorista en Mar del Plata y zona.
           </p>
 
           {/* Quick trust badges */}
-          <div className="grid grid-cols-3 gap-6 pt-5 border-t border-slate-200 max-w-lg w-full">
-            <div className="flex flex-col items-center gap-2 text-xs font-medium text-slate-600 text-center">
-              <ShieldCheck className="h-5 w-5 text-green-700 shrink-0" />
-              <span>Garantía de Calidad</span>
+          <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-8 border-t border-slate-200 w-full max-w-2xl">
+            <div className="flex flex-col items-center gap-2.5 px-2 sm:px-4 text-center border-r border-slate-200 last:border-r-0">
+              <div className="p-2 bg-slate-100 border border-slate-200 text-slate-700 rounded-md">
+                <ShieldCheck className="h-5 w-5" />
+              </div>
+              <span className="text-[10px] sm:text-xs font-bold text-slate-800 uppercase tracking-wider font-mono">Garantía de Calidad</span>
+              <p className="text-[9px] sm:text-[10px] text-slate-400 leading-normal hidden sm:block">Aprobados con altos estándares industriales</p>
             </div>
-            <div className="flex flex-col items-center gap-2 text-xs font-medium text-slate-600 text-center">
-              <Truck className="h-5 w-5 text-green-700 shrink-0" />
-              <span>Envíos a acordar</span>
+            <div className="flex flex-col items-center gap-2.5 px-2 sm:px-4 text-center border-r border-slate-200 last:border-r-0">
+              <div className="p-2 bg-slate-100 border border-slate-200 text-slate-700 rounded-md">
+                <Truck className="h-5 w-5" />
+              </div>
+              <span className="text-[10px] sm:text-xs font-bold text-slate-800 uppercase tracking-wider font-mono">Logística Propia</span>
+              <p className="text-[9px] sm:text-[10px] text-slate-400 leading-normal hidden sm:block">Envíos coordinados en Mar del Plata y zona</p>
             </div>
-            <div className="flex flex-col items-center gap-2 text-xs font-medium text-slate-600 text-center">
-              <ShoppingBag className="h-5 w-5 text-green-700 shrink-0" />
-              <span>Venta Mayorista</span>
+            <div className="flex flex-col items-center gap-2.5 px-2 sm:px-4 text-center border-r border-slate-200 last:border-r-0">
+              <div className="p-2 bg-slate-100 border border-slate-200 text-slate-700 rounded-md">
+                <ShoppingBag className="h-5 w-5" />
+              </div>
+              <span className="text-[10px] sm:text-xs font-bold text-slate-800 uppercase tracking-wider font-mono">Venta Mayorista</span>
+              <p className="text-[9px] sm:text-[10px] text-slate-400 leading-normal hidden sm:block">Atención directa a comercios e industrias</p>
             </div>
           </div>
         </div>
@@ -158,31 +170,20 @@ export default async function LandingPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {categories.slice(0, 4).map((category) => (
+           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {landingCategories.map((category) => (
               <Link
                 key={category.id}
-                href="/catalogo"
-                className="group flex flex-col justify-between p-8 bg-white border border-slate-200 rounded-lg hover:border-green-700/40 hover:shadow-md transition-all duration-300 min-h-[220px]"
+                href={`/catalogo?categoria=${category.slug}`}
+                className="group flex flex-col gap-3"
               >
-                <div className="space-y-4">
-                  <div className="p-3.5 bg-slate-50 rounded-md w-fit border border-slate-200 group-hover:bg-green-50 group-hover:border-green-200 transition-all">
-                    {getCategoryIcon(category.slug)}
-                  </div>
-                  <h3 className="text-lg font-bold text-slate-800 group-hover:text-green-700 transition-colors">
-                    {category.name}
-                  </h3>
-                  {category.description && (
-                    <p className="text-xs text-slate-550 line-clamp-2 leading-relaxed">
-                      {category.description}
-                    </p>
-                  )}
-                </div>
-
-                <div className="flex items-center gap-2 text-xs font-bold text-green-700 pt-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all">
-                  <span>Ver productos</span>
-                  <ArrowRight className="h-4 w-4" />
-                </div>
+                {/* Empty cover photo placeholder box */}
+                <div className="w-full aspect-[4/3] bg-white border border-slate-200 rounded-lg group-hover:border-green-700/40 group-hover:shadow-md transition-all duration-300 flex items-center justify-center relative overflow-hidden" />
+                
+                {/* Category name below the box in Roboto Light uppercase */}
+                <span className="text-xs sm:text-sm font-roboto font-light uppercase tracking-wider text-black group-hover:text-green-600 transition-colors text-center mt-1">
+                  {categoryNameOverrides[category.slug] || category.name}
+                </span>
               </Link>
             ))}
           </div>
@@ -201,108 +202,77 @@ export default async function LandingPage() {
 
       <section 
         id="contacto" 
-        className="relative max-w-7xl mx-auto px-6"
-        style={{ paddingTop: '35px', paddingBottom: '35px' }}
+        className="max-w-7xl mx-auto px-6 py-12 border-t border-slate-200"
       >
-        <style dangerouslySetInnerHTML={{__html: `
-          @media (min-width: 1024px) {
-            .contact-list-container {
-              padding-right: 100px !important;
-            }
-            .contact-items-wrapper {
-              margin-right: 120px !important;
-            }
-          }
-        `}} />
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* Map Column (Left) */}
           <div className="lg:col-span-7 w-full flex flex-col gap-4">
-            <div className="w-full border border-slate-200 overflow-hidden shadow-sm" style={{ height: '370px' }}>
+            <div className="relative w-full border border-slate-200 bg-white overflow-hidden shadow-sm h-[300px]">
               <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3142.556575469522!2d-57.560982018966236!3d-38.0341158085819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9584de7c2ad11acf%3A0xccab6b8a274c4704!2sTecnifer%20Productos%20Qu%C3%ADmicos!5e0!3m2!1ses-419!2sar!4v1783954580469!5m2!1ses-419!2sar" 
-                style={{ border: 0, width: '100%', height: '370px' }} 
+                style={{ border: 0, width: '100%', height: '100%' }} 
                 allowFullScreen={true} 
                 loading="lazy" 
                 referrerPolicy="strict-origin-when-cross-origin"
               />
             </div>
-            <a 
-              href="https://wa.me/5492233390404" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-3 px-6 py-4 text-white font-semibold transition-all hover:opacity-90 font-montserrat tracking-wider uppercase text-sm"
-              style={{ backgroundColor: '#25D366' }}
-            >
-              <MessageCircle className="h-5 w-5 fill-current" />
-              <span>Chateá con nosotros</span>
-            </a>
+            <p className="text-xs text-slate-850 font-mono">
+              Cerrito 467, Mar del Plata, Provincia de Buenos Aires
+            </p>
           </div>
 
-          <div className="lg:col-span-5 contact-list-container">
-            <div 
-              className="flex flex-col text-left"
-              style={{ marginLeft: 'auto', width: 'fit-content' }}
-            >
-              <h2 
-                className="text-2xl md:text-3xl font-semibold text-slate-900 tracking-wide font-oswald uppercase"
-                style={{ marginBottom: '35px' }}
-              >
-                Ponete en contacto
+          {/* Contact Details Column (Right) */}
+          <div className="lg:col-span-5 flex flex-col gap-6">
+            <div className="flex items-center pb-2">
+              <h2 className="text-xl font-bold text-slate-900 tracking-wide font-oswald uppercase">
+                Canales de Atención
               </h2>
-              
-              <div className="flex flex-col gap-6 contact-items-wrapper">
-                
-                <Link
-                  href={whatsappUrl}
-                  target="_blank"
-                  className="flex items-center gap-4 hover:opacity-85 transition-opacity group"
-                >
-                  <div className="p-3 rounded-lg text-white shrink-0" style={{ backgroundColor: '#22c55e' }}>
-                    <MessageCircle className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-slate-800 text-sm">WhatsApp</h4>
-                    <p className="text-xs text-slate-500 font-mono mt-0.5">{whatsappNumber}</p>
-                  </div>
-                </Link>
+            </div>
 
-                <div className="flex items-center gap-4">
-                  <div className="p-3 rounded-lg text-white shrink-0" style={{ backgroundColor: '#22c55e' }}>
-                    <Phone className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-slate-800 text-sm">Teléfono Fijo</h4>
-                    <p className="text-xs text-slate-500 font-mono mt-0.5">{landlinePhone}</p>
-                  </div>
+            <div className="flex flex-col border-t border-slate-200">
+              {/* Correo Electrónico */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between py-4 border-b border-slate-200 gap-2">
+                <div className="flex items-center gap-3">
+                  <Mail className="h-4.5 w-4.5 text-black shrink-0" />
+                  <span className="text-xs font-roboto font-light uppercase tracking-wider text-black">Ventas / Presupuestos</span>
                 </div>
+                <span className="text-sm font-roboto font-light tracking-wider text-black break-all lowercase">{contactEmail}</span>
+              </div>
 
-                <Link
-                  href={`mailto:${contactEmail}`}
-                  className="flex items-center gap-4 hover:opacity-85 transition-opacity group"
-                >
-                  <div className="p-3 rounded-lg text-white shrink-0" style={{ backgroundColor: '#22c55e' }}>
-                    <Mail className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-slate-800 text-sm">Correo Electrónico</h4>
-                    <p className="text-xs text-slate-500 font-mono mt-0.5">{contactEmail}</p>
-                  </div>
-                </Link>
+              {/* Teléfono Fijo */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between py-4 border-b border-slate-200 gap-2">
+                <div className="flex items-center gap-3">
+                  <Phone className="h-4.5 w-4.5 text-black shrink-0" />
+                  <span className="text-xs font-roboto font-light uppercase tracking-wider text-black">Administración / Tel. Fijo</span>
+                </div>
+                <span className="text-sm font-roboto font-light uppercase tracking-wider text-black">{landlinePhone}</span>
+              </div>
 
-                <Link
-                  href={instagramUrl}
-                  target="_blank"
-                  className="flex items-center gap-4 hover:opacity-85 transition-opacity group"
-                >
-                  <div className="p-3 rounded-lg text-white shrink-0" style={{ backgroundColor: '#22c55e' }}>
-                    <Instagram className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-slate-800 text-sm">Instagram</h4>
-                    <p className="text-xs text-slate-500 font-mono mt-0.5">@{instagramUser}</p>
-                  </div>
-                </Link>
+              {/* Instagram */}
+              <a 
+                href={instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col sm:flex-row sm:items-center justify-between py-4 border-b border-slate-200 gap-2 hover:bg-slate-50/50 transition-colors group"
+              >
+                <div className="flex items-center gap-3">
+                  <Instagram className="h-4.5 w-4.5 text-black group-hover:text-green-600 transition-colors shrink-0" />
+                  <span className="text-xs font-roboto font-light uppercase tracking-wider text-black group-hover:text-green-600 transition-colors">Redes Sociales / Instagram</span>
+                </div>
+                <span className="text-sm font-roboto font-light tracking-wider text-black group-hover:text-green-600 transition-colors lowercase">@{instagramUser}</span>
+              </a>
+
+              {/* Horarios */}
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between py-4 border-b border-slate-200 gap-2">
+                <div className="flex items-center gap-3">
+                  <Clock className="h-4.5 w-4.5 text-black shrink-0" />
+                  <span className="text-xs font-roboto font-light uppercase tracking-wider text-black">Horario de Atención</span>
+                </div>
+                <div className="text-left sm:text-right text-sm font-roboto font-light tracking-wider text-black space-y-1">
+                  <p><span className="text-black">Lun a Vie:</span> 08:00 - 12:30 hs</p>
+                  <p><span className="text-black">y de:</span> 13:30 - 17:00 hs</p>
+                </div>
               </div>
             </div>
           </div>
@@ -310,32 +280,12 @@ export default async function LandingPage() {
       </section>
 
       <footer 
-        className="max-w-7xl mx-auto px-6 border-t border-slate-200"
-        style={{ paddingTop: '16px', paddingBottom: '16px' }}
+        className="max-w-7xl mx-auto px-6 border-t border-slate-200 text-center"
+        style={{ paddingTop: '24px', paddingBottom: '24px' }}
       >
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-center">
-          {/* Logo on the left */}
-          <div className="flex justify-center lg:justify-end">
-            <div className="relative shrink-0" style={{ width: '80px', height: '80px' }}>
-              <Image 
-                src="/logo.png" 
-                alt="Logo Tecnifer" 
-                fill
-                className="object-contain"
-              />
-            </div>
-          </div>
-          
-          {/* Centered copyright text */}
-          <div className="text-center">
-            <p className="text-xs text-slate-500">
-              © {new Date().getFullYear()} Tecnifer. Todos los derechos reservados
-            </p>
-          </div>
-          
-          {/* Spacer to balance the layout */}
-          <div className="hidden lg:block"></div>
-        </div>
+        <p className="text-xs text-slate-500 font-mono">
+          © {new Date().getFullYear()} Tecnifer. Todos los derechos reservados
+        </p>
       </footer>
 
     </div>

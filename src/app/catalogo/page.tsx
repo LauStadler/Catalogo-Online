@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { getProducts, getCategories } from '@/lib/actions';
 import PublicCatalog from '@/components/PublicCatalog';
 
@@ -11,9 +11,11 @@ export default async function CatalogoPage() {
   ]);
 
   return (
-    <PublicCatalog 
-      initialProducts={productsList} 
-      categories={categoriesList} 
-    />
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-slate-50 text-slate-500 font-mono">Cargando catálogo...</div>}>
+      <PublicCatalog 
+        initialProducts={productsList} 
+        categories={categoriesList} 
+      />
+    </Suspense>
   );
 }

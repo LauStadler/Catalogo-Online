@@ -12,6 +12,7 @@
   --font-mono: var(--font-geist-mono);
   --font-montserrat: var(--font-montserrat);
   --font-oswald: var(--font-oswald);
+  --font-roboto: var(--font-roboto);
 }
 
 @media (prefers-color-scheme: dark) {

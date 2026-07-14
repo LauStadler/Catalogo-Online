@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getProductBySlug, getProducts } from '@/lib/actions';
+import HeaderWrapper from '@/components/HeaderWrapper';
 import { ArrowLeft, MessageSquare, ShieldCheck, Truck, RefreshCw } from 'lucide-react';
 
 interface Props {
@@ -61,7 +62,7 @@ export default async function ProductDetailPage({ params }: Props) {
     notFound();
   }
 
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '5491112345678';
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '5492233390404';
   const siteUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
   const productUrl = `${siteUrl}/producto/${product.slug}`;
   
@@ -73,30 +74,17 @@ export default async function ProductDetailPage({ params }: Props) {
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(textMessage)}`;
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 selection:bg-emerald-600 selection:text-white pb-20 relative overflow-x-hidden pt-24">
+    <div className="min-h-screen bg-slate-50 text-slate-800 selection:bg-emerald-600 selection:text-white pb-20 relative overflow-x-hidden pt-[90px]">
       
-      <nav className="border-b border-green-700 bg-green-600 fixed top-0 left-0 w-full z-40 shadow-md h-24 flex items-center">
-        {/* Absolute Logo in top-left */}
-        <Link href="/" className="absolute left-6 sm:left-10 top-1/2 -translate-y-1/2 hover:opacity-90 transition-opacity z-50 flex items-center">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img 
-            src="/logo_blanco_y_negro.png" 
-            alt="Logo Tecnifer" 
-            className="w-auto object-contain"
-            style={{ height: '45px', width: 'auto' }}
-          />
+      <HeaderWrapper>
+        <Link
+          href="/catalogo"
+          className="flex items-center gap-2 text-xs font-semibold text-green-100 hover:text-white transition-colors"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Volver al Catálogo
         </Link>
-
-        <div className="max-w-7xl mx-auto px-6 w-full flex items-center justify-end h-full">
-          <Link
-            href="/catalogo"
-            className="flex items-center gap-2 text-xs font-semibold text-green-100 hover:text-white transition-colors"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Volver al Catálogo
-          </Link>
-        </div>
-      </nav>
+      </HeaderWrapper>
 
       {/* Main product view */}
       <main className="max-w-3xl mx-auto px-6 pt-12">

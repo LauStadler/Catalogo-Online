@@ -1,7 +1,9 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
+import { useSearchParams, useRouter } from 'next/navigation';
+import HeaderWrapper from './HeaderWrapper';
 import { Search, ShoppingBag, ArrowRight, ArrowLeft, Settings, Home, FlaskConical, Layers } from 'lucide-react';
 
 interface Category {
@@ -28,8 +30,21 @@ interface PublicCatalogProps {
 }
 
 export default function PublicCatalog({ initialProducts, categories }: PublicCatalogProps) {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const categoryParam = searchParams.get('categoria');
+
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(categoryParam);
   const [searchQuery, setSearchQuery] = useState('');
+
+  useEffect(() => {
+    setSelectedCategory(categoryParam);
+  }, [categoryParam]);
+
+  const handleClearCategory = () => {
+    setSelectedCategory(null);
+    router.push('/catalogo', { scroll: false });
+  };
 
   // Helper to map category names to icons
   const getCategoryIcon = (slug: string) => {
@@ -72,37 +87,22 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
   }, [categories, selectedCategory]);
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 selection:bg-emerald-600 selection:text-white pb-20 relative overflow-x-hidden pt-24">
+    <div className="min-h-screen bg-slate-50 text-slate-800 selection:bg-emerald-600 selection:text-white pb-20 relative overflow-x-hidden pt-[90px]">
       
-      <nav className="border-b border-green-700 bg-green-600 fixed top-0 left-0 w-full z-40 shadow-md h-24 flex items-center">
-        {/* Absolute Logo in top-left */}
-        <Link href="/" className="absolute left-6 sm:left-10 top-1/2 -translate-y-1/2 hover:opacity-90 transition-opacity z-50 flex items-center">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img 
-            src="/logo_blanco_y_negro.png" 
-            alt="Logo Tecnifer" 
-            className="w-auto object-contain"
-            style={{ height: '45px', width: 'auto' }}
-          />
+      <HeaderWrapper>
+        <Link
+          href="/"
+          className="text-xs font-semibold px-4 py-2 border border-green-500 hover:border-white/60 hover:bg-green-500/20 rounded-xl transition-all text-white"
+        >
+          Volver al Inicio
         </Link>
-
-        <div className="max-w-7xl mx-auto px-6 w-full flex items-center justify-end h-full">
-          <div className="flex items-center gap-3">
-            <Link
-              href="/"
-              className="text-xs font-semibold px-4 py-2 border border-green-500 hover:border-white/60 hover:bg-green-500/20 rounded-xl transition-all text-white"
-            >
-              Volver al Inicio
-            </Link>
-          </div>
-        </div>
-      </nav>
+      </HeaderWrapper>
 
       {/* Hero / Header Section */}
       <section className="relative max-w-7xl mx-auto px-6 pt-16 pb-12 flex flex-col items-center text-center">
         {selectedCategory && !searchQuery && (
           <button
-            onClick={() => setSelectedCategory(null)}
+            onClick={handleClearCategory}
             className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-600 hover:text-emerald-500 transition-colors mb-6 group cursor-pointer"
           >
             <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
