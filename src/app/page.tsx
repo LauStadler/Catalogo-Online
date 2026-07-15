@@ -59,6 +59,12 @@ export default async function LandingPage() {
     'linea-automotor': 'Línea Automotriz',
   };
 
+  const categoryImages: Record<string, string> = {
+    'naval-ndustrial': '/Fondo formulados.png',
+    'hogar-mayorista-y-minorista': '/Fondo hogar.png',
+    'linea-automotor': '/Fondo autos.png',
+  };
+
   // Helper to map category names to icons
   const getCategoryIcon = (slug: string) => {
     if (slug.includes('automotor') || slug.includes('automotriz')) return <Car className="h-6 w-6 text-green-700" />;
@@ -108,51 +114,56 @@ export default async function LandingPage() {
       </HeaderWrapper>
 
       {/* Hero Section */}
-      <section id="inicio" className="relative max-w-7xl mx-auto px-6 pt-8 pb-10 md:pt-12 md:pb-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        {/* Hero Image Container */}
-        <div className="lg:col-span-5 relative w-full aspect-[4/3] sm:aspect-square lg:aspect-[4/5] overflow-hidden bg-white border border-slate-200 shadow-sm group">
-          <Image
-            src="/landingimg_original.jpeg"
-            alt="Soluciones de Limpieza Química"
-            fill
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
-            priority
-          />
+      <section id="inicio" className="relative w-full bg-white z-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] pt-8 pb-10 md:pt-12 md:pb-16">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* Hero Image Container */}
+          <div className="lg:col-span-5 relative w-full aspect-[4/3] sm:aspect-square lg:aspect-[9/10] overflow-hidden bg-white border border-slate-200 shadow-sm group">
+            <Image
+              src="/landingimg_original.jpeg"
+              alt="Soluciones de Limpieza Química"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              style={{ objectPosition: 'center 59.4%' }}
+              priority
+            />
+          </div>
+
+          {/* Text and Title Container */}
+          <div className="lg:col-span-7 space-y-8 text-center flex flex-col items-center justify-center">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-wide leading-[1.2] text-slate-900 font-oswald uppercase max-w-2xl lg:max-w-3xl mx-auto">
+              Más de 50 años acompañando a la industria
+            </h1>
+            
+            <p className="text-slate-600 text-base sm:text-lg max-w-lg leading-relaxed font-light">
+              Desde 1973 nos dedicamos a la formulación y distribución de productos químicos de higiene y mantenimiento para el sector naval, industrial y comercial.
+            </p>
+          </div>
         </div>
+      </section>
 
-        {/* Text and Title Container */}
-        <div className="lg:col-span-7 space-y-8 text-center flex flex-col items-center justify-center">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-wide leading-[1.2] text-slate-900 font-oswald uppercase max-w-2xl lg:max-w-3xl mx-auto">
-            Más de 50 años acompañando a la industria
-          </h1>
-          
-          <p className="text-slate-600 text-base sm:text-lg max-w-lg leading-relaxed font-light">
-            Comercializamos productos químicos para higiene y mantenimiento industrial, institucional y comercial, con alcance mayorista y minorista en Mar del Plata y zona.
-          </p>
+      {/* Secondary Info Section (Reversed Layout) */}
+      <section className="relative w-full bg-white pt-8 pb-10 md:pt-12 md:pb-16">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* Text and Title Container (Left on Desktop) */}
+          <div className="lg:col-span-7 space-y-8 text-center flex flex-col items-center justify-center order-2 lg:order-1">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-wide leading-[1.2] text-slate-900 font-oswald uppercase max-w-2xl lg:max-w-3xl mx-auto">
+              Soluciones eficaces para cada necesidad
+            </h2>
+            
+            <p className="text-slate-600 text-base sm:text-lg max-w-lg leading-relaxed font-light">
+              Elaboramos y distribuimos una completa línea de artículos de limpieza y productos químicos diseñados para ofrecer el máximo rendimiento. Brindamos asesoramiento personalizado y logística a medida para comercios, instituciones y la industria naval e industrial.
+            </p>
+          </div>
 
-          {/* Quick trust badges */}
-          <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-8 border-t border-slate-200 w-full max-w-2xl">
-            <div className="flex flex-col items-center gap-2.5 px-2 sm:px-4 text-center border-r border-slate-200 last:border-r-0">
-              <div className="p-2 bg-slate-100 border border-slate-200 text-slate-700 rounded-md">
-                <ShieldCheck className="h-5 w-5" />
-              </div>
-              <span className="text-[10px] sm:text-xs font-bold text-slate-800 uppercase tracking-wider font-mono">Garantía de Calidad</span>
-              <p className="text-[9px] sm:text-[10px] text-slate-400 leading-normal hidden sm:block">Aprobados con altos estándares industriales</p>
-            </div>
-            <div className="flex flex-col items-center gap-2.5 px-2 sm:px-4 text-center border-r border-slate-200 last:border-r-0">
-              <div className="p-2 bg-slate-100 border border-slate-200 text-slate-700 rounded-md">
-                <Truck className="h-5 w-5" />
-              </div>
-              <span className="text-[10px] sm:text-xs font-bold text-slate-800 uppercase tracking-wider font-mono">Logística Propia</span>
-              <p className="text-[9px] sm:text-[10px] text-slate-400 leading-normal hidden sm:block">Envíos coordinados en Mar del Plata y zona</p>
-            </div>
-            <div className="flex flex-col items-center gap-2.5 px-2 sm:px-4 text-center border-r border-slate-200 last:border-r-0">
-              <div className="p-2 bg-slate-100 border border-slate-200 text-slate-700 rounded-md">
-                <ShoppingBag className="h-5 w-5" />
-              </div>
-              <span className="text-[10px] sm:text-xs font-bold text-slate-800 uppercase tracking-wider font-mono">Venta Mayorista</span>
-              <p className="text-[9px] sm:text-[10px] text-slate-400 leading-normal hidden sm:block">Atención directa a comercios e industrias</p>
-            </div>
+          {/* Image Container (Right on Desktop) */}
+          <div className="lg:col-span-5 relative w-full aspect-[4/3] sm:aspect-square lg:aspect-[9/10] overflow-hidden bg-white border border-slate-200 shadow-sm group order-1 lg:order-2">
+            <Image
+              src="/partner_cropped.jpeg"
+              alt="Productos Químicos y Limpieza Profesional"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              priority
+            />
           </div>
         </div>
       </section>
@@ -177,8 +188,18 @@ export default async function LandingPage() {
                 href={`/catalogo?categoria=${category.slug}`}
                 className="group flex flex-col gap-3"
               >
-                {/* Empty cover photo placeholder box */}
-                <div className="w-full aspect-[4/3] bg-white border border-slate-200 rounded-lg group-hover:border-green-700/40 group-hover:shadow-md transition-all duration-300 flex items-center justify-center relative overflow-hidden" />
+                {/* Cover photo placeholder box */}
+                <div className="w-full aspect-[4/3] bg-white border border-slate-200 rounded-lg group-hover:border-green-700/40 group-hover:shadow-md transition-all duration-300 flex items-center justify-center relative overflow-hidden">
+                  {categoryImages[category.slug] ? (
+                    <Image
+                      src={categoryImages[category.slug]}
+                      alt={categoryNameOverrides[category.slug] || category.name}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                    />
+                  ) : null}
+                </div>
                 
                 {/* Category name below the box in Roboto Light uppercase */}
                 <span className="text-xs sm:text-sm font-roboto font-light uppercase tracking-wider text-black group-hover:text-green-600 transition-colors text-center mt-1">

@@ -36,7 +36,7 @@ export default function HeaderWrapper({ children }: HeaderWrapperProps) {
           : 'py-6 shadow-md'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 w-full flex items-center justify-between relative">
+      <div className="w-full px-6 md:px-12 lg:px-16 flex items-center justify-between relative">
         {/* Unified Logo on the Left - Smooth height transition */}
         <Link href="/" className="hover:opacity-90 transition-opacity flex items-center shrink-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
