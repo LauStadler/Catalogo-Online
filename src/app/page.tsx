@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { getCategories } from '@/lib/actions';
 import HeaderWrapper from '@/components/HeaderWrapper';
+import NavbarSearch from '@/components/NavbarSearch';
 import { 
   ShoppingBag, 
   Phone, 
@@ -60,9 +61,9 @@ export default async function LandingPage() {
   };
 
   const categoryImages: Record<string, string> = {
-    'naval-ndustrial': '/Fondo formulados.png',
+    'naval-ndustrial': '/Fondo formulado 2.png',
     'hogar-mayorista-y-minorista': '/Fondo hogar.png',
-    'linea-automotor': '/Fondo autos.png',
+    'linea-automotor': '/Fondo autos 2.png',
   };
 
   // Helper to map category names to icons
@@ -91,8 +92,9 @@ export default async function LandingPage() {
         <div className="flex items-center gap-8 h-full">
           <div className="hidden md:flex items-center gap-8">
             <Link href="#inicio" className="text-sm font-semibold text-green-100 hover:text-white transition-colors">Inicio</Link>
-            <Link href="#categorias" className="text-sm font-semibold text-green-100 hover:text-white transition-colors">Categorías</Link>
+            <Link href="#categorias" className="text-sm font-semibold text-green-100 hover:text-white transition-colors">Catálogo</Link>
             <Link href="#contacto" className="text-sm font-semibold text-green-100 hover:text-white transition-colors">Contacto</Link>
+            <NavbarSearch />
           </div>
 
           <div className="flex items-center gap-3">
@@ -201,8 +203,8 @@ export default async function LandingPage() {
                   ) : null}
                 </div>
                 
-                {/* Category name below the box in Roboto Light uppercase */}
-                <span className="text-xs sm:text-sm font-roboto font-light uppercase tracking-wider text-black group-hover:text-green-600 transition-colors text-center mt-1">
+                {/* Category name below the box in Oswald font */}
+                <span className="text-sm sm:text-base font-semibold font-oswald uppercase tracking-wider text-slate-900 group-hover:text-green-700 transition-colors text-center mt-1">
                   {categoryNameOverrides[category.slug] || category.name}
                 </span>
               </Link>
@@ -214,7 +216,7 @@ export default async function LandingPage() {
               href="/catalogo"
               className="inline-flex items-center gap-2.5 px-6 py-3 bg-white border border-slate-200 hover:border-slate-350 text-sm font-semibold rounded-md text-slate-700 transition-all hover:bg-slate-50"
             >
-              <span>Ver todo el catálogo</span>
+              <span>Ver catálogo completo</span>
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>

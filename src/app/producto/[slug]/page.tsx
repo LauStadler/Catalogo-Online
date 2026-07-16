@@ -4,7 +4,9 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getProductBySlug, getProducts } from '@/lib/actions';
 import HeaderWrapper from '@/components/HeaderWrapper';
-import { ArrowLeft, MessageSquare, ShieldCheck, Truck, RefreshCw } from 'lucide-react';
+import BackButton from '@/components/BackButton';
+import { MessageSquare, ShieldCheck, Truck, RefreshCw } from 'lucide-react';
+import { formatPresentation } from '@/lib/utils';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -77,13 +79,11 @@ export default async function ProductDetailPage({ params }: Props) {
     <div className="min-h-screen bg-slate-50 text-slate-800 selection:bg-emerald-600 selection:text-white pb-20 relative overflow-x-hidden pt-[90px]">
       
       <HeaderWrapper>
-        <Link
-          href="/catalogo"
-          className="flex items-center gap-2 text-xs font-semibold text-green-100 hover:text-white transition-colors"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          Volver al Catálogo
-        </Link>
+        <BackButton 
+          fallbackUrl="/catalogo" 
+          label="Volver al Catálogo" 
+          className="flex items-center gap-2 text-xs font-semibold text-green-100 hover:text-white transition-colors cursor-pointer bg-transparent border-none outline-none"
+        />
       </HeaderWrapper>
 
       {/* Main product view */}
@@ -111,8 +111,8 @@ export default async function ProductDetailPage({ params }: Props) {
               <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500 font-mono">Presentaciones Disponibles</h3>
               <div className="flex flex-wrap gap-2">
                 {product.presentations.map((p, idx) => (
-                  <span key={idx} className="px-3.5 py-1.5 bg-slate-50 border border-slate-200 rounded-md text-slate-700 font-medium text-sm font-mono">
-                    {p}
+                  <span key={idx} className="px-3.5 py-1.5 bg-slate-50 border border-slate-200 rounded-none text-slate-700 font-medium text-sm font-mono">
+                    {formatPresentation(p, product)}
                   </span>
                 ))}
               </div>

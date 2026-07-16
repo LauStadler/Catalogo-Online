@@ -2,7 +2,7 @@
 
 import { db } from '@/db';
 import { products, categories } from '@/db/schema';
-import { eq, or, and, ilike, desc } from 'drizzle-orm';
+import { eq, or, and, ilike, desc, asc } from 'drizzle-orm';
 import { slugify } from './utils';
 import { revalidatePath } from 'next/cache';
 
@@ -119,7 +119,7 @@ export async function getProducts(options?: {
       query = query.where(and(...conditions));
     }
 
-    return await query.orderBy(desc(products.createdAt));
+    return await query.orderBy(asc(products.name));
   } catch (error) {
     console.error('Error fetching products:', error);
     return [];
