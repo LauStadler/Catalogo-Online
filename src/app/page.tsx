@@ -76,7 +76,7 @@ export default async function LandingPage() {
   };
 
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '5492233390404';
-  const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'tecniferproductos@gmail.com';
+  const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'ventas@tecniferproductos.com.ar';
   const contactAddress = process.env.NEXT_PUBLIC_CONTACT_ADDRESS || 'Cerrito 467, Mar del Plata, Provincia de Buenos Aires';
   const instagramUser = process.env.NEXT_PUBLIC_INSTAGRAM_USER || 'tecniferproductos';
   const landlinePhone = process.env.NEXT_PUBLIC_LANDLINE_PHONE || '0223 480-1904';
@@ -87,30 +87,13 @@ export default async function LandingPage() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 selection:bg-emerald-600 selection:text-white relative overflow-x-hidden pt-[90px]">
       
-      {/* Navigation Bar */}
       <HeaderWrapper>
         <div className="flex items-center gap-8 h-full">
           <div className="hidden md:flex items-center gap-8">
             <Link href="#inicio" className="text-sm font-semibold text-green-100 hover:text-white transition-colors">Inicio</Link>
-            <Link href="#categorias" className="text-sm font-semibold text-green-100 hover:text-white transition-colors">Catálogo</Link>
+            <Link href="/catalogo" className="text-sm font-semibold text-green-100 hover:text-white transition-colors">Catálogo</Link>
             <Link href="#contacto" className="text-sm font-semibold text-green-100 hover:text-white transition-colors">Contacto</Link>
             <NavbarSearch />
-          </div>
-
-          <div className="flex items-center gap-3">
-            <Link
-              href="/admin"
-              className="text-xs font-semibold px-4 py-2 border border-green-500 hover:border-white/60 hover:bg-green-500/20 rounded-xl transition-all text-white"
-            >
-              Admin
-            </Link>
-            <Link
-              href="/catalogo"
-              className="inline-flex items-center gap-2 text-xs font-bold px-4 py-2 bg-white hover:bg-green-50 rounded-xl transition-all text-green-700 shadow-md active:scale-[0.98]"
-            >
-              <ShoppingBag className="h-3.5 w-3.5" />
-              Ver Productos
-            </Link>
           </div>
         </div>
       </HeaderWrapper>
@@ -153,7 +136,7 @@ export default async function LandingPage() {
             </h2>
             
             <p className="text-slate-600 text-base sm:text-lg max-w-lg leading-relaxed font-light">
-              Elaboramos y distribuimos una completa línea de artículos de limpieza y productos químicos diseñados para ofrecer el máximo rendimiento. Brindamos asesoramiento personalizado y logística a medida para comercios, instituciones y la industria naval e industrial.
+              Elaboramos y distribuimos una completa línea de artículos de limpieza y productos químicos. Brindamos asesoramiento personalizado, ventas de forma minorista y mayorista, y logística a medida para comercios, instituciones y los sectores naval e industrial.
             </p>
           </div>
 

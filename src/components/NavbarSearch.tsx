@@ -58,52 +58,50 @@ export default function NavbarSearch() {
 
   return (
     <div className="relative flex items-center" ref={containerRef}>
-      {/* Search Input Container - Absolute positioned to float next to the icon without pushing layout */}
-      {isOpen && (
-        <form 
-          onSubmit={handleSubmit}
-          onMouseDown={(e) => e.stopPropagation()}
-          className="absolute right-8 flex items-center bg-white border border-slate-200 rounded-none px-3 py-1.5 animate-in fade-in slide-in-from-right-4 duration-200 shadow-md z-50 min-w-[180px] sm:min-w-[240px]"
-        >
-          <input
-            ref={inputRef}
-            type="text"
-            placeholder="Buscar productos..."
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            onKeyDown={handleKeyDown}
-            className="bg-transparent text-slate-800 text-xs placeholder-slate-400 outline-none w-full py-0.5"
-          />
-          <button 
-            type="submit"
-            className="text-slate-500 hover:text-green-700 transition-colors p-0.5 ml-1 cursor-pointer shrink-0"
-          >
-            <Search className="h-3.5 w-3.5" />
-          </button>
-        </form>
-      )}
-
-      {/* Main trigger button (Lupa / X) */}
+      {/* Main trigger button (Lupa) */}
       <button
         type="button"
         onMouseDown={(e) => e.stopPropagation()}
         onClick={() => {
-          if (isOpen) {
-            setIsOpen(false);
-            setQuery('');
-          } else {
-            setIsOpen(true);
-          }
+          setIsOpen(!isOpen);
         }}
         className="text-green-100 hover:text-white transition-all duration-200 hover:scale-105 p-1 rounded-full hover:bg-green-700/30 cursor-pointer flex items-center justify-center z-55"
         title={isOpen ? "Cerrar búsqueda" : "Buscar productos"}
       >
-        {isOpen ? (
-          <X className="h-4 w-4" />
-        ) : (
-          <Search className="h-4 w-4" />
-        )}
+        <Search className="h-4 w-4" />
       </button>
+
+      {/* Floating Search Input Container */}
+      {isOpen && (
+        <form 
+          onSubmit={handleSubmit}
+          onMouseDown={(e) => e.stopPropagation()}
+          className="absolute right-0 bg-white border border-slate-200 rounded-lg px-3 py-2 shadow-md z-50 flex items-center gap-2 animate-in fade-in duration-200"
+          style={{ width: 'calc(100vw - 32px)', maxWidth: '380px', top: '100%', marginTop: '12px' }}
+        >
+          <Search className="h-4 w-4 text-slate-400 shrink-0" />
+          <input
+            ref={inputRef}
+            type="search"
+            placeholder="Buscar productos químicos..."
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            onKeyDown={handleKeyDown}
+            className="bg-transparent text-slate-800 text-xs placeholder-slate-400 outline-none w-full py-0.5 font-sans"
+          />
+          <button
+            type="button"
+            onClick={() => {
+              setIsOpen(false);
+              setQuery('');
+            }}
+            className="text-slate-400 hover:text-slate-650 transition-colors p-1 ml-1 cursor-pointer shrink-0"
+            title="Cerrar búsqueda"
+          >
+            <X className="h-4 w-4" />
+          </button>
+        </form>
+      )}
     </div>
   );
 }

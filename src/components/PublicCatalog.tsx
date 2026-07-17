@@ -142,7 +142,7 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
 
       {/* Hero / Header Section */}
       <section className="relative max-w-7xl mx-auto px-6 pt-16 pb-12 flex flex-col items-center text-center">
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold text-slate-900 tracking-wide font-oswald uppercase leading-[1.1]">
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-medium text-slate-900 tracking-wide font-oswald uppercase leading-[1.1]">
           {searchQuery 
             ? 'Resultados de Búsqueda' 
             : currentCategory 
@@ -249,7 +249,7 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
                 <Link 
                   key={product.id}
                   href={`/producto/${product.slug}`}
-                  className="group flex flex-col md:flex-row md:items-center justify-between p-6 bg-white border border-slate-200/80 rounded-lg hover:border-green-700/40 hover:shadow-sm transition-all duration-300 gap-4"
+                  className="group flex flex-col md:flex-row md:items-center justify-between p-6 bg-white border border-slate-200/80 rounded-none hover:border-green-700/40 hover:shadow-sm transition-all duration-300 gap-4"
                 >
                   <div className="space-y-2 flex-1 min-w-0">
                     <div className="flex items-center gap-3">
