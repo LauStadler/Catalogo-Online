@@ -50,9 +50,9 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
   }, [qParam]);
 
   const categoryImages: Record<string, string> = {
-    'naval-ndustrial': '/Fondo formulado 2.png',
+    'naval-ndustrial': '/Fondo_formulados_editado.png',
     'hogar-mayorista-y-minorista': '/Fondo hogar.png',
-    'linea-automotor': '/Fondo autos 2.png',
+    'linea-automotor': '/Fondo autos def.png',
   };
 
   const categoryNameOverrides: Record<string, string> = {

@@ -61,9 +61,9 @@ export default async function LandingPage() {
   };
 
   const categoryImages: Record<string, string> = {
-    'naval-ndustrial': '/Fondo formulado 2.png',
+    'naval-ndustrial': '/Fondo_formulados_editado.png',
     'hogar-mayorista-y-minorista': '/Fondo hogar.png',
-    'linea-automotor': '/Fondo autos 2.png',
+    'linea-automotor': '/Fondo autos def.png',
   };
 
   // Helper to map category names to icons
