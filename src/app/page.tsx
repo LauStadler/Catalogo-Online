@@ -1,6 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import logoNuevo from '../../public/logo nuevo.png';
+import fondoBidones from '../../public/fondo bidones.jpeg';
+import fotoAyolas from '../../public/foto ayolas.png';
+import fotoAyolasMejor from '../../public/foto ayolas mejor.png';
 import { getCategories } from '@/lib/actions';
 import HeaderWrapper from '@/components/HeaderWrapper';
 import NavbarSearch from '@/components/NavbarSearch';
@@ -85,18 +89,33 @@ export default async function LandingPage() {
   const instagramUrl = `https://instagram.com/${instagramUser}`;
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 selection:bg-emerald-600 selection:text-white relative overflow-x-hidden pt-[90px]">
+    <div className="min-h-screen bg-slate-50 text-slate-800 selection:bg-emerald-600 selection:text-white relative overflow-x-hidden pt-[78px]">
       
       <HeaderWrapper>
         <div className="flex items-center gap-8 h-full">
           <div className="hidden md:flex items-center gap-8">
-            <Link href="#inicio" className="text-sm font-semibold text-green-100 hover:text-white transition-colors">Inicio</Link>
-            <Link href="/catalogo" className="text-sm font-semibold text-green-100 hover:text-white transition-colors">Catálogo</Link>
-            <Link href="#contacto" className="text-sm font-semibold text-green-100 hover:text-white transition-colors">Contacto</Link>
+            <Link href="#inicio" className="text-base font-semibold text-green-100 hover:text-white transition-colors">Inicio</Link>
+            <Link href="/catalogo" className="text-base font-semibold text-green-100 hover:text-white transition-colors">Catálogo</Link>
+            <Link href="#contacto" className="text-base font-semibold text-green-100 hover:text-white transition-colors">Contacto</Link>
             <NavbarSearch />
           </div>
         </div>
       </HeaderWrapper>
+
+      {/* Banner Section */}
+      <section 
+        className="w-full flex justify-center items-center overflow-hidden"
+        style={{ height: '500px' }}
+      >
+        <Image
+          src={fotoAyolasMejor}
+          alt="Tecnifer Banner"
+          placeholder="blur"
+          style={{ height: '500px', width: '100%' }}
+          className="object-cover animate-fade-in"
+          priority
+        />
+      </section>
 
       {/* Hero Section */}
       <section id="inicio" className="relative w-full bg-white z-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] pt-8 pb-10 md:pt-12 md:pb-16">

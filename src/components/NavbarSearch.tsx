@@ -68,7 +68,7 @@ export default function NavbarSearch() {
         className="text-green-100 hover:text-white transition-all duration-200 hover:scale-105 p-1 rounded-full hover:bg-green-700/30 cursor-pointer flex items-center justify-center z-55"
         title={isOpen ? "Cerrar búsqueda" : "Buscar productos"}
       >
-        <Search className="h-4 w-4" />
+        <Search className="h-5 w-5" />
       </button>
 
       {/* Floating Search Input Container */}

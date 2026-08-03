@@ -142,12 +142,12 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
 
       {/* Hero / Header Section */}
       <section className="relative max-w-7xl mx-auto px-6 pt-16 pb-12 flex flex-col items-center text-center">
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-medium text-slate-900 tracking-wide font-oswald uppercase leading-[1.1]">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-slate-900 tracking-wide font-oswald uppercase leading-[1.1]">
           {searchQuery 
             ? 'Resultados de Búsqueda' 
             : currentCategory 
               ? (categoryNameOverrides[currentCategory.slug] || currentCategory.name) 
-              : 'Explorar por Categorías'}
+              : 'Encontrá lo que estás buscando'}
         </h1>
         
         {searchQuery && (
@@ -157,7 +157,10 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
         )}
 
         {/* Search Bar */}
-        <div className="w-full max-w-xl mt-10 relative group">
+        <div 
+          className="w-full max-w-lg relative group"
+          style={{ marginTop: '48px' }}
+        >
           <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-emerald-600 transition-colors">
             <Search className="h-5 w-5" />
           </div>
@@ -176,7 +179,7 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
               }
               router.replace(`/catalogo?${params.toString()}`, { scroll: false });
             }}
-            className="block w-full pl-12 pr-4 py-4 bg-white border border-slate-200 rounded-md text-slate-800 placeholder-slate-400 focus:outline-none focus:border-green-700 focus:ring-1 focus:ring-green-700 transition-all duration-200 shadow-sm"
+            className="block w-full pl-12 pr-4 py-3 bg-white border border-slate-200 rounded-md text-slate-800 placeholder-slate-400 focus:outline-none focus:border-green-700 focus:ring-1 focus:ring-green-700 transition-all duration-200 shadow-sm"
           />
         </div>
       </section>
