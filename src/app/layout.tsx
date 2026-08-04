@@ -35,6 +35,9 @@ export const metadata: Metadata = {
   title: 'Tecnifer - Catálogo de Productos Online',
   description: 'Explora nuestro catálogo de productos, filtra por categorías y realiza pedidos directamente por WhatsApp de forma rápida y sencilla.',
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'),
+  verification: {
+    google: '<meta name="google-site-verification" content="tRt_yejrmHqL9UWTC3EzXhr5gX0UQiT-l2_bd8o5Hk4" />', // Reemplaza esto con tu código real
+  },
 };
 
 const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '5492233390404';
