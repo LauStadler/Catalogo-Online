@@ -1,45 +1,46 @@
+import fs from 'fs';
+import path from 'path';
 import { drizzle } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
 import * as schema from '../src/db/schema';
-import * as fs from 'fs';
-import * as path from 'path';
 
-// Read .env.local manually
-const envPath = path.resolve(process.cwd(), '.env.local');
-const envContent = fs.readFileSync(envPath, 'utf-8');
-let databaseUrl = '';
-
-for (const line of envContent.split('\n')) {
-  const trimmed = line.trim();
-  if (trimmed.startsWith('DATABASE_URL=')) {
-    // Get value and strip optional quotes
-    let val = trimmed.substring('DATABASE_URL='.length);
-    if (val.startsWith('"') && val.endsWith('"')) {
+function loadEnv() {
+  let envPath = path.resolve(process.cwd(), '.env.local');
+  if (!fs.existsSync(envPath)) {
+    envPath = path.resolve(process.cwd(), '.env');
+  }
+  if (!fs.existsSync(envPath)) return;
+  const fileContent = fs.readFileSync(envPath, 'utf8');
+  fileContent.split(/\r?\n/).forEach((line) => {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#')) return;
+    const equalsIdx = trimmed.indexOf('=');
+    if (equalsIdx === -1) return;
+    const key = trimmed.substring(0, equalsIdx).trim();
+    let val = trimmed.substring(equalsIdx + 1).trim();
+    if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
       val = val.substring(1, val.length - 1);
     }
-    databaseUrl = val;
-    break;
-  }
+    process.env[key] = val;
+  });
 }
-
-if (!databaseUrl) {
-  console.error("DATABASE_URL is not defined in .env.local");
-  process.exit(1);
-}
-
-const client = postgres(databaseUrl, { prepare: false });
-const db = drizzle(client, { schema });
 
 async function run() {
-  try {
-    const list = await db.select().from(schema.categories);
-    console.log("--- DATABASE CATEGORIES ---");
-    console.log(JSON.stringify(list, null, 2));
-  } catch (error) {
-    console.error("Error fetching categories:", error);
-  } finally {
-    await client.end();
+  loadEnv();
+  const dbUrl = process.env.DATABASE_URL;
+  if (!dbUrl) {
+    console.error('No DATABASE_URL found');
+    process.exit(1);
   }
+  const client = postgres(dbUrl, { prepare: false });
+  const db = drizzle(client, { schema });
+  
+  const allCats = await db.select().from(schema.categories);
+  console.log('Categories in database:');
+  for (const c of allCats) {
+    console.log(`- ID: ${c.id}\n  Name: "${c.name}"\n  Slug: "${c.slug}"`);
+  }
+  await client.end();
 }
 
-run();
+run().catch(console.error);

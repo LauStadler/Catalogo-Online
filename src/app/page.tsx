@@ -3,8 +3,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import logoNuevo from '../../public/logo nuevo.png';
 import fondoBidones from '../../public/fondo bidones.jpeg';
-import fotoAyolas from '../../public/foto ayolas.png';
-import fotoAyolasMejor from '../../public/foto ayolas mejor.png';
+import banner2Img from '../../public/banner 2.jpg';
+import bannerCopiaImg from '../../public/banner copia.jpg';
+import fondoLocalImg from '../../public/fondo local.jpeg';
+import BannerCarousel from '@/components/BannerCarousel';
 import { getCategories } from '@/lib/actions';
 import HeaderWrapper from '@/components/HeaderWrapper';
 import NavbarSearch from '@/components/NavbarSearch';
@@ -51,6 +53,13 @@ export const revalidate = 3600;
 export default async function LandingPage() {
   const categories = await getCategories();
 
+  const bannerImages = [
+    { src: banner2Img, alt: 'Tecnifer Banner 2' },
+    { src: fondoLocalImg, alt: 'Tecnifer Local' },
+    { src: bannerCopiaImg, alt: 'Tecnifer Banner Copia' },
+    { src: fondoBidones, alt: 'Tecnifer Bidones' },
+  ];
+
   const desiredSlugs = ['naval-ndustrial', 'hogar-mayorista-y-minorista', 'linea-piscina', 'linea-automotor'];
   
   const landingCategories = desiredSlugs
@@ -68,6 +77,8 @@ export default async function LandingPage() {
     'naval-ndustrial': '/Fondo_formulados_editado.png',
     'hogar-mayorista-y-minorista': '/Fondo hogar.png',
     'linea-automotor': '/Fondo autos def.png',
+    'crunch-oil': '/fondo crunchoil 2.JPG',
+    'vasana': '/foto vasana.png',
   };
 
   // Helper to map category names to icons
@@ -103,19 +114,13 @@ export default async function LandingPage() {
       </HeaderWrapper>
 
       {/* Banner Section */}
-      <section 
-        className="w-full flex justify-center items-center overflow-hidden"
-        style={{ height: '500px' }}
-      >
-        <Image
-          src={fotoAyolasMejor}
-          alt="Tecnifer Banner"
-          placeholder="blur"
-          style={{ height: '500px', width: '100%' }}
-          className="object-cover animate-fade-in"
-          priority
-        />
-      </section>
+      <BannerCarousel images={bannerImages} />
+
+      {/* Spacer to push subsequent content below the fold while maintaining a white background */}
+      <div 
+        className="w-full bg-white" 
+        style={{ minHeight: '150px' }}
+      />
 
       {/* Hero Section */}
       <section id="inicio" className="relative w-full bg-white z-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] pt-8 pb-10 md:pt-12 md:pb-16">

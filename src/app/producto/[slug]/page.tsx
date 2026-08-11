@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 import { getProductBySlug, getProducts } from '@/lib/actions';
 import HeaderWrapper from '@/components/HeaderWrapper';
 import BackButton from '@/components/BackButton';
-import { MessageSquare, ShieldCheck, Truck, RefreshCw } from 'lucide-react';
+import { MessageSquare } from 'lucide-react';
 import { formatPresentation } from '@/lib/utils';
 
 interface Props {
@@ -122,7 +122,10 @@ export default async function ProductDetailPage({ params }: Props) {
           {/* Description */}
           <div className="space-y-3">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500 font-mono">Detalles del Producto</h3>
-            <p className="text-base text-slate-650 leading-relaxed whitespace-pre-line font-light">
+            <p 
+              className="text-base text-slate-650 leading-relaxed whitespace-pre-line font-normal"
+              style={{ fontFamily: 'Arial, sans-serif' }}
+            >
               {product.description}
             </p>
           </div>
@@ -142,21 +145,6 @@ export default async function ProductDetailPage({ params }: Props) {
             </p>
           </div>
 
-          {/* Trust Badges */}
-          <div className="grid grid-cols-3 gap-4 pt-8 border-t border-slate-100 text-center">
-            <div className="flex flex-col items-center gap-2 p-3 bg-slate-50 border border-slate-200 rounded-md">
-              <Truck className="h-5 w-5 text-green-700" />
-              <p className="text-[10px] font-bold text-slate-600">Envíos a acordar</p>
-            </div>
-            <div className="flex flex-col items-center gap-2 p-3 bg-slate-50 border border-slate-200 rounded-md">
-              <ShieldCheck className="h-5 w-5 text-green-700" />
-              <p className="text-[10px] font-bold text-slate-600">Compra segura</p>
-            </div>
-            <div className="flex flex-col items-center gap-2 p-3 bg-slate-50 border border-slate-200 rounded-md">
-              <RefreshCw className="h-5 w-5 text-green-700" />
-              <p className="text-[10px] font-bold text-slate-600">Garantía directa</p>
-            </div>
-          </div>
 
         </div>
       </main>

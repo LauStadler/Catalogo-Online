@@ -53,6 +53,8 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
     'naval-ndustrial': '/Fondo_formulados_editado.png',
     'hogar-mayorista-y-minorista': '/Fondo hogar.png',
     'linea-automotor': '/Fondo autos def.png',
+    'crunch-oil': '/fondo crunchoil 2.JPG',
+    'vasana': '/foto vasana.png',
   };
 
   const categoryNameOverrides: Record<string, string> = {
@@ -93,14 +95,14 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
       'materias-primas',
       'articulos-varios',
       'crunch-oil',
+      'vasana',
+      'siliconas-wacker',
     ];
     return [...categories].sort((a, b) => {
       let indexA = order.indexOf(a.slug);
       let indexB = order.indexOf(b.slug);
       if (indexA === -1) indexA = 999;
       if (indexB === -1) indexB = 999;
-      if (a.slug === 'crunch-oil') indexA = 1000;
-      if (b.slug === 'crunch-oil') indexB = 1000;
       return indexA - indexB;
     });
   }, [categories]);
@@ -247,29 +249,29 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
               </div>
             </div>
           ) : (
-            <div className="space-y-4 max-w-5xl mx-auto animate-in fade-in duration-300">
+            <div className="max-w-5xl mx-auto animate-in fade-in duration-300 space-y-1">
               {filteredProducts.map((product) => (
                 <Link 
                   key={product.id}
                   href={`/producto/${product.slug}`}
-                  className="group flex flex-col md:flex-row md:items-center justify-between p-6 bg-white border border-slate-200/80 rounded-none hover:border-green-700/40 hover:shadow-sm transition-all duration-300 gap-4"
+                  className="group flex flex-col md:flex-row md:items-center justify-between py-3 px-4 hover:bg-white hover:shadow-[0_2px_8px_rgba(0,0,0,0.04)] rounded-md transition-all duration-200 gap-4"
                 >
-                  <div className="space-y-2 flex-1 min-w-0">
-                    <div className="flex items-center gap-3">
-                      <h3 className="font-roboto font-light uppercase tracking-wider text-black text-lg leading-tight">
-                        {product.name}
-                      </h3>
-                    </div>
-                    <p className="text-sm text-slate-600 line-clamp-2 md:line-clamp-1 leading-relaxed">
-                      {product.description}
-                    </p>
+                  <div className="space-y-1.5 flex-1 min-w-0">
+                    <h3 className="font-roboto font-light uppercase tracking-wider text-black text-base sm:text-lg leading-tight group-hover:text-green-700 transition-colors">
+                      {product.name}
+                    </h3>
+                    {product.description && (
+                      <p className="text-sm text-slate-500 line-clamp-2 md:line-clamp-1 leading-relaxed">
+                        {product.description}
+                      </p>
+                    )}
                   </div>
 
-                  <div className="flex flex-wrap md:flex-nowrap items-center gap-4 shrink-0 justify-between md:justify-end w-full md:w-auto border-t md:border-t-0 pt-3 md:pt-0 border-slate-100">
+                  <div className="flex flex-wrap md:flex-nowrap items-center gap-4 shrink-0 justify-between md:justify-end w-full md:w-auto pl-5 md:pl-0">
                     {product.presentations && product.presentations.length > 0 && (
                       <div className="flex flex-wrap gap-1.5">
                         {product.presentations.map((p, idx) => (
-                          <span key={idx} className="text-[10px] px-2 py-1 bg-slate-50 border border-slate-200 rounded-none text-slate-600 font-semibold font-mono">
+                          <span key={idx} className="text-[10px] px-2 py-0.5 bg-slate-50 border border-slate-200 rounded-none text-slate-600 font-semibold font-mono">
                             {formatPresentation(p, product)}
                           </span>
                         ))}

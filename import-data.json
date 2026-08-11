@@ -1,0 +1,1245 @@
+[
+  {
+    "name": "AVIA SOL 108 CONCENTRADO",
+    "category": "NAVAL NDUSTRIAL",
+    "presentations": [
+      "X LT",
+      "X5",
+      "X10",
+      "X25 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "AVIA SOL 110 CONCENTRADO",
+    "category": "NAVAL NDUSTRIAL",
+    "presentations": [
+      "X LT",
+      "X5",
+      "X10",
+      "X25 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "AVIA SOL 110 BAJA ESPUMA CONCENTRADO",
+    "category": "NAVAL NDUSTRIAL",
+    "presentations": [
+      "X 25 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "SANITARIO INTEGRAL TF CONCENTRADO",
+    "category": "NAVAL NDUSTRIAL",
+    "presentations": [
+      "X LT",
+      "X5",
+      "X10",
+      "X25 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "TECNI 3D ÁCIDA CONCENTRADO",
+    "category": "NAVAL NDUSTRIAL",
+    "presentations": [
+      "X LT",
+      "X5",
+      "X10",
+      "X25 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "TECNI 3D ALCALINA CONCENTRADO",
+    "category": "NAVAL NDUSTRIAL",
+    "presentations": [
+      "X LT",
+      "X5",
+      "X10",
+      "X25 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "TECNI DSC CONCENTRADO",
+    "category": "NAVAL NDUSTRIAL",
+    "presentations": [
+      "X LT",
+      "X5",
+      "X12",
+      "X25 KG"
+    ],
+    "description": ""
+  },
+  {
+    "name": "TECNI QMO CONCENTRADO",
+    "category": "NAVAL NDUSTRIAL",
+    "presentations": [
+      "X LT",
+      "X5",
+      "X10",
+      "X25 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "TECNI QMO ELE CONCENTRADO",
+    "category": "NAVAL NDUSTRIAL",
+    "presentations": [
+      "X LT",
+      "X5",
+      "X10",
+      "X25 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "TECNI S02 (SOLVENTE DIELÉCTRICO)",
+    "category": "NAVAL NDUSTRIAL",
+    "presentations": [
+      "X LT",
+      "X5",
+      "X10",
+      "X25 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "TECNISOL",
+    "category": "NAVAL NDUSTRIAL",
+    "presentations": [
+      "X LT",
+      "X5",
+      "X10 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "AGUA LAVANDINA",
+    "category": "NAVAL NDUSTRIAL",
+    "presentations": [
+      "CAJA 3X5 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "DESODORANTE DESINFECTANTE TF",
+    "category": "NAVAL NDUSTRIAL",
+    "presentations": [],
+    "description": "X LT / X5 / X10 LTS / CAJA 3X5 LTS"
+  },
+  {
+    "name": "DESODORANTE DESINFECTANTE TF PLUS",
+    "category": "NAVAL NDUSTRIAL",
+    "presentations": [
+      "X LT",
+      "X5",
+      "X10 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "DETERGENTE TF",
+    "category": "NAVAL NDUSTRIAL",
+    "presentations": [],
+    "description": "X LT / X5 / X10 LTS / CAJA 3X5 LTS"
+  },
+  {
+    "name": "DETERGENTE TF PLUS",
+    "category": "NAVAL NDUSTRIAL",
+    "presentations": [
+      "X LT",
+      "X5",
+      "X10 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "ACIDO OXALICO (SAL DE LIMÓN)",
+    "category": "NAVAL NDUSTRIAL",
+    "presentations": [
+      "X1",
+      "X25 KG"
+    ],
+    "description": ""
+  },
+  {
+    "name": "AGUA DESTILADA",
+    "category": "NAVAL NDUSTRIAL",
+    "presentations": [
+      "X5",
+      "X10 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "AROMATIZADOR EN SPRAY 185 GS.",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "BOLSAS 60 X 90 X 10 UN.",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "BOLSAS 80 X 1 MTS X 50 UN.",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "BOLSAS DE RESIDUOS 45 X 60 X 10 UN",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "DISPENSER P/TOALLA EN ROLLO 100M",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "DISPENSER PARA JABON LIQUIDO BLANCO",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "DISPENSER PARA PAP. HIG EN ROLLO BLANCO",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "DISPENSER PARA TOALLAS EN ROLLO BLANCO",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "DISPENSER PARA TOALLAS INTERC. BCO",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "BOBINA TOALLA EN  ROLLO (PACK 2X 300 MTS)",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "CAJA TOALLAS EN ROLLO BEIGE (10X250)",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "HIGIENICO EN ROLLO (PACK 8X300 MTS)",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "ROLLO TOALLAS (6 X 100 MTS)",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "ROLLO PAP. HIG SUELTO X 100 MTS",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "PACK HIG 12 X 100 MTS",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "ROLLO COCINA SUELTO 200 PAÑOS",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "ROLLO COCINA 6X200 PAÑOS",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "BOTELLA COMUN X 1 LT",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "BOTELLA PET ANILLADA X 1 LT",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "BOTELLA COMUN X 1/2 LT",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "BOTELLA COMUN X 1/4 LT",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "BOTELLA PET X 1 LT C/GATILLO",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "BOTELLA PET X 1/4 C/SPRAY",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "GATILLO",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "SPRAY",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "BIDON TRANSLUCIDO X 5 LTS",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "BIDON AMARILLO X 5 LTS",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "BIDON TRANSLUCIDO X 10 LTS",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "BIDON AMARILLO X 10 LTS",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "GUANTES DE LATX X PAR",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "GUANTES DE NITRILO X PAR",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "CAJA DE GUANTES DE LATEX",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "CAJA DE GUANTES DE NITRILO",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "JABON EN PAN SEISEME X 300 GS",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "GUANTES DE GOMA",
+    "category": "ARTÍCULOS VARIOS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "FLUIDO TIPO ACAROÍNA",
+    "category": "HOGAR (MAYORISTA Y MINORISTA)",
+    "presentations": [
+      "X LT",
+      "X1",
+      "X1",
+      "2",
+      "X5 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "LAVANDINA EN GEL",
+    "category": "HOGAR (MAYORISTA Y MINORISTA)",
+    "presentations": [
+      "X LT",
+      "X1",
+      "X5 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "JABON LÍQUIDO PARA ROPA AZUL",
+    "category": "HOGAR (MAYORISTA Y MINORISTA)",
+    "presentations": [
+      "X LT",
+      "X1",
+      "X5 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "JABON LÍQUIDO PARA ROPA VERDE",
+    "category": "HOGAR (MAYORISTA Y MINORISTA)",
+    "presentations": [
+      "X LT",
+      "X1",
+      "X5 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "JABON LÍQUIDO PARA ROPA CON DESMANCHADOR",
+    "category": "HOGAR (MAYORISTA Y MINORISTA)",
+    "presentations": [
+      "X1",
+      "X5 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "JABON LÍQUIDO PARA ROPA NEUTRO",
+    "category": "HOGAR (MAYORISTA Y MINORISTA)",
+    "presentations": [
+      "X LT",
+      "X1",
+      "X5 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "JABON LÍQUIDO PARA ROPA CLORADO",
+    "category": "HOGAR (MAYORISTA Y MINORISTA)",
+    "presentations": [
+      "X LT",
+      "X1",
+      "X5 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "JABON LÍQUIDO PARA MANOS",
+    "category": "HOGAR (MAYORISTA Y MINORISTA)",
+    "presentations": [
+      "X LT",
+      "X1",
+      "X5 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "JABON GERMICIDA",
+    "category": "HOGAR (MAYORISTA Y MINORISTA)",
+    "presentations": [
+      "X5 LTS (A PEDIDO)"
+    ],
+    "description": ""
+  },
+  {
+    "name": "SUAVIZANTE CELESTE",
+    "category": "HOGAR (MAYORISTA Y MINORISTA)",
+    "presentations": [
+      "X LT",
+      "X5",
+      "X10 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "AGUA LAVANDINA",
+    "category": "HOGAR (MAYORISTA Y MINORISTA)",
+    "presentations": [
+      "X LT",
+      "X5",
+      "X10 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "DESODORANTE FRAGANCIAS VARIAS",
+    "category": "HOGAR (MAYORISTA Y MINORISTA)",
+    "presentations": [
+      "X LT",
+      "X5 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "LIMPIAVIDRIOS",
+    "category": "HOGAR (MAYORISTA Y MINORISTA)",
+    "presentations": [
+      "X LT",
+      "X1",
+      "X5 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "LIMPIADOR CREMOSO",
+    "category": "HOGAR (MAYORISTA Y MINORISTA)",
+    "presentations": [
+      "X KG",
+      "X1",
+      "X5 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "DESODORANTE SILICONADO",
+    "category": "HOGAR (MAYORISTA Y MINORISTA)",
+    "presentations": [
+      "X LT",
+      "X1",
+      "X5 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "CERA ACRÍLICA",
+    "category": "HOGAR (MAYORISTA Y MINORISTA)",
+    "presentations": [
+      "X LT",
+      "X1",
+      "X5 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "SANITARIO INTEGRAL LU",
+    "category": "HOGAR (MAYORISTA Y MINORISTA)",
+    "presentations": [
+      "X5 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "PERFUMINA AL ALCOHOL",
+    "category": "HOGAR (MAYORISTA Y MINORISTA)",
+    "presentations": [],
+    "description": "X LT / X1 / X5 / X1/2 / X1/4 LTS / X1/4 C/ SPRAY"
+  },
+  {
+    "name": "CLOROFER (HIPOCLORITO DE SODIO)",
+    "category": "HOGAR (MAYORISTA Y MINORISTA)",
+    "presentations": [
+      "X KG",
+      "X5",
+      "X10 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "DETERGENTE CONCENTRADO 30%",
+    "category": "HOGAR (MAYORISTA Y MINORISTA)",
+    "presentations": [
+      "X KG",
+      "X1",
+      "X5",
+      "X10 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "DETERGENTE INTERMEDIO 15%",
+    "category": "HOGAR (MAYORISTA Y MINORISTA)",
+    "presentations": [
+      "X KG",
+      "X5",
+      "X10 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "ESENCIA HS FULL CONCENTRADA COMÚN",
+    "category": "HOGAR (MAYORISTA Y MINORISTA)",
+    "presentations": [
+      "X LT",
+      "X1",
+      "X1",
+      "2",
+      "X1",
+      "4 LTS"
+    ],
+    "description": "* consultar por fragancias"
+  },
+  {
+    "name": "ESENCIA HS FULL CONCENTRADA CÍTRICO",
+    "category": "HOGAR (MAYORISTA Y MINORISTA)",
+    "presentations": [
+      "X LT",
+      "X1",
+      "X1",
+      "2",
+      "X1",
+      "4 LTS"
+    ],
+    "description": "* consultar por fragancias"
+  },
+  {
+    "name": "ESENCIA HS FULL CONCENTRADA PREMIUM",
+    "category": "HOGAR (MAYORISTA Y MINORISTA)",
+    "presentations": [
+      "X LT",
+      "X1",
+      "X1",
+      "2",
+      "X1",
+      "4 LTS"
+    ],
+    "description": "* consultar por fragancias"
+  },
+  {
+    "name": "GRASA DE SILICONA POMO X 35 GR",
+    "category": "HOGAR (MAYORISTA Y MINORISTA)",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "GRASA DE SILICONA POMO X 50 GR",
+    "category": "HOGAR (MAYORISTA Y MINORISTA)",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "GRASA DE SILICONA POTE X 250 GR",
+    "category": "HOGAR (MAYORISTA Y MINORISTA)",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "GRASA DE SILICONA POTE X 550 GR",
+    "category": "HOGAR (MAYORISTA Y MINORISTA)",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "HIDROFLEX",
+    "category": "HOGAR (MAYORISTA Y MINORISTA)",
+    "presentations": [
+      "X LT",
+      "X1",
+      "X5 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "ESENCIAS FULL",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [
+      "X LT",
+      "X1",
+      "X1",
+      "2",
+      "X1",
+      "4 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "ESENCIAS PERFUMERÍA FINA",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [
+      "X LT",
+      "X1",
+      "X1",
+      "2",
+      "X1",
+      "4 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "DILUYENTE E - 43",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [
+      "X LT",
+      "X1",
+      "X5 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "LESS 70 X KG",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "LESS 25 X LT",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "BASE PARA SUAVIZANTE SÓLIDA",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "BASE PARA SUAVIZANTE LÍQUIDA 4+1",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "KIT P/SUAVIZANTE",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "SAL BOLSA X 50 KGS",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "SAL BOLSA X 25 KGS",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "NONIL FENOL X LT",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "EE 35 N EMULSION DE SILICONAS",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "ACEITE DE SILICONAS AK-1000",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "ANTIESPUMA WAS/EROL",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "ALCOHOL ISOPROPILICO X LT",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "DILUYENTE MINERAL (1006)",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "ACETATO DE BUTILO",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "BUTILGLICOL X LT",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "BIOCIDA (CONSERVANTE)",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "COLORANTE COMÚN",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "COLORANTE VASANA AL AGUA",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "COLORANTE VASANA A LA GRASA",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "OPACANTE",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "NACARANTE",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "CLORURO DE BANZALCONIO 80",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "DIPROPILENGLICOL",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "MONOETILENGLICOL",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "PROPILENGLICOL",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "ACIDO SULFONICO X KG",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "ALQUILOLAMIDA DE COCO",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "ACIDO FOSFORICO X KG",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "COCOAMIDA PROPILBETAINA X KG",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "ESPESANTE PARA SUAVI (SULFATO DE SODIO)",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "SULFATO DE ALUMINIO",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "FLUORESCEÍNA",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "ORTODICLORO DE BENCENO",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "HDK",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "CENUSIL",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "CATALYST (CATALIZADOR)",
+    "category": "MATERIAS PRIMAS",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "REVIVIDOR DE NEUMÁTICOS",
+    "category": "LÍNEA AUTOMOTOR",
+    "presentations": [
+      "X LT",
+      "X1",
+      "X1",
+      "4",
+      "X5 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "REVIVIDOR DE INTERIORES",
+    "category": "LÍNEA AUTOMOTOR",
+    "presentations": [
+      "X LT",
+      "X1",
+      "X1",
+      "4",
+      "X5 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "SHAMPOO PARA AUTOS",
+    "category": "LÍNEA AUTOMOTOR",
+    "presentations": [
+      "X LT",
+      "X 1",
+      "X5 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "CERA CON TEFLÓN",
+    "category": "LÍNEA AUTOMOTOR",
+    "presentations": [],
+    "description": "X LT / X1 / X5 LTS / X1/4 C/ SPRAY"
+  },
+  {
+    "name": "LAVAMOTORES",
+    "category": "LÍNEA AUTOMOTOR",
+    "presentations": [
+      "X LT",
+      "X 1",
+      "X5 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "CLORO EN PASTILLAS 50 GRS X KG",
+    "category": "LÍNEA PISCINA",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "CLORO EN PASTILLAS 200 GRS X KG",
+    "category": "LÍNEA PISCINA",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "CLORO EN POLVO DISOLUCIÓN RAPIDA (60%)",
+    "category": "LÍNEA PISCINA",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "CLORO GRANULADO DISOLUCIÓN LENTA (90%)",
+    "category": "LÍNEA PISCINA",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "CLARIFICADOR",
+    "category": "LÍNEA PISCINA",
+    "presentations": [
+      "X LT",
+      "X 1",
+      "X5 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "ALGUICIDA",
+    "category": "LÍNEA PISCINA",
+    "presentations": [
+      "X LT",
+      "X 1",
+      "X5 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "REGULADOR DE pH",
+    "category": "LÍNEA PISCINA",
+    "presentations": [
+      "X10 LTS"
+    ],
+    "description": ""
+  },
+  {
+    "name": "RESPUESTO SACAHOJAS PLANO",
+    "category": "LÍNEA PISCINA",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "REPUESTO SACAHOJAS CON BOLSA",
+    "category": "LÍNEA PISCINA",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "PALO DE ALUMINIO (PARA SACAHOJAS)",
+    "category": "LÍNEA PISCINA",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "PALO TELESCOPICO 3,6 MTS EXTENSIBLE",
+    "category": "LÍNEA PISCINA",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "BOYA HONGO",
+    "category": "LÍNEA PISCINA",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "BOYA MINI HONGO",
+    "category": "LÍNEA PISCINA",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "BOYA SATELITE GRANDE",
+    "category": "LÍNEA PISCINA",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "BOYA SATELITE CHCIA",
+    "category": "LÍNEA PISCINA",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "LIMPIAFONDO CEPILLO 1/2 LUNA",
+    "category": "LÍNEA PISCINA",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "LIMPIAFONDO 8 RUEDAS FLEXIBLE",
+    "category": "LÍNEA PISCINA",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "MANGUERA X MT",
+    "category": "LÍNEA PISCINA",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "TEST MEDIDOR DE pH",
+    "category": "LÍNEA PISCINA",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "ABS. MINERAL SAPONITA X 10 KG",
+    "category": "CRUNCH OIL",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "ABS. MINERAL DIATOMEA X 25 KG",
+    "category": "CRUNCH OIL",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "LOOSE FIBER BOLSA X 1 KG",
+    "category": "CRUNCH OIL",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "LOOSE FIBER BOLSA X 6 KG",
+    "category": "CRUNCH OIL",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "LOOSE FIBER BOLSA X 12 KG",
+    "category": "CRUNCH OIL",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "PILLOW ABSORBENTE 50 x 40 cm (caja 12 un.)",
+    "category": "CRUNCH OIL",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "SOCK ABSORBENTE 250 x 7 cm (caja 6 un.)",
+    "category": "CRUNCH OIL",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "SOCK HEAVY DUTY 320 x 15 cm",
+    "category": "CRUNCH OIL",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "FLOATING BOOM 250 x 10 cm (caja 4 un.)",
+    "category": "CRUNCH OIL",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "BOOM HEAVY DUTY 320 x 20 cm",
+    "category": "CRUNCH OIL",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "PILLOW FLOTANTE 50 x 40 cm (caja 12 un.)",
+    "category": "CRUNCH OIL",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "PILLOW FLOTANTE 1 x 1 mt (caja 2 un)",
+    "category": "CRUNCH OIL",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "PAÑOS ABSORBENTES 0,5 x 0,5 (180 gr/m2) 100 un.",
+    "category": "CRUNCH OIL",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "PAÑOS ABSORBENTES 1 x 1 mt(180 gr/m2) 100 un.",
+    "category": "CRUNCH OIL",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "PAÑOS ABSORBENTES 0,5 x 0,5 (120 gr/m2) 100 un.",
+    "category": "CRUNCH OIL",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "PAÑOS ABSORBENTES 1 x 1 mt(120 gr/m2) 100 un.",
+    "category": "CRUNCH OIL",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "ESENCIAS FULL",
+    "category": "VASANA",
+    "presentations": [],
+    "description": "Esencias para velas, sahumerios, lavandería, perfuminas, desodorantes para piso, etc. Consultar por fragancias disponibles"
+  },
+  {
+    "name": "ESENCIAS PERFUMERÍA FINA",
+    "category": "VASANA",
+    "presentations": [],
+    "description": "Esencias para formulación de perfumes. Consultar por fragancias disponibles"
+  },
+  {
+    "name": "COLORANTE AL AGUA",
+    "category": "VASANA",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "COLORANTE A LA GRASA",
+    "category": "VASANA",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "EE 35 N EMULSION DE SILICONAS",
+    "category": "SILICONAS WACKER",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "ACEITE DE SILICONAS AK-1000",
+    "category": "SILICONAS WACKER",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "ANTIESPUMA WAS/EROL",
+    "category": "SILICONAS WACKER",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "HDK",
+    "category": "SILICONAS WACKER",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "CENUSIL",
+    "category": "SILICONAS WACKER",
+    "presentations": [],
+    "description": ""
+  },
+  {
+    "name": "CATALYST (CATALIZADOR)",
+    "category": "SILICONAS WACKER",
+    "presentations": [],
+    "description": ""
+  }
+]
