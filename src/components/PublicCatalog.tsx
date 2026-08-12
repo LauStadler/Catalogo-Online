@@ -54,7 +54,7 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
     'hogar-mayorista-y-minorista': '/Fondo hogar.png',
     'linea-automotor': '/Fondo autos def.png',
     'crunch-oil': '/fondo crunchoil 2.JPG',
-    'vasana': '/foto vasana.png',
+    'esencias-vasana': '/foto vasana.png',
     'siliconas-y-antiespumantes-wacker': '/antiespumantes.webp',
   };
 
@@ -96,7 +96,7 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
       'materias-primas',
       'articulos-varios',
       'crunch-oil',
-      'vasana',
+      'esencias-vasana',
       'siliconas-y-antiespumantes-wacker',
     ];
     return [...categories].sort((a, b) => {
@@ -144,8 +144,10 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
       </HeaderWrapper>
 
       {/* Hero / Header Section */}
-      <section className="relative max-w-7xl mx-auto px-6 pt-16 pb-12 flex flex-col items-center text-center">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-slate-900 tracking-wide font-oswald uppercase leading-[1.1]">
+      <section className={`relative max-w-7xl mx-auto px-6 pt-16 pb-12 flex flex-col ${
+        selectedCategory || searchQuery ? 'items-start text-left' : 'items-center text-center'
+      }`}>
+        <h1 className="w-full text-center text-4xl md:text-5xl lg:text-6xl font-medium text-slate-900 tracking-wide font-oswald uppercase leading-[1.1]">
           {searchQuery 
             ? 'Resultados de Búsqueda' 
             : currentCategory 
@@ -160,31 +162,33 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
         )}
 
         {/* Search Bar */}
-        <div 
-          className="w-full max-w-lg relative group"
-          style={{ marginTop: '48px' }}
-        >
-          <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-emerald-600 transition-colors">
-            <Search className="h-5 w-5" />
+        {!selectedCategory && (
+          <div 
+            className="w-full max-w-lg relative group"
+            style={{ marginTop: '48px' }}
+          >
+            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-emerald-600 transition-colors">
+              <Search className="h-5 w-5" />
+            </div>
+            <input
+              type="text"
+              placeholder="Buscar por nombre, detalles..."
+              value={searchQuery}
+              onChange={(e) => {
+                const val = e.target.value;
+                setSearchQuery(val);
+                const params = new URLSearchParams(window.location.search);
+                if (val) {
+                  params.set('q', val);
+                } else {
+                  params.delete('q');
+                }
+                router.replace(`/catalogo?${params.toString()}`, { scroll: false });
+              }}
+              className="block w-full pl-12 pr-4 py-3 bg-white border border-slate-200 rounded-md text-slate-800 placeholder-slate-400 focus:outline-none focus:border-green-700 focus:ring-1 focus:ring-green-700 transition-all duration-200 shadow-sm"
+            />
           </div>
-          <input
-            type="text"
-            placeholder="Buscar por nombre, detalles..."
-            value={searchQuery}
-            onChange={(e) => {
-              const val = e.target.value;
-              setSearchQuery(val);
-              const params = new URLSearchParams(window.location.search);
-              if (val) {
-                params.set('q', val);
-              } else {
-                params.delete('q');
-              }
-              router.replace(`/catalogo?${params.toString()}`, { scroll: false });
-            }}
-            className="block w-full pl-12 pr-4 py-3 bg-white border border-slate-200 rounded-md text-slate-800 placeholder-slate-400 focus:outline-none focus:border-green-700 focus:ring-1 focus:ring-green-700 transition-all duration-200 shadow-sm"
-          />
-        </div>
+        )}
       </section>
 
       {/* Main Content Area */}
@@ -250,7 +254,9 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
               </div>
             </div>
           ) : (
-            <div className="max-w-5xl mx-auto animate-in fade-in duration-300 space-y-1">
+            <div className={`max-w-5xl animate-in fade-in duration-300 space-y-1 ${
+              selectedCategory || searchQuery ? 'mr-auto' : 'mx-auto'
+            }`}>
               {filteredProducts.map((product) => (
                 <Link 
                   key={product.id}
@@ -268,16 +274,7 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
                     )}
                   </div>
 
-                  <div className="flex flex-wrap md:flex-nowrap items-center gap-4 shrink-0 justify-between md:justify-end w-full md:w-auto pl-5 md:pl-0">
-                    {product.presentations && product.presentations.length > 0 && (
-                      <div className="flex flex-wrap gap-1.5">
-                        {product.presentations.map((p, idx) => (
-                          <span key={idx} className="text-[10px] px-2 py-0.5 bg-slate-50 border border-slate-200 rounded-none text-slate-600 font-semibold font-mono">
-                            {formatPresentation(p, product)}
-                          </span>
-                        ))}
-                      </div>
-                    )}
+                  <div className="flex items-center gap-4 shrink-0 justify-end w-full md:w-auto pl-5 md:pl-0">
                     <span className="inline-flex items-center gap-1.5 text-xs font-roboto font-light uppercase tracking-wider text-black group-hover:underline shrink-0">
                       <span>Detalles</span>
                       <ArrowRight className="h-4 w-4 transform group-hover:translate-x-0.5 transition-transform text-black" />

@@ -8,6 +8,7 @@ interface BannerCarouselProps {
   images: {
     src: StaticImageData;
     alt: string;
+    position?: string;
   }[];
 }
 
@@ -37,16 +38,17 @@ export default function BannerCarousel({ images }: BannerCarouselProps) {
         {images.map((image, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+            className={`absolute inset-0 transition-opacity duration-700 ease-in-out bg-white ${
               index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
             }`}
           >
+            {/* Original image centered and fully visible with custom crop position */}
             <Image
               src={image.src}
               alt={image.alt}
               placeholder="blur"
               fill
-              className="object-cover"
+              className={`object-cover ${image.position || 'object-center'}`}
               priority={index === 0}
             />
           </div>

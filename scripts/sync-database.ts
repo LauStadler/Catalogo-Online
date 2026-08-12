@@ -87,6 +87,10 @@ async function run() {
     productCache.set(prod.name.trim().toUpperCase(), prod);
   }
 
+  const activeProductIdsToDeactivate = new Set<string>(
+    dbProducts.filter(p => p.active).map(p => p.id)
+  );
+
   let createdCategoriesCount = 0;
   let createdProductsCount = 0;
   let updatedProductsCount = 0;
@@ -127,9 +131,18 @@ async function run() {
     const itemDescription = item.description ? item.description.trim() : '';
 
     if (dbProduct) {
+      // Product is present in JSON, so it should be active
+      activeProductIdsToDeactivate.delete(dbProduct.id);
+
       // Product exists, check if any field has changed and needs update
       let needsUpdate = false;
       const updates: any = {};
+
+      if (!dbProduct.active) {
+        updates.active = true;
+        needsUpdate = true;
+        console.log(`   - Reactivando producto "${prodName}"`);
+      }
 
       if (dbProduct.categoryId !== categoryId) {
         updates.categoryId = categoryId;
@@ -178,11 +191,29 @@ async function run() {
     }
   }
 
+  // Deactivate products that are not in the JSON file
+  let deactivatedProductsCount = 0;
+  if (activeProductIdsToDeactivate.size > 0) {
+    console.log(`\n⚠️ Encontrados ${activeProductIdsToDeactivate.size} productos activos en la BD que no están en el archivo JSON. Desactivando...`);
+    for (const id of activeProductIdsToDeactivate) {
+      const prod = dbProducts.find(p => p.id === id);
+      if (prod) {
+        console.log(`🚫 Desactivando producto: "${prod.name}"`);
+        await db
+          .update(schema.products)
+          .set({ active: false })
+          .where(eq(schema.products.id, id));
+        deactivatedProductsCount++;
+      }
+    }
+  }
+
   console.log(`\n========================================`);
   console.log('🏁 Proceso de sincronización finalizado.');
   console.log(`- Nuevas categorías creadas: ${createdCategoriesCount}`);
   console.log(`- Nuevos productos insertados: ${createdProductsCount}`);
   console.log(`- Productos existentes actualizados: ${updatedProductsCount}`);
+  console.log(`- Productos desactivados (retirados del excel): ${deactivatedProductsCount}`);
 
   await client.end();
   process.exit(0);

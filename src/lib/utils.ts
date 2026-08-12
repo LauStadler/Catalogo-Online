@@ -47,16 +47,30 @@ export function getUnitForProduct(product: ProductLike): 'LT' | 'KG' {
 }
 
 export function formatPresentation(p: string, product: ProductLike): string {
-  const lower = p.toLowerCase();
+  let formatted = p.trim();
+  if (formatted.startsWith('X')) {
+    formatted = 'x' + formatted.slice(1);
+  }
+  formatted = formatted.replace(/(\d)\s*X\s*(\d)/gi, '$1x$2');
+  formatted = formatted.replace(/\bX\b/g, 'x');
+
+  // If the presentation contains a digit, ensure 'LT' becomes 'LTS'
+  const hasDigit = /\d/.test(formatted);
+  if (hasDigit) {
+    formatted = formatted.replace(/\bLT\b/gi, 'LTS');
+  }
+
+  const lower = formatted.toLowerCase();
   if (lower.includes('lt') || lower.includes('kg') || lower.includes('gr') || lower.includes('spray')) {
-    return p;
+    return formatted;
   }
   
   const numericRegex = /^x?\s*[\d\/\.]+$/i;
-  if (numericRegex.test(p.trim())) {
+  if (numericRegex.test(formatted)) {
     const unit = getUnitForProduct(product);
-    return `${p} ${unit}`;
+    const finalUnit = unit === 'LT' ? 'LTS' : unit;
+    return `${formatted} ${finalUnit}`;
   }
   
-  return p;
+  return formatted;
 }

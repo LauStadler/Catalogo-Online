@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import logoNuevo from '../../public/logo nuevo.png';
-import fondoBidones from '../../public/fondo bidones.jpeg';
 import banner2Img from '../../public/banner 2.jpg';
 import bannerCopiaImg from '../../public/banner copia.jpg';
 import fondoLocalImg from '../../public/fondo local.jpeg';
@@ -54,10 +53,9 @@ export default async function LandingPage() {
   const categories = await getCategories();
 
   const bannerImages = [
-    { src: banner2Img, alt: 'Tecnifer Banner 2' },
-    { src: fondoLocalImg, alt: 'Tecnifer Local' },
-    { src: bannerCopiaImg, alt: 'Tecnifer Banner Copia' },
-    { src: fondoBidones, alt: 'Tecnifer Bidones' },
+    { src: banner2Img, alt: 'Tecnifer Banner 2', position: 'object-center' },
+    { src: bannerCopiaImg, alt: 'Tecnifer Banner Copia', position: 'object-center' },
+    { src: fondoLocalImg, alt: 'Tecnifer Local', position: 'object-top' },
   ];
 
   const desiredSlugs = ['naval-ndustrial', 'hogar-mayorista-y-minorista', 'linea-piscina', 'linea-automotor'];
@@ -78,7 +76,7 @@ export default async function LandingPage() {
     'hogar-mayorista-y-minorista': '/Fondo hogar.png',
     'linea-automotor': '/Fondo autos def.png',
     'crunch-oil': '/fondo crunchoil 2.JPG',
-    'vasana': '/foto vasana.png',
+    'esencias-vasana': '/foto vasana.png',
     'siliconas-y-antiespumantes-wacker': '/antiespumantes.webp',
   };
 
@@ -231,11 +229,54 @@ export default async function LandingPage() {
         </div>
       </section>
 
+      {/* Brand Representations Strip */}
+      <section className="relative w-full bg-white border-t border-slate-100 py-10 z-10">
+        <div className="w-full px-6 md:px-12 lg:px-16 flex flex-col gap-6 text-left">
+          <div>
+            <h2 className="text-sm sm:text-base md:text-lg font-medium font-oswald uppercase tracking-wider text-black">
+              Representaciones oficiales
+            </h2>
+          </div>
+          <div className="flex flex-wrap items-center gap-x-16 gap-y-8">
+            {/* Wacker Logo */}
+            <div className="h-12 w-36 relative opacity-60 hover:opacity-100 transition-all duration-300">
+              <Image
+                src="/logo-wacker.svg"
+                alt="Wacker Chemie AG"
+                fill
+                className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                sizes="144px"
+              />
+            </div>
+            {/* Crunch Oil Logo */}
+            <div className="h-10 w-40 relative opacity-60 hover:opacity-100 transition-all duration-300">
+              <Image
+                src="/logo-crunchoil.png"
+                alt="Crunch Oil"
+                fill
+                className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                sizes="160px"
+              />
+            </div>
+            {/* Vasana Logo */}
+            <div className="h-10 w-36 relative opacity-60 hover:opacity-100 transition-all duration-300">
+              <Image
+                src="/logo-vasana.png"
+                alt="Esencias Vasana"
+                fill
+                className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                sizes="144px"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section 
         id="contacto" 
-        className="max-w-7xl mx-auto px-6 py-12 border-t border-slate-200"
+        className="w-full bg-white border-t border-slate-100 py-12"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* Map Column (Left) */}
           <div className="lg:col-span-7 w-full flex flex-col gap-4">

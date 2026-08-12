@@ -8,7 +8,7 @@
       "X10",
       "X25 LTS"
     ],
-    "description": ""
+    "description": "Desengrasante industrial de uso universal. Ideal para superficies contaminadas. Su pH alcalino garantiza un gran desempeño en superficies metálicas. Producto no abrasivo y biodegradable, no agresivo con la piel y no emite gases tóxicos. Recomendado para su uso en salas de máquinas, talleres, elevadores, cintas transportadoras etc. También recomendado para el mantenimiento de cubiertas de pesca, bodegas y mamparos. Producto altamente concentrado permite una dilucion de hasta 50 a 1"
   },
   {
     "name": "AVIA SOL 110 CONCENTRADO",
@@ -19,15 +19,7 @@
       "X10",
       "X25 LTS"
     ],
-    "description": ""
-  },
-  {
-    "name": "AVIA SOL 110 BAJA ESPUMA CONCENTRADO",
-    "category": "NAVAL NDUSTRIAL",
-    "presentations": [
-      "X 25 LTS"
-    ],
-    "description": ""
+    "description": "Desengrasante industrial de uso múltiple con aprobación de SENASA. A su alta capacidad de hidrolización de grasas y aceites se suma un gran poder bactericida, virucida y fungicida. Gran concentración, permite dilución hasta 1 en 50. Ideal para limpieza de frigoríficos de carnes rojas, aves, pescado, cocinas, depósitos, cintas transportadoras, bodegas, elementos de corte, entre otros."
   },
   {
     "name": "SANITARIO INTEGRAL TF CONCENTRADO",
@@ -38,7 +30,7 @@
       "X10",
       "X25 LTS"
     ],
-    "description": ""
+    "description": "Desodorizante y desinfectante de uso industrial.  Excelente poder biocida, acción antibacteriana y antifúngica a pH neutro. Recomendado para todo tipo de industrias y necesidades. Su pH neutro lo hace compatible con cualquier tipo de material o superficie. Por su gran concentración es posible su dosificación de hasta 1:400"
   },
   {
     "name": "TECNI 3D ÁCIDA CONCENTRADO",
@@ -49,7 +41,7 @@
       "X10",
       "X25 LTS"
     ],
-    "description": ""
+    "description": "Desengrasante de uso industrial. Detersivo espumígeno ácido. Permite remover grasas neutras, desinfecta y remueve particulas de oxido. No corroe ni daña superficies metálicas haciéndolo ideal para limpieza de mesas de trabajo, tanques, tolvas, bandejas, cortinas sanitarias, paredes frisos, etc.. Producto aprobado por SENASA ideal para su utilización en plantas procesadoras de alimento. Alta concentración, permite un gran margen de dilución"
   },
   {
     "name": "TECNI 3D ALCALINA CONCENTRADO",
@@ -60,7 +52,7 @@
       "X10",
       "X25 LTS"
     ],
-    "description": ""
+    "description": "Desengrasante industrial especialmente formulado para plantas procesadoras de alimentos. Detersivo espumígeno clorado. Por su pH básico regulado este prudcto logra hidrolizar grasas y aceites pesados a la vez que las disuelven para lograr la remoción completa. Potente desengrasante con acción desinfectante ideal para todo tipo de superficies, altamente concentrado permitiendo una gran dilución y un gran resultado en poco tiempo. Producto aprobado por SENASA para su utilización en la industria alimentaria."
   },
   {
     "name": "TECNI DSC CONCENTRADO",
@@ -71,7 +63,7 @@
       "X12",
       "X25 KG"
     ],
-    "description": ""
+    "description": "Desoxidante y fosfatizante para todo tipo de metales. Captura y disuelve los óxidos de hierro eliminando rastros de herrumbre. Deposita una fina capa de fosfato que mejora la adherencia para pinturas y recubrimientos. Al mismo tiempo posee una enérgica acción desengrasante que evita pasos de limpieza extra. Producto altamente concentrado, con resultados probados en cubiertas y superficies de embarcaciones"
   },
   {
     "name": "TECNI QMO CONCENTRADO",
@@ -82,18 +74,7 @@
       "X10",
       "X25 LTS"
     ],
-    "description": ""
-  },
-  {
-    "name": "TECNI QMO ELE CONCENTRADO",
-    "category": "NAVAL NDUSTRIAL",
-    "presentations": [
-      "X LT",
-      "X5",
-      "X10",
-      "X25 LTS"
-    ],
-    "description": ""
+    "description": "Desodorizante de acción intensiva. Desarrollado específicamente para la remoción de olores desagradables en ambientes cerrados, como baños, vestuarios, desagües sépticos, depósitos etc. Potente acción bactericida y fungicida que previene la proliferación de microorganismos que generan olores molestos. No ataca ni decolora superficies delicadas como plasticos y gomas, por lo que se recominenda para su uso en cañerías y sistemas de bombeo."
   },
   {
     "name": "TECNI S02 (SOLVENTE DIELÉCTRICO)",
@@ -104,7 +85,7 @@
       "X10",
       "X25 LTS"
     ],
-    "description": ""
+    "description": "Solvente dieléctrico de alto punto de inflamación. Solvente desengrasante ideal para limpieza de componentes eléctricos y electrónicos en frío. Formulado con una selección de solventes de altísima calidad, el producto posee un alto punto de inflamación y una tensión de ruptura excepcionalmente elevadas. Se evapora sin dejar residuos y no requiere limpieza posterior. Especialmente indicado para limpieza de equipamiento eléctrico, bobinas, sistemas electrónicos, entre otros."
   },
   {
     "name": "TECNISOL",
@@ -114,7 +95,7 @@
       "X5",
       "X10 LTS"
     ],
-    "description": ""
+    "description": "Desengrasante industrial. Desarrollado específicamente para el tratamiento y mantenimiento de sentinas. Desprende y ablanda la suciedad, manteniéndola en su estado de suspensión, actuando el desengrasante como elemento antidepositante y eliminándolo por arrastre. Elimina peligro de incendios y no ataca materiales como madera, hierro, bronce, etc."
   },
   {
     "name": "AGUA LAVANDINA",
@@ -127,8 +108,13 @@
   {
     "name": "DESODORANTE DESINFECTANTE TF",
     "category": "NAVAL NDUSTRIAL",
-    "presentations": [],
-    "description": "X LT / X5 / X10 LTS / CAJA 3X5 LTS"
+    "presentations": [
+      "X LT",
+      "X5",
+      "X10 LTS",
+      "CAJA 3X5 LTS"
+    ],
+    "description": ""
   },
   {
     "name": "DESODORANTE DESINFECTANTE TF PLUS",
@@ -143,8 +129,13 @@
   {
     "name": "DETERGENTE TF",
     "category": "NAVAL NDUSTRIAL",
-    "presentations": [],
-    "description": "X LT / X5 / X10 LTS / CAJA 3X5 LTS"
+    "presentations": [
+      "X LT",
+      "X5",
+      "X10 LTS",
+      "CAJA 3X5 LTS"
+    ],
+    "description": ""
   },
   {
     "name": "DETERGENTE TF PLUS",
@@ -553,8 +544,19 @@
   {
     "name": "PERFUMINA AL ALCOHOL",
     "category": "HOGAR (MAYORISTA Y MINORISTA)",
-    "presentations": [],
-    "description": "X LT / X1 / X5 / X1/2 / X1/4 LTS / X1/4 C/ SPRAY"
+    "presentations": [
+      "X LT",
+      "X1",
+      "X5",
+      "X1",
+      "2",
+      "X1",
+      "4 LTS",
+      "X1",
+      "4 C",
+      "SPRAY"
+    ],
+    "description": ""
   },
   {
     "name": "CLOROFER (HIPOCLORITO DE SODIO)",
@@ -746,19 +748,19 @@
   },
   {
     "name": "EE 35 N EMULSION DE SILICONAS",
-    "category": "MATERIAS PRIMAS",
+    "category": "siliconas y antiespumantes wacker",
     "presentations": [],
     "description": ""
   },
   {
     "name": "ACEITE DE SILICONAS AK-1000",
-    "category": "MATERIAS PRIMAS",
+    "category": "siliconas y antiespumantes wacker",
     "presentations": [],
     "description": ""
   },
   {
     "name": "ANTIESPUMA WAS/EROL",
-    "category": "MATERIAS PRIMAS",
+    "category": "siliconas y antiespumantes wacker",
     "presentations": [],
     "description": ""
   },
@@ -896,19 +898,19 @@
   },
   {
     "name": "HDK",
-    "category": "MATERIAS PRIMAS",
+    "category": "siliconas y antiespumantes wacker",
     "presentations": [],
     "description": ""
   },
   {
     "name": "CENUSIL",
-    "category": "MATERIAS PRIMAS",
+    "category": "siliconas y antiespumantes wacker",
     "presentations": [],
     "description": ""
   },
   {
     "name": "CATALYST (CATALIZADOR)",
-    "category": "MATERIAS PRIMAS",
+    "category": "siliconas y antiespumantes wacker",
     "presentations": [],
     "description": ""
   },
@@ -949,8 +951,15 @@
   {
     "name": "CERA CON TEFLÓN",
     "category": "LÍNEA AUTOMOTOR",
-    "presentations": [],
-    "description": "X LT / X1 / X5 LTS / X1/4 C/ SPRAY"
+    "presentations": [
+      "X LT",
+      "X1",
+      "X5 LTS",
+      "X1",
+      "4 C",
+      "SPRAY"
+    ],
+    "description": ""
   },
   {
     "name": "LAVAMOTORES",
@@ -1184,61 +1193,61 @@
   },
   {
     "name": "ESENCIAS FULL",
-    "category": "VASANA",
+    "category": "Esencias Vasana",
     "presentations": [],
     "description": "Esencias para velas, sahumerios, lavandería, perfuminas, desodorantes para piso, etc. Consultar por fragancias disponibles"
   },
   {
     "name": "ESENCIAS PERFUMERÍA FINA",
-    "category": "VASANA",
+    "category": "Esencias Vasana",
     "presentations": [],
     "description": "Esencias para formulación de perfumes. Consultar por fragancias disponibles"
   },
   {
     "name": "COLORANTE AL AGUA",
-    "category": "VASANA",
+    "category": "Esencias Vasana",
     "presentations": [],
     "description": ""
   },
   {
     "name": "COLORANTE A LA GRASA",
-    "category": "VASANA",
+    "category": "Esencias Vasana",
     "presentations": [],
     "description": ""
   },
   {
     "name": "EE 35 N EMULSION DE SILICONAS",
-    "category": "SILICONAS Y ANTIESPUMANTES WACKER",
+    "category": "siliconas y antiespumantes wacker",
     "presentations": [],
     "description": ""
   },
   {
     "name": "ACEITE DE SILICONAS AK-1000",
-    "category": "SILICONAS Y ANTIESPUMANTES WACKER",
+    "category": "siliconas y antiespumantes wacker",
     "presentations": [],
     "description": ""
   },
   {
     "name": "ANTIESPUMA WAS/EROL",
-    "category": "SILICONAS Y ANTIESPUMANTES WACKER",
+    "category": "siliconas y antiespumantes wacker",
     "presentations": [],
     "description": ""
   },
   {
     "name": "HDK",
-    "category": "SILICONAS Y ANTIESPUMANTES WACKER",
+    "category": "siliconas y antiespumantes wacker",
     "presentations": [],
     "description": ""
   },
   {
     "name": "CENUSIL",
-    "category": "SILICONAS Y ANTIESPUMANTES WACKER",
+    "category": "siliconas y antiespumantes wacker",
     "presentations": [],
     "description": ""
   },
   {
     "name": "CATALYST (CATALIZADOR)",
-    "category": "SILICONAS Y ANTIESPUMANTES WACKER",
+    "category": "siliconas y antiespumantes wacker",
     "presentations": [],
     "description": ""
   }

@@ -8,23 +8,24 @@ def clean_string(val):
         return ""
     return str(val).strip()
 
-def looks_like_description(val):
+def looks_like_note(val):
     if not val:
         return False
-    # If the text is long or contains descriptive words, it's a description, not a size list
     lower_val = val.lower()
-    if len(val) > 30:
+    # Notes typically contain keywords like 'consultar', 'varios', 'fragancia'
+    if "consultar" in lower_val or "varias" in lower_val or "fragancia" in lower_val or "perfume" in lower_val:
         return True
-    if "esencias para" in lower_val or "consultar" in lower_val or "fragancia" in lower_val or "perfume" in lower_val:
+    # If it is long and doesn't contain standard presentation delimiters, it might be a note
+    if len(val) > 40 and '/' not in val and ',' not in val and '|' not in val:
         return True
     return False
 
 def parse_presentations(val):
-    if not val or looks_like_description(val):
+    if not val or looks_like_note(val):
         return []
     
-    # Split by / or ,
-    parts = re.split(r'[/,]', val)
+    # Split by / or , or |
+    parts = re.split(r'[/,|]', val)
     cleaned_parts = []
     for p in parts:
         p_clean = p.strip()
@@ -43,12 +44,34 @@ def main():
     
     # Trim column names
     df.columns = [str(c).strip() for c in df.columns]
+    print("Columnas encontradas:", list(df.columns))
     
-    # Ensure expected columns exist
-    prod_col = 'PRODUCTO'
-    cat_col = 'CLASIFICACIÓN'
-    pres_col = 'PRESENTACIÓN'
-    desc_col = 'Unnamed: 3'
+    # Dynamically find columns to handle encoding or custom names
+    prod_col = next((c for c in df.columns if 'producto' in c.lower()), None)
+    cat_col = next((c for c in df.columns if 'clasific' in c.lower() or 'categor' in c.lower()), None)
+    pres_col = next((c for c in df.columns if 'presentac' in c.lower()), None)
+    desc_col = next((c for c in df.columns if 'descrip' in c.lower() or 'detalle' in c.lower()), None)
+    
+    if not prod_col:
+        prod_col = df.columns[0]
+    if not cat_col:
+        cat_col = df.columns[1] if len(df.columns) > 1 else 'CLASIFICACIÓN'
+    if not pres_col:
+        pres_col = df.columns[2] if len(df.columns) > 2 else 'PRESENTACIÓN'
+    if not desc_col and len(df.columns) > 3:
+        desc_col = df.columns[3]
+
+    print(f"Mapeo de columnas: Producto -> '{prod_col}', Categoría -> '{cat_col}', Presentación -> '{pres_col}', Descripción -> '{desc_col}'")
+
+    # Force wacker silicon products to the correct category
+    wacker_products = {
+        'ee 35 n emulsion de siliconas',
+        'aceite de siliconas ak-1000',
+        'antiespuma was/erol',
+        'hdk',
+        'cenusil',
+        'catalyst (catalizador)'
+    }
 
     items = []
     for idx, row in df.iterrows():
@@ -60,13 +83,20 @@ def main():
         if not category:
             category = "General"
             
+        # Map specific products or raw category names to the unified category
+        clean_name_lower = name.strip().lower()
+        if clean_name_lower in wacker_products or category.strip().lower() == 'siliconas wacker':
+            category = 'siliconas y antiespumantes wacker'
+        elif category.strip().lower() == 'vasana':
+            category = 'Esencias Vasana'
+            
         pres_raw = clean_string(row.get(pres_col))
-        desc_raw = clean_string(row.get(desc_col))
+        desc_raw = clean_string(row.get(desc_col)) if desc_col else ""
         
         description = desc_raw
         presentations = []
         
-        if looks_like_description(pres_raw):
+        if looks_like_note(pres_raw):
             if not description:
                 description = pres_raw
         else:

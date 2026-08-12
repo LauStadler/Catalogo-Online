@@ -3,7 +3,7 @@ import path from 'path';
 import { drizzle } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
 import * as schema from '../src/db/schema';
-import { eq, or, ilike } from 'drizzle-orm';
+import { eq } from 'drizzle-orm';
 
 function loadEnv() {
   const envPath = path.resolve(process.cwd(), '.env.local');
@@ -37,37 +37,42 @@ async function run() {
   const client = postgres(dbUrl, { prepare: false });
   const db = drizzle(client, { schema });
 
-  const productNames = [
-    'EE 35 N EMULSION DE SILICONAS',
-    'ACEITE DE SILICONAS AK-1000',
-    'ANTIESPUMA WAS/EROL',
-    'HDK',
-    'CENUSIL',
-    'CATALYST (CATALIZADOR)'
-  ];
+  // Find category by slug 'vasana'
+  const oldSlug = 'vasana';
+  const newName = 'Esencias Vasana';
+  const newSlug = 'esencias-vasana';
 
-  console.log(`🔍 Checking category of specified products in DB...`);
-  
-  for (const name of productNames) {
-    const prods = await db
-      .select({
-        prodName: schema.products.name,
-        categoryId: schema.products.categoryId,
-        active: schema.products.active,
-        catName: schema.categories.name,
-        catSlug: schema.categories.slug
-      })
-      .from(schema.products)
-      .leftJoin(schema.categories, eq(schema.products.categoryId, schema.categories.id))
-      .where(eq(schema.products.name, name));
+  console.log(`🔍 Searching for category with slug: "${oldSlug}"...`);
+  const cats = await db
+    .select()
+    .from(schema.categories)
+    .where(eq(schema.categories.slug, oldSlug));
 
-    if (prods.length === 0) {
-      console.log(`⚠️ Product "${name}" NOT found in DB.`);
-    } else {
-      for (const p of prods) {
-        console.log(`📌 Product: "${p.prodName}" | Category in DB: "${p.catName}" (Slug: ${p.catSlug}, ID: ${p.categoryId}) | Active: ${p.active}`);
-      }
+  if (cats.length === 0) {
+    console.log(`❌ Category with slug "${oldSlug}" not found. Let's search by name...`);
+    const catsByName = await db
+      .select()
+      .from(schema.categories)
+      .where(eq(schema.categories.name, 'VASANA'));
+      
+    if (catsByName.length === 0) {
+      console.log('❌ Category "VASANA" not found by name either.');
+      await client.end();
+      process.exit(0);
     }
+    cats.push(...catsByName);
+  }
+
+  for (const cat of cats) {
+    console.log(`📌 Found category: "${cat.name}" (ID: ${cat.id}, Slug: ${cat.slug})`);
+    
+    // Update name and slug
+    await db
+      .update(schema.categories)
+      .set({ name: newName, slug: newSlug })
+      .where(eq(schema.categories.id, cat.id));
+      
+    console.log(`✅ Category updated: name = "${newName}", slug = "${newSlug}"`);
   }
 
   await client.end();

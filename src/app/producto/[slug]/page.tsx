@@ -65,14 +65,9 @@ export default async function ProductDetailPage({ params }: Props) {
   }
 
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '5492233390404';
-  const siteUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
-  const productUrl = `${siteUrl}/producto/${product.slug}`;
   
   // Format the WhatsApp pre-filled message
-  const presentationsStr = product.presentations && product.presentations.length > 0 
-    ? `\n*📦 Presentaciones:* ${product.presentations.join(', ')}` 
-    : '';
-  const textMessage = `Hola! Me interesa este producto de tu catálogo:\n\n*🛍️ ${product.name}*${presentationsStr}\n*🔗 Enlace:* ${productUrl}\n\n¿Tienen stock disponible?`;
+  const textMessage = `Hola! Me interesa este producto de tu catálogo:\n*${product.name}*\n¿Tienen stock disponible?`;
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(textMessage)}`;
 
   return (
@@ -109,26 +104,31 @@ export default async function ProductDetailPage({ params }: Props) {
           {product.presentations && product.presentations.length > 0 && (
             <div className="space-y-3">
               <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500 font-mono">Presentaciones Disponibles</h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="text-slate-700 font-medium text-sm font-mono leading-relaxed">
                 {product.presentations.map((p, idx) => (
-                  <span key={idx} className="px-3.5 py-1.5 bg-slate-50 border border-slate-200 rounded-none text-slate-700 font-medium text-sm font-mono">
-                    {formatPresentation(p, product)}
-                  </span>
+                  <React.Fragment key={idx}>
+                    <span>{formatPresentation(p, product)}</span>
+                    {idx < product.presentations!.length - 1 && (
+                      <span className="text-slate-350 select-none"> - </span>
+                    )}
+                  </React.Fragment>
                 ))}
               </div>
             </div>
           )}
 
           {/* Description */}
-          <div className="space-y-3">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500 font-mono">Detalles del Producto</h3>
-            <p 
-              className="text-base text-slate-650 leading-relaxed whitespace-pre-line font-normal"
-              style={{ fontFamily: 'Arial, sans-serif' }}
-            >
-              {product.description}
-            </p>
-          </div>
+          {product.description && product.description.trim() !== '' && (
+            <div className="space-y-3">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500 font-mono">Detalles del Producto</h3>
+              <p 
+                className="text-base text-slate-700 leading-relaxed whitespace-pre-line font-normal"
+                style={{ fontFamily: 'Arial, sans-serif' }}
+              >
+                {product.description}
+              </p>
+            </div>
+          )}
 
           {/* WhatsApp CTA Button */}
           <div className="pt-4 space-y-3">

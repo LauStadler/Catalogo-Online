@@ -3,7 +3,7 @@ import path from 'path';
 import { drizzle } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
 import * as schema from '../src/db/schema';
-import { eq, or, ilike } from 'drizzle-orm';
+import { eq, ilike } from 'drizzle-orm';
 
 function loadEnv() {
   const envPath = path.resolve(process.cwd(), '.env.local');
@@ -37,37 +37,30 @@ async function run() {
   const client = postgres(dbUrl, { prepare: false });
   const db = drizzle(client, { schema });
 
-  const productNames = [
-    'EE 35 N EMULSION DE SILICONAS',
-    'ACEITE DE SILICONAS AK-1000',
-    'ANTIESPUMA WAS/EROL',
-    'HDK',
-    'CENUSIL',
-    'CATALYST (CATALIZADOR)'
-  ];
-
-  console.log(`🔍 Checking category of specified products in DB...`);
+  const targetName = 'TECNI QMO ELE CONCENTRADO';
+  console.log(`🔍 Searching for product: "${targetName}"...`);
   
-  for (const name of productNames) {
-    const prods = await db
-      .select({
-        prodName: schema.products.name,
-        categoryId: schema.products.categoryId,
-        active: schema.products.active,
-        catName: schema.categories.name,
-        catSlug: schema.categories.slug
-      })
-      .from(schema.products)
-      .leftJoin(schema.categories, eq(schema.products.categoryId, schema.categories.id))
-      .where(eq(schema.products.name, name));
+  const productsFound = await db
+    .select()
+    .from(schema.products)
+    .where(ilike(schema.products.name, `%${targetName}%`));
 
-    if (prods.length === 0) {
-      console.log(`⚠️ Product "${name}" NOT found in DB.`);
-    } else {
-      for (const p of prods) {
-        console.log(`📌 Product: "${p.prodName}" | Category in DB: "${p.catName}" (Slug: ${p.catSlug}, ID: ${p.categoryId}) | Active: ${p.active}`);
-      }
-    }
+  if (productsFound.length === 0) {
+    console.log('❌ Product not found in database.');
+    await client.end();
+    process.exit(0);
+  }
+
+  for (const product of productsFound) {
+    console.log(`📌 Found product: "${product.name}" (ID: ${product.id}, Slug: ${product.slug}, Active: ${product.active})`);
+    
+    // Set active = false
+    await db
+      .update(schema.products)
+      .set({ active: false })
+      .where(eq(schema.products.id, product.id));
+      
+    console.log(`✅ Product "${product.name}" set to inactive (active: false). It will no longer appear in the catalog.`);
   }
 
   await client.end();
