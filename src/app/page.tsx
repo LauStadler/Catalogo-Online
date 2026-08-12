@@ -79,6 +79,7 @@ export default async function LandingPage() {
     'linea-automotor': '/Fondo autos def.png',
     'crunch-oil': '/fondo crunchoil 2.JPG',
     'vasana': '/foto vasana.png',
+    'siliconas-y-antiespumantes-wacker': '/antiespumantes.webp',
   };
 
   // Helper to map category names to icons

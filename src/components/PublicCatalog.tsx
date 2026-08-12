@@ -55,6 +55,7 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
     'linea-automotor': '/Fondo autos def.png',
     'crunch-oil': '/fondo crunchoil 2.JPG',
     'vasana': '/foto vasana.png',
+    'siliconas-y-antiespumantes-wacker': '/antiespumantes.webp',
   };
 
   const categoryNameOverrides: Record<string, string> = {
@@ -96,7 +97,7 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
       'articulos-varios',
       'crunch-oil',
       'vasana',
-      'siliconas-wacker',
+      'siliconas-y-antiespumantes-wacker',
     ];
     return [...categories].sort((a, b) => {
       let indexA = order.indexOf(a.slug);
