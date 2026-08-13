@@ -180,10 +180,10 @@ export default async function LandingPage() {
       <section 
         id="categorias" 
         className="relative w-full shadow-inner"
-        style={{ backgroundColor: '#e6f5dc', paddingTop: '100px', paddingBottom: '100px' }}
+        style={{ backgroundColor: '#e6f5dc', paddingTop: '50px', paddingBottom: '50px' }}
       >
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-8">
             <h2 className="text-2xl md:text-3xl font-semibold text-slate-900 tracking-wide font-oswald uppercase">
               Contamos con una amplia variedad de productos
             </h2>
@@ -230,42 +230,42 @@ export default async function LandingPage() {
       </section>
 
       {/* Brand Representations Strip */}
-      <section className="relative w-full bg-white border-t border-slate-100 py-10 z-10">
-        <div className="w-full px-6 md:px-12 lg:px-16 flex flex-col gap-6 text-left">
+      <section className="relative w-full bg-white border-t border-slate-100 py-14 z-10">
+        <div className="w-full px-6 md:px-12 lg:px-16 flex flex-col gap-8 text-left">
           <div>
             <h2 className="text-sm sm:text-base md:text-lg font-medium font-oswald uppercase tracking-wider text-black">
               Representaciones oficiales
             </h2>
           </div>
-          <div className="flex flex-wrap items-center gap-x-16 gap-y-8">
-            {/* Wacker Logo */}
-            <div className="h-12 w-36 relative opacity-60 hover:opacity-100 transition-all duration-300">
+          <div className="flex flex-wrap items-center justify-center w-full gap-y-8" style={{ columnGap: '300px' }}>
+            {/* Vasana Logo */}
+            <div className="opacity-60 hover:opacity-100 transition-all duration-300">
               <Image
-                src="/logo-wacker.svg"
-                alt="Wacker Chemie AG"
-                fill
+                src="/logo-vasana.webp"
+                alt="Vasana"
+                width={144}
+                height={48}
                 className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-                sizes="144px"
               />
             </div>
             {/* Crunch Oil Logo */}
-            <div className="h-10 w-40 relative opacity-60 hover:opacity-100 transition-all duration-300">
+            <div className="opacity-60 hover:opacity-100 transition-all duration-300">
               <Image
                 src="/logo-crunchoil.png"
                 alt="Crunch Oil"
-                fill
+                width={144}
+                height={48}
                 className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-                sizes="160px"
               />
             </div>
-            {/* Vasana Logo */}
-            <div className="h-10 w-36 relative opacity-60 hover:opacity-100 transition-all duration-300">
+            {/* Safer Logo */}
+            <div className="opacity-60 hover:opacity-100 transition-all duration-300">
               <Image
-                src="/logo-vasana.png"
-                alt="Esencias Vasana"
-                fill
+                src="/logo-safer.png"
+                alt="Safer"
+                width={144}
+                height={48}
                 className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-                sizes="144px"
               />
             </div>
           </div>
