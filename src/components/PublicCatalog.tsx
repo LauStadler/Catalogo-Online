@@ -50,12 +50,26 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
   }, [qParam]);
 
   const categoryImages: Record<string, string> = {
-    'naval-ndustrial': '/Fondo_formulados_editado.png',
+    'naval-ndustrial': '/fondo 2.jfif',
     'hogar-mayorista-y-minorista': '/Fondo hogar.png',
     'linea-automotor': '/Fondo autos def.png',
+    'linea-piscina': '/fondo pileta.jfif',
+    'articulos-varios': '/fondo articulos 2.jfif',
     'crunch-oil': '/fondo crunchoil 2.JPG',
     'esencias-vasana': '/foto vasana.png',
     'siliconas-y-antiespumantes-wacker': '/antiespumantes.webp',
+  };
+
+  const categoryImagePositions: Record<string, string> = {
+    'linea-piscina': 'center 70%',
+    'naval-ndustrial': 'center 45%',
+    'articulos-varios': 'center 60%',
+  };
+
+  const categoryImageFit: Record<string, 'cover' | 'contain'> = {
+  };
+
+  const categoryImagePadding: Record<string, string> = {
   };
 
   const categoryNameOverrides: Record<string, string> = {
@@ -211,7 +225,12 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
                         src={categoryImages[category.slug]}
                         alt={categoryNameOverrides[category.slug] || category.name}
                         fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="transition-transform duration-500 group-hover:scale-105"
+                        style={{ 
+                          objectPosition: categoryImagePositions[category.slug] || 'center',
+                          objectFit: categoryImageFit[category.slug] || 'cover',
+                          padding: categoryImagePadding[category.slug] || '0px'
+                        }}
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
                       />
                     ) : (
