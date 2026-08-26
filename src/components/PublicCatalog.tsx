@@ -50,7 +50,7 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
   }, [qParam]);
 
   const categoryImages: Record<string, string> = {
-    'naval-ndustrial': '/fondo 2.jfif',
+    'naval-ndustrial': '/ind naval prueba.jfif',
     'hogar-mayorista-y-minorista': '/Fondo hogar.png',
     'linea-automotor': '/Fondo autos def.png',
     'linea-piscina': '/fondo pileta.jfif',
@@ -58,12 +58,19 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
     'crunch-oil': '/fondo crunchoil 2.JPG',
     'esencias-vasana': '/foto vasana.png',
     'siliconas-y-antiespumantes-wacker': '/antiespumantes.webp',
+    'materias-primas': '/fondo MP.jpeg',
   };
 
   const categoryImagePositions: Record<string, string> = {
     'linea-piscina': 'center 70%',
-    'naval-ndustrial': 'center 45%',
+    'naval-ndustrial': 'center 53%',
     'articulos-varios': 'center 60%',
+    'materias-primas': 'center 33%',
+  };
+
+  const categoryImageZoomClasses: Record<string, string> = {
+    'materias-primas': 'materia-prima-zoom',
+    'articulos-varios': 'articulos-varios-zoom',
   };
 
   const categoryImageFit: Record<string, 'cover' | 'contain'> = {
@@ -146,7 +153,7 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
   }, [categories, selectedCategory]);
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 selection:bg-emerald-600 selection:text-white pb-20 relative overflow-x-hidden pt-[90px]">
+    <div className="min-h-screen bg-slate-50 text-slate-800 selection:bg-emerald-600 selection:text-white pb-20 relative overflow-x-hidden pt-[48px]">
       
       <HeaderWrapper>
         <Link
@@ -161,12 +168,15 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
       <section className={`relative max-w-7xl mx-auto px-6 pt-16 pb-12 flex flex-col ${
         selectedCategory || searchQuery ? 'items-start text-left' : 'items-center text-center'
       }`}>
-        <h1 className="w-full text-center text-4xl md:text-5xl lg:text-6xl font-medium text-slate-900 tracking-wide font-oswald uppercase leading-[1.1]">
+        <h1 
+          className="w-full text-center text-slate-900 tracking-wide font-oswald uppercase leading-[1.1]"
+          style={{ fontSize: 'clamp(30px, 3.5vw, 42px)', fontWeight: 460 }}
+        >
           {searchQuery 
-            ? 'Resultados de Búsqueda' 
+            ? 'Resultados de Busqueda' 
             : currentCategory 
               ? (categoryNameOverrides[currentCategory.slug] || currentCategory.name) 
-              : 'Encontrá lo que estás buscando'}
+              : 'Encontra lo que estas buscando'}
         </h1>
         
         {searchQuery && (
@@ -219,13 +229,16 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
                   className="group flex flex-col gap-3 w-full cursor-pointer text-center"
                 >
                   {/* Cover photo placeholder box */}
-                  <div className="w-full aspect-[4/3] bg-white border border-slate-200 rounded-lg group-hover:border-green-700/40 group-hover:shadow-md transition-all duration-300 flex items-center justify-center relative overflow-hidden">
+                  <div className="w-full aspect-[4/3] bg-white border border-slate-200 group-hover:border-green-700/40 group-hover:shadow-md transition-all duration-300 flex items-center justify-center relative overflow-hidden">
+                    {/* Force reload: materias-primas zoom 30% */}
                     {categoryImages[category.slug] ? (
                       <Image
                         src={categoryImages[category.slug]}
                         alt={categoryNameOverrides[category.slug] || category.name}
                         fill
-                        className="transition-transform duration-500 group-hover:scale-105"
+                        className={`transition-transform duration-500 group-hover:scale-105 ${
+                          categoryImageZoomClasses[category.slug] || ''
+                        }`}
                         style={{ 
                           objectPosition: categoryImagePositions[category.slug] || 'center',
                           objectFit: categoryImageFit[category.slug] || 'cover',
@@ -243,7 +256,7 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
                   </div>
                   
                   {/* Category name below the box in Oswald font */}
-                  <span className="text-sm sm:text-base font-semibold font-oswald uppercase tracking-wider text-slate-900 group-hover:text-green-700 transition-colors text-center mt-1">
+                  <span className="text-sm sm:text-base font-semibold font-oswald uppercase tracking-wider text-slate-900 transition-colors text-center mt-1">
                     {categoryNameOverrides[category.slug] || category.name}
                   </span>
                 </Link>

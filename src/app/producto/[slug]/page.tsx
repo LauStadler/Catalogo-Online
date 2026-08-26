@@ -71,7 +71,7 @@ export default async function ProductDetailPage({ params }: Props) {
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(textMessage)}`;
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 selection:bg-emerald-600 selection:text-white pb-20 relative overflow-x-hidden pt-[90px]">
+    <div className="min-h-screen bg-slate-50 text-slate-800 selection:bg-emerald-600 selection:text-white pb-20 relative overflow-x-hidden pt-[48px]">
       
       <HeaderWrapper>
         <BackButton 
@@ -89,12 +89,7 @@ export default async function ProductDetailPage({ params }: Props) {
           
           {/* Category and Title */}
           <div className="space-y-4">
-            {product.categoryName && (
-              <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1 bg-green-50 border border-green-100 rounded-md text-green-700 font-mono">
-                {product.categoryName}
-              </span>
-            )}
-            <h1 className="text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            <h1 className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight leading-tight">
               {product.name}
             </h1>
           </div>

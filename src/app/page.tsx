@@ -72,7 +72,7 @@ export default async function LandingPage() {
   };
 
   const categoryImages: Record<string, string> = {
-    'naval-ndustrial': '/fondo 2.jfif',
+    'naval-ndustrial': '/ind naval prueba.jfif',
     'hogar-mayorista-y-minorista': '/Fondo hogar.png',
     'linea-automotor': '/Fondo autos def.png',
     'linea-piscina': '/fondo pileta.jfif',
@@ -80,12 +80,19 @@ export default async function LandingPage() {
     'crunch-oil': '/fondo crunchoil 2.JPG',
     'esencias-vasana': '/foto vasana.png',
     'siliconas-y-antiespumantes-wacker': '/antiespumantes.webp',
+    'materias-primas': '/fondo MP.jpeg',
   };
 
   const categoryImagePositions: Record<string, string> = {
-    'linea-piscina': 'center 70%',
-    'naval-ndustrial': 'center 45%',
-    'articulos-varios': 'center 60%',
+    'naval-ndustrial': 'center 53%',
+    'linea-automotor': 'center 40%',
+    'articulos-varios': 'center 55%',
+    'materias-primas': 'center 33%',
+  };
+
+  const categoryImageZoomClasses: Record<string, string> = {
+    'materias-primas': 'materia-prima-zoom',
+    'articulos-varios': 'articulos-varios-zoom',
   };
 
   const categoryImageFit: Record<string, 'cover' | 'contain'> = {
@@ -113,13 +120,13 @@ export default async function LandingPage() {
   const instagramUrl = `https://instagram.com/${instagramUser}`;
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 selection:bg-emerald-600 selection:text-white relative overflow-x-hidden pt-[78px]">
+    <div className="min-h-screen bg-slate-50 text-slate-800 selection:bg-emerald-600 selection:text-white relative overflow-x-hidden pt-[48px]">
       
       <HeaderWrapper>
         <div className="flex items-center gap-8 h-full">
           <div className="hidden md:flex items-center gap-8">
             <Link href="#inicio" className="text-base font-semibold text-green-100 hover:text-white transition-colors">Inicio</Link>
-            <Link href="/catalogo" className="text-base font-semibold text-green-100 hover:text-white transition-colors">Catálogo</Link>
+            <Link href="/catalogo" className="text-[15px] font-semibold text-green-100 hover:text-white transition-colors">Productos</Link>
             <Link href="#contacto" className="text-base font-semibold text-green-100 hover:text-white transition-colors">Contacto</Link>
             <NavbarSearch />
           </div>
@@ -211,13 +218,16 @@ export default async function LandingPage() {
                 className="group flex flex-col gap-3"
               >
                 {/* Cover photo placeholder box */}
-                <div className="w-full aspect-[4/3] bg-white border border-slate-200 rounded-lg group-hover:border-green-700/40 group-hover:shadow-md transition-all duration-300 flex items-center justify-center relative overflow-hidden">
+                <div className="w-full aspect-[4/3] bg-white border border-slate-200 group-hover:border-green-700/40 group-hover:shadow-md transition-all duration-300 flex items-center justify-center relative overflow-hidden">
+                  {/* Force reload: materias-primas zoom 30% */}
                   {categoryImages[category.slug] ? (
                     <Image
                       src={categoryImages[category.slug]}
                       alt={categoryNameOverrides[category.slug] || category.name}
                       fill
-                      className="transition-transform duration-500 group-hover:scale-105"
+                      className={`transition-transform duration-500 group-hover:scale-105 ${
+                        categoryImageZoomClasses[category.slug] || ''
+                      }`}
                       style={{ 
                         objectPosition: categoryImagePositions[category.slug] || 'center',
                         objectFit: categoryImageFit[category.slug] || 'cover',
@@ -229,7 +239,7 @@ export default async function LandingPage() {
                 </div>
                 
                 {/* Category name below the box in Oswald font */}
-                <span className="text-sm sm:text-base font-semibold font-oswald uppercase tracking-wider text-slate-900 group-hover:text-green-700 transition-colors text-center mt-1">
+                <span className="text-sm sm:text-base font-semibold font-oswald uppercase tracking-wider text-slate-900 transition-colors text-center mt-1">
                   {categoryNameOverrides[category.slug] || category.name}
                 </span>
               </Link>
@@ -258,33 +268,33 @@ export default async function LandingPage() {
           </div>
           <div className="flex flex-wrap items-center justify-center w-full gap-y-8" style={{ columnGap: '300px' }}>
             {/* Vasana Logo */}
-            <div className="opacity-60 hover:opacity-100 transition-all duration-300">
+            <div className="transition-all duration-300">
               <Image
                 src="/logo-vasana.webp"
                 alt="Vasana"
                 width={144}
                 height={48}
-                className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                className="object-contain"
               />
             </div>
             {/* Crunch Oil Logo */}
-            <div className="opacity-60 hover:opacity-100 transition-all duration-300">
+            <div className="transition-all duration-300">
               <Image
                 src="/logo-crunchoil.png"
                 alt="Crunch Oil"
                 width={144}
                 height={48}
-                className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                className="object-contain"
               />
             </div>
             {/* Safer Logo */}
-            <div className="opacity-60 hover:opacity-100 transition-all duration-300">
+            <div className="transition-all duration-300">
               <Image
                 src="/logo-safer.png"
                 alt="Safer"
                 width={144}
                 height={48}
-                className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                className="object-contain"
               />
             </div>
           </div>
@@ -348,10 +358,10 @@ export default async function LandingPage() {
                 className="flex flex-col sm:flex-row sm:items-center justify-between py-4 border-b border-slate-200 gap-2 hover:bg-slate-50/50 transition-colors group"
               >
                 <div className="flex items-center gap-3">
-                  <Instagram className="h-4.5 w-4.5 text-black group-hover:text-green-600 transition-colors shrink-0" />
-                  <span className="text-xs font-roboto font-light uppercase tracking-wider text-black group-hover:text-green-600 transition-colors">Redes Sociales / Instagram</span>
+                  <Instagram className="h-4.5 w-4.5 text-black group-hover:text-slate-500 transition-colors shrink-0" />
+                  <span className="text-xs font-roboto font-light uppercase tracking-wider text-black group-hover:text-slate-500 transition-colors">Redes Sociales / Instagram</span>
                 </div>
-                <span className="text-sm font-roboto font-light tracking-wider text-black group-hover:text-green-600 transition-colors lowercase">@{instagramUser}</span>
+                <span className="text-sm font-roboto font-light tracking-wider text-black group-hover:text-slate-500 transition-colors lowercase">@{instagramUser}</span>
               </a>
 
               {/* Horarios */}

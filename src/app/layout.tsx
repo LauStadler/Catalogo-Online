@@ -17,7 +17,6 @@ const montserrat = Montserrat({
 const oswald = Oswald({
   variable: '--font-oswald',
   subsets: ['latin'],
-  weight: ['200', '300', '400', '500', '600', '700'],
 });
 
 const roboto = Roboto({

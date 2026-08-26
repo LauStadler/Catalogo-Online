@@ -22,8 +22,26 @@
   }
 }
 
+html {
+  background-color: #16a34a; /* bg-green-600 to match header on bounce */
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
+}
+
+.materia-prima-zoom {
+  transform: scale(1.30);
+}
+.group:hover .materia-prima-zoom {
+  transform: scale(1.38) !important;
+}
+
+.articulos-varios-zoom {
+  transform: scale(1.20);
+}
+.group:hover .articulos-varios-zoom {
+  transform: scale(1.28) !important;
 }
