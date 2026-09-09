@@ -50,15 +50,15 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
   }, [qParam]);
 
   const categoryImages: Record<string, string> = {
-    'naval-ndustrial': '/ind naval prueba.jfif',
-    'hogar-mayorista-y-minorista': '/Fondo hogar.png',
-    'linea-automotor': '/Fondo autos def.png',
-    'linea-piscina': '/fondo pileta.jfif',
-    'articulos-varios': '/fondo articulos 2.jfif',
-    'crunch-oil': '/fondo crunchoil 2.JPG',
-    'esencias-vasana': '/foto vasana.png',
+    'naval-ndustrial': '/ind-naval-prueba.jpg',
+    'hogar-mayorista-y-minorista': '/fondo-hogar.png',
+    'linea-automotor': '/fondo-autos-def.png',
+    'linea-piscina': '/fondo-pileta.jpg',
+    'articulos-varios': '/fondo-articulos-2.jpg',
+    'crunch-oil': '/fondo-crunchoil-2.jpg',
+    'esencias-vasana': '/foto-vasana.png',
     'siliconas-y-antiespumantes-wacker': '/antiespumantes.webp',
-    'materias-primas': '/fondo MP.jpeg',
+    'materias-primas': '/fondo-mp.jpeg',
   };
 
   const categoryImagePositions: Record<string, string> = {
