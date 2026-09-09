@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   experimental: {
     turbopackPluginRuntimeStrategy: "workerThreads",
   },
+  allowedDevOrigins: ['192.168.1.218'],
 };
 
 export default nextConfig;

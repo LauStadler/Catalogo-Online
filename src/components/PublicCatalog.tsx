@@ -53,16 +53,16 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
     'naval-ndustrial': '/ind-naval-prueba.jpg',
     'hogar-mayorista-y-minorista': '/fondo-hogar.png',
     'linea-automotor': '/fondo-autos-def.png',
-    'linea-piscina': '/fondo-pileta.jpg',
+    'linea-piscina': '/fondo-pileta-def.jpg',
     'articulos-varios': '/fondo-articulos-2.jpg',
     'crunch-oil': '/fondo-crunchoil-2.jpg',
     'esencias-vasana': '/foto-vasana.png',
     'siliconas-y-antiespumantes-wacker': '/antiespumantes.webp',
-    'materias-primas': '/fondo-mp.jpeg',
+    'materias-primas': '/fondo-materias-primas.jpeg',
   };
 
   const categoryImagePositions: Record<string, string> = {
-    'linea-piscina': 'center 70%',
+    'linea-piscina': 'center',
     'naval-ndustrial': 'center 53%',
     'articulos-varios': 'center 60%',
     'materias-primas': 'center 33%',
@@ -296,7 +296,7 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
                   className="group flex flex-col md:flex-row md:items-center justify-between py-3 px-4 hover:bg-white hover:shadow-[0_2px_8px_rgba(0,0,0,0.04)] rounded-md transition-all duration-200 gap-4"
                 >
                   <div className="space-y-1.5 flex-1 min-w-0">
-                    <h3 className="font-roboto font-light uppercase tracking-wider text-black text-base sm:text-lg leading-tight group-hover:text-green-700 transition-colors">
+                    <h3 className="font-roboto font-light uppercase tracking-wider text-black text-base sm:text-lg leading-tight group-hover:text-slate-500 transition-colors">
                       {product.name}
                     </h3>
                     {product.description && (
@@ -307,9 +307,9 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
                   </div>
 
                   <div className="flex items-center gap-4 shrink-0 justify-end w-full md:w-auto pl-5 md:pl-0">
-                    <span className="inline-flex items-center gap-1.5 text-xs font-roboto font-light uppercase tracking-wider text-black group-hover:underline shrink-0">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-roboto font-light uppercase tracking-wider text-black group-hover:text-slate-500 group-hover:underline transition-colors shrink-0">
                       <span>Detalles</span>
-                      <ArrowRight className="h-4 w-4 transform group-hover:translate-x-0.5 transition-transform text-black" />
+                      <ArrowRight className="h-4 w-4 transform group-hover:translate-x-0.5 transition-transform text-current" />
                     </span>
                   </div>
                 </Link>

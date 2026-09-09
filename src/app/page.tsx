@@ -75,12 +75,12 @@ export default async function LandingPage() {
     'naval-ndustrial': '/ind-naval-prueba.jpg',
     'hogar-mayorista-y-minorista': '/fondo-hogar.png',
     'linea-automotor': '/fondo-autos-def.png',
-    'linea-piscina': '/fondo-pileta.jpg',
+    'linea-piscina': '/fondo-pileta-def.jpg',
     'articulos-varios': '/fondo-articulos-2.jpg',
     'crunch-oil': '/fondo-crunchoil-2.jpg',
     'esencias-vasana': '/foto-vasana.png',
     'siliconas-y-antiespumantes-wacker': '/antiespumantes.webp',
-    'materias-primas': '/fondo-mp.jpeg',
+    'materias-primas': '/fondo-materias-primas.jpeg',
   };
 
   const categoryImagePositions: Record<string, string> = {
@@ -380,13 +380,15 @@ export default async function LandingPage() {
         </div>
       </section>
 
-      <footer 
-        className="max-w-7xl mx-auto px-6 border-t border-slate-200 text-center"
-        style={{ paddingTop: '24px', paddingBottom: '24px' }}
-      >
-        <p className="text-xs text-slate-500 font-mono">
-          © {new Date().getFullYear()} Tecnifer. Todos los derechos reservados
-        </p>
+      <footer className="w-full bg-white">
+        <div 
+          className="max-w-7xl mx-auto px-6 border-t border-slate-200 text-center"
+          style={{ paddingTop: '24px', paddingBottom: '24px' }}
+        >
+          <p className="text-xs text-slate-500 font-mono">
+            © {new Date().getFullYear()} Tecnifer. Todos los derechos reservados
+          </p>
+        </div>
       </footer>
 
     </div>

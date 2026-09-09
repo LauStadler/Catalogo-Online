@@ -109,18 +109,23 @@ export default function NavbarSearch() {
             <Search className="h-4 w-4 text-slate-400 shrink-0" />
             <input
               ref={inputRef}
-              type="search"
+              type="text"
+              inputMode="search"
               placeholder="Buscar productos químicos..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               onKeyDown={handleKeyDown}
-              className="bg-transparent text-slate-800 text-xs placeholder-slate-400 outline-none w-full py-0.5 font-roboto font-light tracking-wide"
+              className="bg-transparent text-slate-800 text-xs placeholder-slate-400 outline-none w-full py-0.5 font-roboto font-light tracking-wide [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden"
             />
             {query.trim() && (
               <button
                 type="button"
-                onClick={() => setQuery('')}
-                className="text-slate-400 hover:text-slate-650 transition-colors p-0.5 cursor-pointer"
+                onClick={() => {
+                  setQuery('');
+                  inputRef.current?.focus();
+                }}
+                className="text-slate-400 hover:text-slate-600 transition-colors p-0.5 cursor-pointer shrink-0"
+                aria-label="Borrar búsqueda"
               >
                 <X className="h-3.5 w-3.5" />
               </button>
@@ -159,7 +164,7 @@ export default function NavbarSearch() {
                       setIsOpen(false);
                       setQuery('');
                     }}
-                    className="px-4 py-2.5 text-center text-[10px] font-bold text-black hover:bg-slate-50 border-t border-slate-100 transition-colors uppercase tracking-wider font-mono cursor-pointer rounded-none"
+                    className="px-4 py-2.5 text-center text-xs font-roboto font-light uppercase tracking-wider text-slate-900 hover:text-slate-500 hover:bg-slate-50 border-t border-slate-100 transition-colors cursor-pointer rounded-none"
                   >
                     Ver todos los resultados
                   </button>
