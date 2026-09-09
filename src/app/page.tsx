@@ -8,7 +8,7 @@ import fondoLocalImg from '../../public/fondo local.jpeg';
 import BannerCarousel from '@/components/BannerCarousel';
 import { getCategories } from '@/lib/actions';
 import HeaderWrapper from '@/components/HeaderWrapper';
-import NavbarSearch from '@/components/NavbarSearch';
+import MainNavbarNav from '@/components/MainNavbarNav';
 import { 
   ShoppingBag, 
   Phone, 
@@ -123,14 +123,7 @@ export default async function LandingPage() {
     <div className="min-h-screen bg-slate-50 text-slate-800 selection:bg-emerald-600 selection:text-white relative overflow-x-hidden pt-[48px]">
       
       <HeaderWrapper>
-        <div className="flex items-center gap-8 h-full">
-          <div className="hidden md:flex items-center gap-8">
-            <Link href="#inicio" className="text-base font-semibold text-green-100 hover:text-white transition-colors">Inicio</Link>
-            <Link href="/catalogo" className="text-[15px] font-semibold text-green-100 hover:text-white transition-colors">Productos</Link>
-            <Link href="#contacto" className="text-base font-semibold text-green-100 hover:text-white transition-colors">Contacto</Link>
-            <NavbarSearch />
-          </div>
-        </div>
+        <MainNavbarNav />
       </HeaderWrapper>
 
       {/* Banner Section */}

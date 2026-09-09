@@ -5,7 +5,11 @@ import { useRouter } from 'next/navigation';
 import { Search, X } from 'lucide-react';
 import { getProducts } from '@/lib/actions';
 
-export default function NavbarSearch() {
+interface NavbarSearchProps {
+  onOpenChange?: (open: boolean) => void;
+}
+
+export default function NavbarSearch({ onOpenChange }: NavbarSearchProps = {}) {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<any[]>([]);
@@ -29,6 +33,7 @@ export default function NavbarSearch() {
       }
       if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
         setIsOpen(false);
+        onOpenChange?.(false);
         setQuery('');
       }
     }
@@ -69,6 +74,7 @@ export default function NavbarSearch() {
     if (query.trim()) {
       router.push(`/catalogo?q=${encodeURIComponent(query.trim())}`);
       setIsOpen(false);
+      onOpenChange?.(false);
       setQuery('');
     }
   };
@@ -76,6 +82,7 @@ export default function NavbarSearch() {
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Escape') {
       setIsOpen(false);
+      onOpenChange?.(false);
       setQuery('');
     }
   };
@@ -87,7 +94,11 @@ export default function NavbarSearch() {
         type="button"
         onMouseDown={(e) => e.stopPropagation()}
         onClick={() => {
-          setIsOpen(!isOpen);
+          setIsOpen((prev) => {
+            const next = !prev;
+            onOpenChange?.(next);
+            return next;
+          });
         }}
         className="text-green-100 hover:text-white transition-all duration-200 hover:scale-105 p-1 rounded-full hover:bg-green-700/30 cursor-pointer flex items-center justify-center z-55"
         title={isOpen ? "Cerrar búsqueda" : "Buscar productos"}
@@ -98,7 +109,7 @@ export default function NavbarSearch() {
       {/* Floating Search Input & Results Dropdown Container */}
       {isOpen && (
         <div 
-          className="absolute right-0 bg-white border border-slate-200 rounded-none shadow-md z-50 flex flex-col animate-in fade-in duration-200 overflow-hidden"
+          className="absolute -right-12 md:right-0 bg-white border border-slate-200 rounded-none shadow-md z-50 flex flex-col animate-in fade-in duration-200 overflow-hidden"
           style={{ width: 'calc(100vw - 32px)', maxWidth: '380px', top: '100%', marginTop: '12px' }}
         >
           <form 
