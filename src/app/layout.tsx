@@ -31,9 +31,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Tecnifer - Catálogo de Productos Online',
-  description: 'Explora nuestro catálogo de productos, filtra por categorías y realiza pedidos directamente por WhatsApp de forma rápida y sencilla.',
+  title: 'Tecnifer | Productos Químicos para Higiene y Mantenimiento',
+  description: 'Elaboración y distribución de productos químicos en Mar del Plata. Soluciones en higiene, desinfección y mantenimiento para industrias, comercios e instituciones.',
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'),
+  openGraph: {
+    title: 'Tecnifer | Productos Químicos para Higiene y Mantenimiento',
+    description: 'Elaboración y distribución de productos químicos en Mar del Plata. Soluciones en higiene, desinfección y mantenimiento para industrias, comercios e instituciones.',
+  },
   verification: {
     google: "tRt_yejrmHqL9UWTC3EzXhr5gX0UQiT-l2_bd8o5Hk4", // Reemplaza esto con tu código real
   },
