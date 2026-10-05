@@ -19,6 +19,8 @@ import {
   ExternalLink
 } from 'lucide-react';
 import Link from 'next/link';
+import { formatProductName } from '@/lib/utils';
+
 
 interface Category {
   id: string;
@@ -282,7 +284,7 @@ export default function ProductsDashboard({ initialProducts, categories }: Produ
                     <td className="p-5">
                       <div className="space-y-1">
                         <h3 className="font-bold text-slate-800 text-sm group-hover:text-emerald-600 transition-colors">
-                          {product.name}
+                          {formatProductName(product.name)}
                         </h3>
                         <p className="text-xs text-slate-550 line-clamp-1 max-w-xs md:max-w-md">
                           {product.description}

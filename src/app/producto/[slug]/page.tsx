@@ -6,7 +6,8 @@ import { getProductBySlug, getProducts } from '@/lib/actions';
 import HeaderWrapper from '@/components/HeaderWrapper';
 import BackButton from '@/components/BackButton';
 import { MessageSquare } from 'lucide-react';
-import { formatPresentation } from '@/lib/utils';
+import { formatPresentation, formatProductName } from '@/lib/utils';
+
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -25,7 +26,7 @@ export async function generateMetadata(
     };
   }
 
-  const title = `${product.name} | Catálogo Online`;
+  const title = `${formatProductName(product.name)} | Catálogo Online`;
   const description = `${product.description.substring(0, 150)}...`;
   const siteUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
 
@@ -67,7 +68,7 @@ export default async function ProductDetailPage({ params }: Props) {
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '5492233390404';
   
   // Format the WhatsApp pre-filled message
-  const textMessage = `Hola! Me interesa este producto de tu catálogo:\n*${product.name}*\n¿Tienen stock disponible?`;
+  const textMessage = `Hola! Me interesa este producto de tu catálogo:\n*${formatProductName(product.name)}*\n¿Tienen stock disponible?`;
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(textMessage)}`;
 
   return (
@@ -90,7 +91,7 @@ export default async function ProductDetailPage({ params }: Props) {
           {/* Category and Title */}
           <div className="space-y-4">
             <h1 className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight leading-tight">
-              {product.name}
+              {formatProductName(product.name)}
             </h1>
           </div>
 

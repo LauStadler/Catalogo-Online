@@ -74,3 +74,11 @@ export function formatPresentation(p: string, product: ProductLike): string {
   
   return formatted;
 }
+
+export function formatProductName(name: string): string {
+  if (!name) return '';
+  const trimmed = name.trim();
+  if (trimmed.length === 0) return '';
+  return trimmed.charAt(0).toUpperCase() + trimmed.slice(1).toLowerCase();
+}
+

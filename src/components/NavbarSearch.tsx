@@ -4,6 +4,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Search, X } from 'lucide-react';
 import { getProducts } from '@/lib/actions';
+import { formatProductName } from '@/lib/utils';
+
 
 interface NavbarSearchProps {
   onOpenChange?: (open: boolean) => void;
@@ -163,8 +165,8 @@ export default function NavbarSearch({ onOpenChange }: NavbarSearchProps = {}) {
                       }}
                       className="px-4 py-2.5 text-left hover:bg-slate-50 flex items-center transition-colors cursor-pointer border-none bg-transparent rounded-none"
                     >
-                      <span className="text-xs font-roboto font-light uppercase tracking-wider text-slate-900 line-clamp-1">
-                        {product.name}
+                      <span className="text-xs font-roboto font-light text-slate-900 line-clamp-1">
+                        {formatProductName(product.name)}
                       </span>
                     </button>
                   ))}

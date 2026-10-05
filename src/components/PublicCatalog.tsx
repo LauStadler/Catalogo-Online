@@ -6,7 +6,8 @@ import Image from 'next/image';
 import { useSearchParams, useRouter } from 'next/navigation';
 import HeaderWrapper from './HeaderWrapper';
 import { Search, ShoppingBag, ArrowRight, ArrowLeft, Settings, Home, FlaskConical, Layers } from 'lucide-react';
-import { formatPresentation } from '@/lib/utils';
+import { formatPresentation, formatProductName } from '@/lib/utils';
+
 
 interface Category {
   id: string;
@@ -296,8 +297,8 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
                   className="group flex flex-col md:flex-row md:items-center justify-between py-3 px-4 hover:bg-white hover:shadow-[0_2px_8px_rgba(0,0,0,0.04)] rounded-md transition-all duration-200 gap-4"
                 >
                   <div className="space-y-1.5 flex-1 min-w-0">
-                    <h3 className="font-roboto font-light uppercase tracking-wider text-black text-base sm:text-lg leading-tight group-hover:text-slate-500 transition-colors">
-                      {product.name}
+                    <h3 className="font-roboto font-light text-black text-base sm:text-lg leading-tight group-hover:text-slate-500 transition-colors">
+                      {formatProductName(product.name)}
                     </h3>
                     {product.description && (
                       <p className="text-sm text-slate-500 line-clamp-2 md:line-clamp-1 leading-relaxed">
