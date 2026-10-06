@@ -294,23 +294,23 @@ export default function PublicCatalog({ initialProducts, categories }: PublicCat
                 <Link 
                   key={product.id}
                   href={`/producto/${product.slug}`}
-                  className="group flex flex-col md:flex-row md:items-center justify-between py-3 px-4 transition-colors duration-200 gap-4"
+                  className="group flex flex-row items-center justify-between py-3.5 px-3 sm:px-4 border-b border-slate-100 last:border-b-0 hover:bg-slate-50/60 rounded-md transition-colors duration-200 gap-3"
                 >
-                  <div className="space-y-1.5 flex-1 min-w-0">
-                    <h3 className="font-roboto font-light text-black text-base sm:text-lg leading-tight group-hover:text-slate-500 transition-colors">
+                  <div className="space-y-1 flex-1 min-w-0 pr-2">
+                    <h3 className="font-roboto font-light text-black text-base md:text-lg leading-snug group-hover:text-slate-500 transition-colors">
                       {formatProductName(product.name)}
                     </h3>
                     {product.description && (
-                      <p className="text-sm text-slate-500 line-clamp-2 md:line-clamp-1 leading-relaxed">
+                      <p className="text-xs sm:text-sm text-slate-500 line-clamp-1 leading-relaxed">
                         {product.description}
                       </p>
                     )}
                   </div>
 
-                  <div className="flex items-center gap-4 shrink-0 justify-end w-full md:w-auto pl-5 md:pl-0">
-                    <span className="inline-flex items-center gap-1.5 text-xs font-roboto font-light uppercase tracking-wider text-black group-hover:text-slate-500 transition-colors shrink-0">
+                  <div className="flex items-center shrink-0">
+                    <span className="inline-flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-roboto font-light md:uppercase md:tracking-wider text-slate-500 group-hover:text-slate-700 md:text-black md:group-hover:text-slate-500 transition-colors shrink-0">
                       <span>Detalles</span>
-                      <ArrowRight className="h-4 w-4 transform group-hover:translate-x-0.5 transition-transform text-current" />
+                      <ArrowRight className="h-3.5 w-3.5 md:h-5 md:w-5 transform group-hover:translate-x-0.5 transition-transform text-current" />
                     </span>
                   </div>
                 </Link>

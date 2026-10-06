@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Image, { StaticImageData } from 'next/image';
-
 
 interface BannerCarouselProps {
   images: {
@@ -23,18 +22,41 @@ export default function BannerCarousel({ images }: BannerCarouselProps) {
     setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
   }, [images.length]);
 
-  const prevSlide = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    handlePrev();
+  // Touch swipe using refs (avoids React state closure delays and batching)
+  const touchStartXRef = useRef<number>(0);
+  const touchStartYRef = useRef<number>(0);
+  const touchEndXRef = useRef<number>(0);
+  const touchEndYRef = useRef<number>(0);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartXRef.current = e.touches[0].clientX;
+    touchStartYRef.current = e.touches[0].clientY;
+    touchEndXRef.current = e.touches[0].clientX;
+    touchEndYRef.current = e.touches[0].clientY;
   };
 
-  const nextSlide = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    handleNext();
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndXRef.current = e.touches[0].clientX;
+    touchEndYRef.current = e.touches[0].clientY;
   };
 
+  const handleTouchEnd = () => {
+    const diffX = touchStartXRef.current - touchEndXRef.current;
+    const diffY = touchStartYRef.current - touchEndYRef.current;
+
+    // Only register horizontal swipes (if horizontal movement is greater than vertical movement)
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 35) {
+      if (diffX > 0) {
+        handleNext();
+      } else {
+        handlePrev();
+      }
+    }
+  };
+
+
+
+  // Keyboard navigation for desktop
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       const activeEl = document.activeElement;
@@ -63,10 +85,12 @@ export default function BannerCarousel({ images }: BannerCarouselProps) {
   if (!images || images.length === 0) return null;
 
   return (
-    <div className="w-full relative overflow-hidden group style-banner-section">
+    <div className="w-full relative overflow-hidden group style-banner-section select-none">
       <section 
-        className="w-full relative overflow-hidden"
-        style={{ height: 'calc(100vh - 78px)' }}
+        className="w-full relative overflow-hidden h-[240px] sm:h-[350px] md:h-[calc(100vh-78px)] touch-pan-y"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
       >
         {images.map((image, index) => (
           <div
@@ -75,14 +99,13 @@ export default function BannerCarousel({ images }: BannerCarouselProps) {
               index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
             }`}
           >
-            {/* Original image centered and fully visible with custom crop position */}
             <Image
               src={image.src}
               alt={image.alt}
               placeholder="blur"
               fill
               className={`object-cover ${image.position || 'object-center'}`}
-              priority={index === 0}
+              priority={true}
             />
           </div>
         ))}
@@ -90,60 +113,59 @@ export default function BannerCarousel({ images }: BannerCarouselProps) {
         {/* Navigation Arrows */}
         {images.length > 1 && (
           <>
+            {/* Boton Izquierdo */}
             <button
-              onClick={prevSlide}
-              className="absolute left-6 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-12 h-12 rounded-full bg-black/40 hover:bg-black/60 text-white transition-all backdrop-blur-sm cursor-pointer shadow-md hover:scale-105 active:scale-95"
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                handlePrev();
+              }}
+              style={{ left: 'clamp(14px, 2vw, 24px)', right: 'auto' }}
+              className="absolute top-1/2 -translate-y-1/2 z-30 flex items-center justify-center w-9 h-9 md:w-12 md:h-12 rounded-full bg-black/40 hover:bg-black/60 text-white transition-all backdrop-blur-sm cursor-pointer shadow-md hover:scale-105 active:scale-95 touch-manipulation"
               aria-label="Anterior banner"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
+                width="20"
+                height="20"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="h-6 w-6"
+                className="w-5 h-5 md:w-6 md:h-6"
               >
                 <polyline points="15 18 9 12 15 6" />
               </svg>
             </button>
+
+            {/* Boton Derecho */}
             <button
-              onClick={nextSlide}
-              className="absolute right-6 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-12 h-12 rounded-full bg-black/40 hover:bg-black/60 text-white transition-all backdrop-blur-sm cursor-pointer shadow-md hover:scale-105 active:scale-95"
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleNext();
+              }}
+              style={{ right: 'clamp(14px, 2vw, 24px)', left: 'auto' }}
+              className="absolute top-1/2 -translate-y-1/2 z-30 flex items-center justify-center w-9 h-9 md:w-12 md:h-12 rounded-full bg-black/40 hover:bg-black/60 text-white transition-all backdrop-blur-sm cursor-pointer shadow-md hover:scale-105 active:scale-95 touch-manipulation"
               aria-label="Siguiente banner"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
+                width="20"
+                height="20"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="h-6 w-6"
+                className="w-5 h-5 md:w-6 md:h-6"
               >
                 <polyline points="9 18 15 12 9 6" />
               </svg>
             </button>
-
-            {/* Dots Indicator */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-              {images.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                    index === currentIndex ? 'bg-white scale-110' : 'bg-white/40 hover:bg-white/60'
-                  }`}
-                  aria-label={`Ir al banner ${index + 1}`}
-                />
-              ))}
-            </div>
           </>
         )}
       </section>

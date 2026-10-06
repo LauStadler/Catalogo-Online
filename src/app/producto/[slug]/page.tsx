@@ -6,7 +6,7 @@ import { getProductBySlug, getProducts } from '@/lib/actions';
 import HeaderWrapper from '@/components/HeaderWrapper';
 import BackButton from '@/components/BackButton';
 import { MessageSquare } from 'lucide-react';
-import { formatPresentation, formatProductName } from '@/lib/utils';
+import { cleanPresentations, formatPresentation, formatProductName } from '@/lib/utils';
 
 
 interface Props {
@@ -90,7 +90,7 @@ export default async function ProductDetailPage({ params }: Props) {
           
           {/* Category and Title */}
           <div className="space-y-4">
-            <h1 className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight leading-tight">
+            <h1 className="text-2xl md:text-3xl font-light sm:font-normal text-slate-900 tracking-tight leading-tight">
               {formatProductName(product.name)}
             </h1>
           </div>
@@ -99,17 +99,17 @@ export default async function ProductDetailPage({ params }: Props) {
           {/* Presentations */}
           {product.presentations && product.presentations.length > 0 && (
             <div className="space-y-3">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500 font-mono">Presentaciones Disponibles</h3>
-              <div className="text-slate-700 font-medium text-sm font-mono leading-relaxed">
-                {product.presentations.map((p, idx) => (
-                  <React.Fragment key={idx}>
-                    <span>{formatPresentation(p, product)}</span>
-                    {idx < product.presentations!.length - 1 && (
-                      <span className="text-slate-350 select-none"> - </span>
-                    )}
-                  </React.Fragment>
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500 font-mono">
+                Presentaciones Disponibles
+              </h3>
+              <ul className="space-y-1.5 text-slate-700 text-sm md:text-base font-light">
+                {cleanPresentations(product.presentations).map((p, idx) => (
+                  <li key={idx} className="flex items-center gap-2">
+                    <span className="text-slate-400 select-none">-</span>
+                    <span className="text-slate-700">{formatPresentation(p, product)}</span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           )}
 

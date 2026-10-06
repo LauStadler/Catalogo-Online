@@ -131,7 +131,7 @@ export default async function LandingPage() {
 
       {/* Spacer to push subsequent content below the fold while maintaining a white background */}
       <div 
-        className="w-full bg-white" 
+        className="w-full bg-white hidden md:block" 
         style={{ minHeight: '150px' }}
       />
 
