@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Archivo, Geist_Mono, Montserrat, Oswald, Roboto } from 'next/font/google';
 import './globals.css';
+
 
 const archivo = Archivo({
   variable: '--font-archivo',
@@ -57,6 +59,23 @@ export default function RootLayout({
       className={`${archivo.variable} ${montserrat.variable} ${oswald.variable} ${geistMono.variable} ${roboto.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-slate-50 text-slate-900 font-sans relative">
+        {/* Google Analytics */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-MEMDCXM3C0"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+        >
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-MEMDCXM3C0');
+          `}
+        </Script>
+
         {children}
         <a
           href={whatsappUrl}
