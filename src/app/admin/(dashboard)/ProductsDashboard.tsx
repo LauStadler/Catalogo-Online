@@ -19,7 +19,7 @@ import {
   ExternalLink
 } from 'lucide-react';
 import Link from 'next/link';
-import { formatProductName } from '@/lib/utils';
+import { formatProductName, formatPresentation, cleanPresentations } from '@/lib/utils';
 
 
 interface Category {
@@ -291,9 +291,9 @@ export default function ProductsDashboard({ initialProducts, categories }: Produ
                         </p>
                         {product.presentations && product.presentations.length > 0 && (
                           <div className="flex flex-wrap gap-1 mt-1">
-                            {product.presentations.map((p, idx) => (
+                            {cleanPresentations(product.presentations).map((p, idx) => (
                               <span key={idx} className="text-[9px] px-1.5 py-0.5 bg-slate-50 text-slate-600 rounded font-medium border border-slate-200">
-                                {p}
+                                {formatPresentation(p, product)}
                               </span>
                             ))}
                           </div>

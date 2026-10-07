@@ -24,13 +24,13 @@ export interface ProductLike {
   categorySlug?: string | null;
 }
 
-export function getUnitForProduct(product: ProductLike): 'LT' | 'KG' {
+export function getUnitForProduct(product: ProductLike): 'LT' | 'kg' {
   const nameLower = product.name.toLowerCase();
   
   if (product.presentations) {
     const hasKG = product.presentations.some(p => p.toLowerCase().includes('kg'));
     const hasLTS = product.presentations.some(p => p.toLowerCase().includes('lts') || p.toLowerCase().includes('lt'));
-    if (hasKG && !hasLTS) return 'KG';
+    if (hasKG && !hasLTS) return 'kg';
   }
 
   if (
@@ -40,7 +40,7 @@ export function getUnitForProduct(product: ProductLike): 'LT' | 'KG' {
     nameLower.includes('dsc concentrado') ||
     nameLower.includes('cremoso')
   ) {
-    return 'KG';
+    return 'kg';
   }
 
   return 'LT';
@@ -89,25 +89,36 @@ export function formatPresentation(p: string, product?: ProductLike): string {
     formatted = formatted.replace(/^x\s*/i, 'x ');
   }
 
-  // Lowercase 'x' in patterns like 3x5 or internal X
-  formatted = formatted.replace(/(\d)\s*X\s*(\d)/gi, '$1x$2');
-  formatted = formatted.replace(/\bX\b/g, 'x');
-
   // Handle bare numbers or shorthand
   if (/^\d+$/.test(formatted)) {
     const unit = product ? getUnitForProduct(product) : 'LT';
-    const finalUnit = unit === 'LT' ? 'LTS' : unit;
+    const finalUnit = unit === 'LT' ? 'LTS' : 'kg';
     return `x ${formatted} ${finalUnit}`;
+  }
+
+  if (/^x\s*12$/i.test(formatted)) {
+    return 'x 12';
   }
 
   if (/^x\s*\d+$/i.test(formatted)) {
     const num = formatted.replace(/^x\s*/i, '');
-    const unit = product ? getUnitForProduct(product) : (num === '1' ? 'LT' : 'LTS');
+    const unit = product ? (getUnitForProduct(product) === 'LT' ? (num === '1' ? 'LT' : 'LTS') : 'kg') : (num === '1' ? 'LT' : 'LTS');
     return `x ${num} ${unit}`;
   }
 
   if (/^\d+\s*lts?$/i.test(formatted)) {
-    return `x ${formatted.toUpperCase()}`;
+    const num = formatted.replace(/\D/g, '');
+    return `x ${num} LTS`;
+  }
+
+  if (/^\d+\s*kgs?$/i.test(formatted)) {
+    const num = formatted.replace(/\D/g, '');
+    return `x ${num} kg`;
+  }
+
+  if (/^\d+\s*(gr?s?|gramos?)\b/i.test(formatted)) {
+    const num = formatted.replace(/\D/g, '');
+    return `x ${num} gr`;
   }
 
   if (formatted.toUpperCase() === '4 C') {
@@ -122,9 +133,27 @@ export function formatPresentation(p: string, product?: ProductLike): string {
     formatted = formatted.replace(/^caja\s*/i, 'Caja ');
   }
 
-  // If the presentation contains a digit and isn't fractional (1/2), ensure 'LT' becomes 'LTS'
-  if (/\d/.test(formatted) && !formatted.includes('/')) {
-    formatted = formatted.replace(/\bLT\b/g, 'LTS');
+  // Lowercase 'x' in patterns like 3x5 or internal X
+  formatted = formatted.replace(/(\d)\s*x\s*(\d)/gi, '$1x$2');
+
+  // Format liters correctly: 1 LT (and fractions like 1/2 LT, 1/4 LT), multiple liters as LTS
+  formatted = formatted.replace(/(1\s*\/\s*[248])\s*lts?\b/gi, '$1 LT');
+  formatted = formatted.replace(/\b1\s*lts?\b/gi, '1 LT');
+  formatted = formatted.replace(/(?<!\/)\b([2-9]|\d{2,})\s*lt(s)?\b/gi, '$1 LTS');
+
+  // Ensure standard spacing and strictly lowercase 'kg'
+  formatted = formatted.replace(/(\d)\s*kg(s)?\b/gi, '$1 kg');
+  formatted = formatted.replace(/\bkg(s)?\b/gi, 'kg');
+
+  // Ensure standard spacing and lowercase 'gr'
+  formatted = formatted.replace(/(\d)\s*(gr?s?|gramos?)\b/gi, '$1 gr');
+
+  // Ensure ALL occurrences of X are strictly lowercase 'x'
+  formatted = formatted.replace(/X/g, 'x');
+
+  // Fix '(a pedido)'
+  if (formatted.toLowerCase().includes('a pedido')) {
+    formatted = formatted.replace(/\(a pedido\)/i, '(a pedido)');
   }
 
   return formatted;

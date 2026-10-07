@@ -99,8 +99,8 @@ export default async function ProductDetailPage({ params }: Props) {
           {/* Presentations */}
           {product.presentations && product.presentations.length > 0 && (
             <div className="space-y-3">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500 font-mono">
-                Presentaciones Disponibles
+              <h3 className="text-sm font-bold text-slate-800">
+                Presentaciones disponibles
               </h3>
               <ul className="space-y-1.5 text-slate-700 text-sm md:text-base font-light">
                 {cleanPresentations(product.presentations).map((p, idx) => (
@@ -116,7 +116,9 @@ export default async function ProductDetailPage({ params }: Props) {
           {/* Description */}
           {product.description && product.description.trim() !== '' && (
             <div className="space-y-3">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500 font-mono">Detalles del Producto</h3>
+              <h3 className="text-sm font-bold text-slate-800">
+                Detalles del producto
+              </h3>
               <p 
                 className="text-base text-slate-700 leading-relaxed whitespace-pre-line font-normal"
                 style={{ fontFamily: 'Arial, sans-serif' }}
